@@ -1,0 +1,880 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		451958211AC22BFE00659E64 /* SwiftGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451958181AC22BEE00659E64 /* SwiftGraphics.framework */; };
+		451958221AC22BFE00659E64 /* SwiftGraphics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 451958181AC22BEE00659E64 /* SwiftGraphics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		451958231AC22BFE00659E64 /* SwiftParsing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451958191AC22BEE00659E64 /* SwiftParsing.framework */; };
+		451958241AC22BFE00659E64 /* SwiftParsing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 451958191AC22BEE00659E64 /* SwiftParsing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		451958251AC22BFE00659E64 /* SwiftUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4519581A1AC22BEE00659E64 /* SwiftUtilities.framework */; };
+		451958261AC22BFE00659E64 /* SwiftUtilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4519581A1AC22BEE00659E64 /* SwiftUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		454799881ABF3CEB000B19B8 /* Apple_Swift_Logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 454799841ABF3CEB000B19B8 /* Apple_Swift_Logo.svg */; };
+		454799891ABF3CEB000B19B8 /* Ghostscript_Tiger.svg in Resources */ = {isa = PBXBuildFile; fileRef = 454799851ABF3CEB000B19B8 /* Ghostscript_Tiger.svg */; };
+		4547998A1ABF3CEB000B19B8 /* JW_Bezier_1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 454799861ABF3CEB000B19B8 /* JW_Bezier_1.svg */; };
+		4547998B1ABF3CEB000B19B8 /* SwiftOutline.svg in Resources */ = {isa = PBXBuildFile; fileRef = 454799871ABF3CEB000B19B8 /* SwiftOutline.svg */; };
+		455449281AB3C89C009F1F92 /* CenteringClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455449271AB3C89C009F1F92 /* CenteringClipView.swift */; };
+		456363431B8EB58600FDE580 /* SVGValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454734B11AB7A30300D877FD /* SVGValue.swift */; };
+		456363451B8EB5BF00FDE580 /* SwiftGraphics+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456363441B8EB5BF00FDE580 /* SwiftGraphics+Extensions.swift */; };
+		456363481B8EB63800FDE580 /* NSXML+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456363471B8EB63800FDE580 /* NSXML+Extensions.swift */; };
+		4563634A1B8EC73000FDE580 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456363491B8EC73000FDE580 /* Renderer.swift */; };
+		459B56B71AB3F211002E781F /* Adaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B56B61AB3F211002E781F /* Adaptor.swift */; };
+		45A138401AC2755C00DE5248 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A1383F1AC2755C00DE5248 /* SummaryViewController.swift */; };
+		45C203321B8E0E8200966AC6 /* SwiftSVG.h in Headers */ = {isa = PBXBuildFile; fileRef = 45C203311B8E0E8200966AC6 /* SwiftSVG.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		45C203361B8E0E8200966AC6 /* SwiftSVG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C2032F1B8E0E8200966AC6 /* SwiftSVG.framework */; };
+		45C203371B8E0E8200966AC6 /* SwiftSVG.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45C2032F1B8E0E8200966AC6 /* SwiftSVG.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45C2033B1B8E0E9400966AC6 /* SVGElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E6ADE61A9EABA700386CFE /* SVGElement.swift */; };
+		45C2033C1B8E0E9400966AC6 /* SVGElement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B56BF1AB40722002E781F /* SVGElement+Extensions.swift */; };
+		45C2033D1B8E0E9400966AC6 /* SVGProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D36F441A9EE3530005C3C9 /* SVGProcessor.swift */; };
+		45C2033E1B8E0E9400966AC6 /* SVGRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D36F481A9EF43F0005C3C9 /* SVGRenderer.swift */; };
+		45C2033F1B8E0E9400966AC6 /* TransformParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4522FA8A1AB4BA7E00DFEBA5 /* TransformParser.swift */; };
+		45C203401B8E0E9400966AC6 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4513B7001AB745C1005649B9 /* Transform.swift */; };
+		45C203411B8E0E9400966AC6 /* SVGContainer+Optimisations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C203261B8DA2E000966AC6 /* SVGContainer+Optimisations.swift */; };
+		45C203421B8E0EBA00966AC6 /* SwiftGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451958181AC22BEE00659E64 /* SwiftGraphics.framework */; };
+		45C203431B8E0EC100966AC6 /* SwiftParsing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451958191AC22BEE00659E64 /* SwiftParsing.framework */; };
+		45C203441B8E0EC100966AC6 /* SwiftUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4519581A1AC22BEE00659E64 /* SwiftUtilities.framework */; };
+		45D36F4B1A9EF8520005C3C9 /* SVGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D36F4A1A9EF8520005C3C9 /* SVGView.swift */; };
+		45E6ADAA1A9EAB0200386CFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E6ADA91A9EAB0200386CFE /* AppDelegate.swift */; };
+		45E6ADAC1A9EAB0200386CFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E6ADAB1A9EAB0200386CFE /* ViewController.swift */; };
+		45E6ADAE1A9EAB0200386CFE /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E6ADAD1A9EAB0200386CFE /* Document.swift */; };
+		45E6ADB01A9EAB0200386CFE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45E6ADAF1A9EAB0200386CFE /* Images.xcassets */; };
+		45E6ADB31A9EAB0200386CFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E6ADB11A9EAB0200386CFE /* Main.storyboard */; };
+		6E2F00261BC4AC26000EF53F /* SwiftSVG.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45C2032F1B8E0E8200966AC6 /* SwiftSVG.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E2F00271BC4ACB0000EF53F /* SwiftGraphics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 451958181AC22BEE00659E64 /* SwiftGraphics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E2F00281BC4ACB0000EF53F /* SwiftParsing.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 451958191AC22BEE00659E64 /* SwiftParsing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E2F00291BC4ACB0000EF53F /* SwiftUtilities.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4519581A1AC22BEE00659E64 /* SwiftUtilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6E2F002B1BC693D2000EF53F /* MovingImagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2F002A1BC693D2000EF53F /* MovingImagesTests.swift */; };
+		6E2F002D1BC6985D000EF53F /* TextDrawing.json in Resources */ = {isa = PBXBuildFile; fileRef = 6EBF1D1D1BB8C10A00C38BDB /* TextDrawing.json */; };
+		6E2F002E1BC86873000EF53F /* Apple_Swift_Logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 454799841ABF3CEB000B19B8 /* Apple_Swift_Logo.svg */; };
+		6E2F00301BC86929000EF53F /* Apple_Swift_Logo.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E2F002F1BC86929000EF53F /* Apple_Swift_Logo.json */; };
+		6E2F00311BC874D4000EF53F /* RPM_NavBall_Overlay.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6EBF1D1A1BB8C10A00C38BDB /* RPM_NavBall_Overlay.svg */; };
+		6E2F00331BC89861000EF53F /* RPM_NavBall_Overlay.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E2F00321BC89861000EF53F /* RPM_NavBall_Overlay.json */; };
+		6E2F00351BC93DA1000EF53F /* Ghostscript_Tiger_Optimized.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E2F00341BC93DA1000EF53F /* Ghostscript_Tiger_Optimized.json */; };
+		6E2F00371BC93DAA000EF53F /* Ghostscript_Tiger.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E2F00361BC93DAA000EF53F /* Ghostscript_Tiger.json */; };
+		6E2F00391BC93DDB000EF53F /* Anti-normal.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E2F00381BC93DDB000EF53F /* Anti-normal.json */; };
+		6E2F003B1BC93EFC000EF53F /* JW_Bezier_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E2F003A1BC93EFC000EF53F /* JW_Bezier_1.json */; };
+		6E2F003D1BC949EE000EF53F /* Markers.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E2F003C1BC949EE000EF53F /* Markers.json */; };
+		6E2F003F1BC9553B000EF53F /* SwiftOutline.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E2F003E1BC9553B000EF53F /* SwiftOutline.json */; };
+		6E2F00411BC9556B000EF53F /* test_image2.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E2F00401BC9556B000EF53F /* test_image2.json */; };
+		6E2F00421BC955F1000EF53F /* Anti-normal.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6EBF1D191BB8C10A00C38BDB /* Anti-normal.svg */; };
+		6E2F00431BC955F7000EF53F /* Ghostscript_Tiger.svg in Resources */ = {isa = PBXBuildFile; fileRef = 454799851ABF3CEB000B19B8 /* Ghostscript_Tiger.svg */; };
+		6E2F00441BC95602000EF53F /* Markers.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6EBF1D141BB70E2800C38BDB /* Markers.svg */; };
+		6E2F00451BC95606000EF53F /* JW_Bezier_1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 454799861ABF3CEB000B19B8 /* JW_Bezier_1.svg */; };
+		6E2F00461BC9560B000EF53F /* SwiftOutline.svg in Resources */ = {isa = PBXBuildFile; fileRef = 454799871ABF3CEB000B19B8 /* SwiftOutline.svg */; };
+		6E2F00471BC95617000EF53F /* test_image2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6EBF1D1C1BB8C10A00C38BDB /* test_image2.svg */; };
+		6E2F00491BC96BA7000EF53F /* 6th-day.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6E2F00481BC96BA7000EF53F /* 6th-day.svg */; };
+		6E2F004A1BC96BA7000EF53F /* 6th-day.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6E2F00481BC96BA7000EF53F /* 6th-day.svg */; };
+		6E2F004C1BC96BCB000EF53F /* 6th-day.json in Resources */ = {isa = PBXBuildFile; fileRef = 6E2F004B1BC96BCB000EF53F /* 6th-day.json */; };
+		6E2F00571BD93A97000EF53F /* MISVGColorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2F00561BD93A97000EF53F /* MISVGColorsTests.swift */; };
+		6E4AFE281BAAF6A40015A1DE /* MIPathFromSVGPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA9E2561BAAD5B600B7468C /* MIPathFromSVGPath.m */; };
+		6E57A0B51BBC460600AA0574 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E57A0B41BBC460600AA0574 /* TextStyle.swift */; };
+		6E57A0BD1BBEEE9500AA0574 /* SwiftSVGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E57A0BC1BBEEE9500AA0574 /* SwiftSVGTests.swift */; };
+		6E57A0C61BBEF0F100AA0574 /* TextDrawing.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6E57A0C51BBEF0F100AA0574 /* TextDrawing.svg */; };
+		6E57A0C71BBEF11500AA0574 /* TextDrawing.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6E57A0C51BBEF0F100AA0574 /* TextDrawing.svg */; };
+		6E6BABEE1BB01CE00025D14A /* MISVGUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BABED1BB01CE00025D14A /* MISVGUtilities.swift */; };
+		6E8642D51BAB07DB00D6128E /* MIPathFromSVGPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E8642D41BAB07DB00D6128E /* MIPathFromSVGPath.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E8642D71BAB10F100D6128E /* MIPathFromSwiftSVGPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8642D61BAB10F100D6128E /* MIPathFromSwiftSVGPath.swift */; };
+		6E8642DA1BAB685800D6128E /* MIJSONConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E8642D81BAB685800D6128E /* MIJSONConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E8642DB1BAB685800D6128E /* MIJSONConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8642D91BAB685800D6128E /* MIJSONConstants.m */; };
+		6EABBDC61BAF600C004C5C9F /* SVGStandardColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EABBDC51BAF600C004C5C9F /* SVGStandardColors.swift */; };
+		6EBF1D151BB70E2800C38BDB /* Markers.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6EBF1D141BB70E2800C38BDB /* Markers.svg */; };
+		6EBF1D171BB70E3600C38BDB /* SimpleBlueRect.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6EBF1D161BB70E3600C38BDB /* SimpleBlueRect.svg */; };
+		6EBF1D1E1BB8C10A00C38BDB /* Anti-normal.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6EBF1D191BB8C10A00C38BDB /* Anti-normal.svg */; };
+		6EBF1D1F1BB8C10A00C38BDB /* RPM_NavBall_Overlay.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6EBF1D1A1BB8C10A00C38BDB /* RPM_NavBall_Overlay.svg */; };
+		6EBF1D201BB8C10A00C38BDB /* test_image.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6EBF1D1B1BB8C10A00C38BDB /* test_image.svg */; };
+		6EBF1D211BB8C10A00C38BDB /* test_image2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6EBF1D1C1BB8C10A00C38BDB /* test_image2.svg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		45C203341B8E0E8200966AC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45E6AD9C1A9EAB0200386CFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45C2032E1B8E0E8200966AC6;
+			remoteInfo = SwiftSVG;
+		};
+		6E57A0C01BBEEE9500AA0574 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45E6AD9C1A9EAB0200386CFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45C2032E1B8E0E8200966AC6;
+			remoteInfo = SwiftSVG;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		451958271AC22BFE00659E64 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				451958221AC22BFE00659E64 /* SwiftGraphics.framework in Embed Frameworks */,
+				451958261AC22BFE00659E64 /* SwiftUtilities.framework in Embed Frameworks */,
+				451958241AC22BFE00659E64 /* SwiftParsing.framework in Embed Frameworks */,
+				45C203371B8E0E8200966AC6 /* SwiftSVG.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E2F00251BC4AC08000EF53F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6E2F00261BC4AC26000EF53F /* SwiftSVG.framework in CopyFiles */,
+				6E2F00271BC4ACB0000EF53F /* SwiftGraphics.framework in CopyFiles */,
+				6E2F00281BC4ACB0000EF53F /* SwiftParsing.framework in CopyFiles */,
+				6E2F00291BC4ACB0000EF53F /* SwiftUtilities.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4513B7001AB745C1005649B9 /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		451958181AC22BEE00659E64 /* SwiftGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGraphics.framework; path = DerivedData/SwiftSVG/Build/Products/Debug/SwiftGraphics.framework; sourceTree = "<group>"; };
+		451958191AC22BEE00659E64 /* SwiftParsing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftParsing.framework; path = DerivedData/SwiftSVG/Build/Products/Debug/SwiftParsing.framework; sourceTree = "<group>"; };
+		4519581A1AC22BEE00659E64 /* SwiftUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUtilities.framework; path = DerivedData/SwiftSVG/Build/Products/Debug/SwiftUtilities.framework; sourceTree = "<group>"; };
+		4522FA8A1AB4BA7E00DFEBA5 /* TransformParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformParser.swift; sourceTree = "<group>"; };
+		454734B11AB7A30300D877FD /* SVGValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGValue.swift; sourceTree = "<group>"; };
+		454799841ABF3CEB000B19B8 /* Apple_Swift_Logo.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Apple_Swift_Logo.svg; sourceTree = "<group>"; };
+		454799851ABF3CEB000B19B8 /* Ghostscript_Tiger.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Ghostscript_Tiger.svg; sourceTree = "<group>"; };
+		454799861ABF3CEB000B19B8 /* JW_Bezier_1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JW_Bezier_1.svg; sourceTree = "<group>"; };
+		454799871ABF3CEB000B19B8 /* SwiftOutline.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SwiftOutline.svg; sourceTree = "<group>"; };
+		455449271AB3C89C009F1F92 /* CenteringClipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenteringClipView.swift; sourceTree = "<group>"; };
+		456363441B8EB5BF00FDE580 /* SwiftGraphics+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SwiftGraphics+Extensions.swift"; sourceTree = "<group>"; };
+		456363471B8EB63800FDE580 /* NSXML+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSXML+Extensions.swift"; sourceTree = "<group>"; };
+		456363491B8EC73000FDE580 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Renderer.swift; path = ../Utilities/Renderer.swift; sourceTree = "<group>"; };
+		459B56B61AB3F211002E781F /* Adaptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adaptor.swift; sourceTree = "<group>"; };
+		459B56BF1AB40722002E781F /* SVGElement+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SVGElement+Extensions.swift"; sourceTree = "<group>"; };
+		45A1383F1AC2755C00DE5248 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		45C203261B8DA2E000966AC6 /* SVGContainer+Optimisations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SVGContainer+Optimisations.swift"; sourceTree = "<group>"; };
+		45C2032F1B8E0E8200966AC6 /* SwiftSVG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftSVG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45C203311B8E0E8200966AC6 /* SwiftSVG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftSVG.h; sourceTree = "<group>"; };
+		45C203331B8E0E8200966AC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45D36F441A9EE3530005C3C9 /* SVGProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGProcessor.swift; sourceTree = "<group>"; };
+		45D36F481A9EF43F0005C3C9 /* SVGRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGRenderer.swift; sourceTree = "<group>"; };
+		45D36F4A1A9EF8520005C3C9 /* SVGView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGView.swift; sourceTree = "<group>"; };
+		45E6ADA41A9EAB0200386CFE /* SwiftSVG Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftSVG Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		45E6ADA81A9EAB0200386CFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45E6ADA91A9EAB0200386CFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		45E6ADAB1A9EAB0200386CFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		45E6ADAD1A9EAB0200386CFE /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		45E6ADAF1A9EAB0200386CFE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		45E6ADB21A9EAB0200386CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		45E6ADE61A9EABA700386CFE /* SVGElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGElement.swift; sourceTree = "<group>"; };
+		6E2F002A1BC693D2000EF53F /* MovingImagesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovingImagesTests.swift; path = MovingImagesTests/MovingImagesTests.swift; sourceTree = "<group>"; };
+		6E2F002F1BC86929000EF53F /* Apple_Swift_Logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Apple_Swift_Logo.json; path = "SwiftSVG Demo/Samples/Apple_Swift_Logo.json"; sourceTree = "<group>"; };
+		6E2F00321BC89861000EF53F /* RPM_NavBall_Overlay.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = RPM_NavBall_Overlay.json; path = "SwiftSVG Demo/Samples/RPM_NavBall_Overlay.json"; sourceTree = "<group>"; };
+		6E2F00341BC93DA1000EF53F /* Ghostscript_Tiger_Optimized.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Ghostscript_Tiger_Optimized.json; path = "SwiftSVG Demo/Samples/Ghostscript_Tiger_Optimized.json"; sourceTree = "<group>"; };
+		6E2F00361BC93DAA000EF53F /* Ghostscript_Tiger.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Ghostscript_Tiger.json; path = "SwiftSVG Demo/Samples/Ghostscript_Tiger.json"; sourceTree = "<group>"; };
+		6E2F00381BC93DDB000EF53F /* Anti-normal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "Anti-normal.json"; path = "SwiftSVG Demo/Samples/Anti-normal.json"; sourceTree = "<group>"; };
+		6E2F003A1BC93EFC000EF53F /* JW_Bezier_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = JW_Bezier_1.json; path = "SwiftSVG Demo/Samples/JW_Bezier_1.json"; sourceTree = "<group>"; };
+		6E2F003C1BC949EE000EF53F /* Markers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Markers.json; path = "SwiftSVG Demo/Samples/Markers.json"; sourceTree = "<group>"; };
+		6E2F003E1BC9553B000EF53F /* SwiftOutline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = SwiftOutline.json; path = "SwiftSVG Demo/Samples/SwiftOutline.json"; sourceTree = "<group>"; };
+		6E2F00401BC9556B000EF53F /* test_image2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test_image2.json; path = "SwiftSVG Demo/Samples/test_image2.json"; sourceTree = "<group>"; };
+		6E2F00481BC96BA7000EF53F /* 6th-day.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "6th-day.svg"; sourceTree = "<group>"; };
+		6E2F004B1BC96BCB000EF53F /* 6th-day.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "6th-day.json"; path = "SwiftSVG Demo/Samples/6th-day.json"; sourceTree = "<group>"; };
+		6E2F00561BD93A97000EF53F /* MISVGColorsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MISVGColorsTests.swift; path = MovingImagesTests/MISVGColorsTests.swift; sourceTree = "<group>"; };
+		6E57A0B41BBC460600AA0574 /* TextStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
+		6E57A0BA1BBEEE9500AA0574 /* SwiftSVGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftSVGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E57A0BC1BBEEE9500AA0574 /* SwiftSVGTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSVGTests.swift; sourceTree = "<group>"; };
+		6E57A0BE1BBEEE9500AA0574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E57A0C51BBEF0F100AA0574 /* TextDrawing.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TextDrawing.svg; sourceTree = "<group>"; };
+		6E6BABED1BB01CE00025D14A /* MISVGUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MISVGUtilities.swift; path = MovingImages/MISVGUtilities.swift; sourceTree = "<group>"; };
+		6E8642D41BAB07DB00D6128E /* MIPathFromSVGPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIPathFromSVGPath.h; path = MovingImages/MIPathFromSVGPath.h; sourceTree = "<group>"; };
+		6E8642D61BAB10F100D6128E /* MIPathFromSwiftSVGPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MIPathFromSwiftSVGPath.swift; path = MovingImages/MIPathFromSwiftSVGPath.swift; sourceTree = SOURCE_ROOT; };
+		6E8642D81BAB685800D6128E /* MIJSONConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIJSONConstants.h; path = MovingImages/MIJSONConstants.h; sourceTree = "<group>"; };
+		6E8642D91BAB685800D6128E /* MIJSONConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIJSONConstants.m; path = MovingImages/MIJSONConstants.m; sourceTree = "<group>"; };
+		6EA9E2561BAAD5B600B7468C /* MIPathFromSVGPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIPathFromSVGPath.m; path = MovingImages/MIPathFromSVGPath.m; sourceTree = "<group>"; };
+		6EABBDC51BAF600C004C5C9F /* SVGStandardColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGStandardColors.swift; sourceTree = "<group>"; };
+		6EBF1D141BB70E2800C38BDB /* Markers.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Markers.svg; sourceTree = "<group>"; };
+		6EBF1D161BB70E3600C38BDB /* SimpleBlueRect.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SimpleBlueRect.svg; sourceTree = "<group>"; };
+		6EBF1D191BB8C10A00C38BDB /* Anti-normal.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Anti-normal.svg"; sourceTree = "<group>"; };
+		6EBF1D1A1BB8C10A00C38BDB /* RPM_NavBall_Overlay.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RPM_NavBall_Overlay.svg; sourceTree = "<group>"; };
+		6EBF1D1B1BB8C10A00C38BDB /* test_image.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test_image.svg; sourceTree = "<group>"; };
+		6EBF1D1C1BB8C10A00C38BDB /* test_image2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test_image2.svg; sourceTree = "<group>"; };
+		6EBF1D1D1BB8C10A00C38BDB /* TextDrawing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TextDrawing.json; path = "SwiftSVG Demo/Samples/TextDrawing.json"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		45C2032B1B8E0E8200966AC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45C203421B8E0EBA00966AC6 /* SwiftGraphics.framework in Frameworks */,
+				45C203431B8E0EC100966AC6 /* SwiftParsing.framework in Frameworks */,
+				45C203441B8E0EC100966AC6 /* SwiftUtilities.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45E6ADA11A9EAB0200386CFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				451958211AC22BFE00659E64 /* SwiftGraphics.framework in Frameworks */,
+				451958251AC22BFE00659E64 /* SwiftUtilities.framework in Frameworks */,
+				451958231AC22BFE00659E64 /* SwiftParsing.framework in Frameworks */,
+				45C203361B8E0E8200966AC6 /* SwiftSVG.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E57A0B71BBEEE9500AA0574 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		451958171AC22BDA00659E64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				451958181AC22BEE00659E64 /* SwiftGraphics.framework */,
+				451958191AC22BEE00659E64 /* SwiftParsing.framework */,
+				4519581A1AC22BEE00659E64 /* SwiftUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		454734AC1AB7976000D877FD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				45E6ADAF1A9EAB0200386CFE /* Images.xcassets */,
+				45E6ADB11A9EAB0200386CFE /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		454799831ABF3CEB000B19B8 /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				6E2F00481BC96BA7000EF53F /* 6th-day.svg */,
+				454799841ABF3CEB000B19B8 /* Apple_Swift_Logo.svg */,
+				454799851ABF3CEB000B19B8 /* Ghostscript_Tiger.svg */,
+				6EBF1D141BB70E2800C38BDB /* Markers.svg */,
+				454799861ABF3CEB000B19B8 /* JW_Bezier_1.svg */,
+				6EBF1D161BB70E3600C38BDB /* SimpleBlueRect.svg */,
+				454799871ABF3CEB000B19B8 /* SwiftOutline.svg */,
+				6EBF1D191BB8C10A00C38BDB /* Anti-normal.svg */,
+				6EBF1D1A1BB8C10A00C38BDB /* RPM_NavBall_Overlay.svg */,
+				6EBF1D1B1BB8C10A00C38BDB /* test_image.svg */,
+				6EBF1D1C1BB8C10A00C38BDB /* test_image2.svg */,
+				6E57A0C51BBEF0F100AA0574 /* TextDrawing.svg */,
+			);
+			path = Samples;
+			sourceTree = "<group>";
+		};
+		456363461B8EB62100FDE580 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				456363471B8EB63800FDE580 /* NSXML+Extensions.swift */,
+				456363441B8EB5BF00FDE580 /* SwiftGraphics+Extensions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		45C203281B8E0D4B00966AC6 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				455449271AB3C89C009F1F92 /* CenteringClipView.swift */,
+				459B56B61AB3F211002E781F /* Adaptor.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		45C203291B8E0DFC00966AC6 /* Experimental */ = {
+			isa = PBXGroup;
+			children = (
+				454734B11AB7A30300D877FD /* SVGValue.swift */,
+				456363491B8EC73000FDE580 /* Renderer.swift */,
+			);
+			path = Experimental;
+			sourceTree = "<group>";
+		};
+		45C203301B8E0E8200966AC6 /* SwiftSVG */ = {
+			isa = PBXGroup;
+			children = (
+				45C203291B8E0DFC00966AC6 /* Experimental */,
+				456363461B8EB62100FDE580 /* Utilities */,
+				45E6ADE61A9EABA700386CFE /* SVGElement.swift */,
+				459B56BF1AB40722002E781F /* SVGElement+Extensions.swift */,
+				45D36F441A9EE3530005C3C9 /* SVGProcessor.swift */,
+				45D36F481A9EF43F0005C3C9 /* SVGRenderer.swift */,
+				4522FA8A1AB4BA7E00DFEBA5 /* TransformParser.swift */,
+				4513B7001AB745C1005649B9 /* Transform.swift */,
+				45C203261B8DA2E000966AC6 /* SVGContainer+Optimisations.swift */,
+				45C203311B8E0E8200966AC6 /* SwiftSVG.h */,
+				45C203331B8E0E8200966AC6 /* Info.plist */,
+				6EABBDC51BAF600C004C5C9F /* SVGStandardColors.swift */,
+				6E57A0B41BBC460600AA0574 /* TextStyle.swift */,
+			);
+			path = SwiftSVG;
+			sourceTree = "<group>";
+		};
+		45E6AD9B1A9EAB0200386CFE = {
+			isa = PBXGroup;
+			children = (
+				6EA9E2551BAAD52000B7468C /* MovingImages */,
+				45E6ADA61A9EAB0200386CFE /* SwiftSVG Demo */,
+				45C203301B8E0E8200966AC6 /* SwiftSVG */,
+				6E57A0BB1BBEEE9500AA0574 /* SwiftSVGTests */,
+				451958171AC22BDA00659E64 /* Frameworks */,
+				45E6ADA51A9EAB0200386CFE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		45E6ADA51A9EAB0200386CFE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45E6ADA41A9EAB0200386CFE /* SwiftSVG Demo.app */,
+				45C2032F1B8E0E8200966AC6 /* SwiftSVG.framework */,
+				6E57A0BA1BBEEE9500AA0574 /* SwiftSVGTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45E6ADA61A9EAB0200386CFE /* SwiftSVG Demo */ = {
+			isa = PBXGroup;
+			children = (
+				45E6ADA91A9EAB0200386CFE /* AppDelegate.swift */,
+				45E6ADAD1A9EAB0200386CFE /* Document.swift */,
+				45E6ADAB1A9EAB0200386CFE /* ViewController.swift */,
+				45D36F4A1A9EF8520005C3C9 /* SVGView.swift */,
+				45A1383F1AC2755C00DE5248 /* SummaryViewController.swift */,
+				45C203281B8E0D4B00966AC6 /* Support */,
+				454799831ABF3CEB000B19B8 /* Samples */,
+				454734AC1AB7976000D877FD /* Resources */,
+				45E6ADA71A9EAB0200386CFE /* Supporting Files */,
+			);
+			path = "SwiftSVG Demo";
+			sourceTree = "<group>";
+		};
+		45E6ADA71A9EAB0200386CFE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45E6ADA81A9EAB0200386CFE /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6E2F002C1BC696B8000EF53F /* MITests */ = {
+			isa = PBXGroup;
+			children = (
+				6E2F002A1BC693D2000EF53F /* MovingImagesTests.swift */,
+				6E2F00561BD93A97000EF53F /* MISVGColorsTests.swift */,
+				6E2F004B1BC96BCB000EF53F /* 6th-day.json */,
+				6E2F00381BC93DDB000EF53F /* Anti-normal.json */,
+				6E2F002F1BC86929000EF53F /* Apple_Swift_Logo.json */,
+				6E2F00361BC93DAA000EF53F /* Ghostscript_Tiger.json */,
+				6E2F00341BC93DA1000EF53F /* Ghostscript_Tiger_Optimized.json */,
+				6E2F003A1BC93EFC000EF53F /* JW_Bezier_1.json */,
+				6E2F003C1BC949EE000EF53F /* Markers.json */,
+				6E2F00321BC89861000EF53F /* RPM_NavBall_Overlay.json */,
+				6E2F003E1BC9553B000EF53F /* SwiftOutline.json */,
+				6E2F00401BC9556B000EF53F /* test_image2.json */,
+				6EBF1D1D1BB8C10A00C38BDB /* TextDrawing.json */,
+			);
+			name = MITests;
+			sourceTree = "<group>";
+		};
+		6E57A0BB1BBEEE9500AA0574 /* SwiftSVGTests */ = {
+			isa = PBXGroup;
+			children = (
+				6E57A0BC1BBEEE9500AA0574 /* SwiftSVGTests.swift */,
+				6E57A0BE1BBEEE9500AA0574 /* Info.plist */,
+			);
+			path = SwiftSVGTests;
+			sourceTree = "<group>";
+		};
+		6EA9E2551BAAD52000B7468C /* MovingImages */ = {
+			isa = PBXGroup;
+			children = (
+				6E2F002C1BC696B8000EF53F /* MITests */,
+				6E8642D81BAB685800D6128E /* MIJSONConstants.h */,
+				6E8642D91BAB685800D6128E /* MIJSONConstants.m */,
+				6E8642D41BAB07DB00D6128E /* MIPathFromSVGPath.h */,
+				6EA9E2561BAAD5B600B7468C /* MIPathFromSVGPath.m */,
+				6E8642D61BAB10F100D6128E /* MIPathFromSwiftSVGPath.swift */,
+				6E6BABED1BB01CE00025D14A /* MISVGUtilities.swift */,
+			);
+			name = MovingImages;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		45C2032C1B8E0E8200966AC6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45C203321B8E0E8200966AC6 /* SwiftSVG.h in Headers */,
+				6E8642DA1BAB685800D6128E /* MIJSONConstants.h in Headers */,
+				6E8642D51BAB07DB00D6128E /* MIPathFromSVGPath.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		45C2032E1B8E0E8200966AC6 /* SwiftSVG */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45C2033A1B8E0E8200966AC6 /* Build configuration list for PBXNativeTarget "SwiftSVG" */;
+			buildPhases = (
+				45C2032A1B8E0E8200966AC6 /* Sources */,
+				45C2032B1B8E0E8200966AC6 /* Frameworks */,
+				45C2032C1B8E0E8200966AC6 /* Headers */,
+				45C2032D1B8E0E8200966AC6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftSVG;
+			productName = SwiftSVG;
+			productReference = 45C2032F1B8E0E8200966AC6 /* SwiftSVG.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		45E6ADA31A9EAB0200386CFE /* SwiftSVG Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45E6ADC21A9EAB0200386CFE /* Build configuration list for PBXNativeTarget "SwiftSVG Demo" */;
+			buildPhases = (
+				45E6ADA01A9EAB0200386CFE /* Sources */,
+				45E6ADA11A9EAB0200386CFE /* Frameworks */,
+				45E6ADA21A9EAB0200386CFE /* Resources */,
+				451958271AC22BFE00659E64 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45C203351B8E0E8200966AC6 /* PBXTargetDependency */,
+			);
+			name = "SwiftSVG Demo";
+			productName = SwiftSVGTestNT;
+			productReference = 45E6ADA41A9EAB0200386CFE /* SwiftSVG Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6E57A0B91BBEEE9500AA0574 /* SwiftSVGTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E57A0C21BBEEE9500AA0574 /* Build configuration list for PBXNativeTarget "SwiftSVGTests" */;
+			buildPhases = (
+				6E57A0B61BBEEE9500AA0574 /* Sources */,
+				6E57A0B71BBEEE9500AA0574 /* Frameworks */,
+				6E57A0B81BBEEE9500AA0574 /* Resources */,
+				6E2F00251BC4AC08000EF53F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E57A0C11BBEEE9500AA0574 /* PBXTargetDependency */,
+			);
+			name = SwiftSVGTests;
+			productName = SwiftSVGTests;
+			productReference = 6E57A0BA1BBEEE9500AA0574 /* SwiftSVGTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		45E6AD9C1A9EAB0200386CFE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = No;
+				TargetAttributes = {
+					45C2032E1B8E0E8200966AC6 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					45E6ADA31A9EAB0200386CFE = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					6E57A0B91BBEEE9500AA0574 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
+			};
+			buildConfigurationList = 45E6AD9F1A9EAB0200386CFE /* Build configuration list for PBXProject "SwiftSVG" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 45E6AD9B1A9EAB0200386CFE;
+			productRefGroup = 45E6ADA51A9EAB0200386CFE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				45E6ADA31A9EAB0200386CFE /* SwiftSVG Demo */,
+				45C2032E1B8E0E8200966AC6 /* SwiftSVG */,
+				6E57A0B91BBEEE9500AA0574 /* SwiftSVGTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		45C2032D1B8E0E8200966AC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45E6ADA21A9EAB0200386CFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EBF1D171BB70E3600C38BDB /* SimpleBlueRect.svg in Resources */,
+				45E6ADB01A9EAB0200386CFE /* Images.xcassets in Resources */,
+				6E57A0C61BBEF0F100AA0574 /* TextDrawing.svg in Resources */,
+				4547998B1ABF3CEB000B19B8 /* SwiftOutline.svg in Resources */,
+				454799891ABF3CEB000B19B8 /* Ghostscript_Tiger.svg in Resources */,
+				454799881ABF3CEB000B19B8 /* Apple_Swift_Logo.svg in Resources */,
+				6E2F00491BC96BA7000EF53F /* 6th-day.svg in Resources */,
+				6EBF1D211BB8C10A00C38BDB /* test_image2.svg in Resources */,
+				4547998A1ABF3CEB000B19B8 /* JW_Bezier_1.svg in Resources */,
+				6EBF1D1F1BB8C10A00C38BDB /* RPM_NavBall_Overlay.svg in Resources */,
+				6EBF1D201BB8C10A00C38BDB /* test_image.svg in Resources */,
+				6EBF1D1E1BB8C10A00C38BDB /* Anti-normal.svg in Resources */,
+				6EBF1D151BB70E2800C38BDB /* Markers.svg in Resources */,
+				45E6ADB31A9EAB0200386CFE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E57A0B81BBEEE9500AA0574 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E57A0C71BBEF11500AA0574 /* TextDrawing.svg in Resources */,
+				6E2F00421BC955F1000EF53F /* Anti-normal.svg in Resources */,
+				6E2F004A1BC96BA7000EF53F /* 6th-day.svg in Resources */,
+				6E2F00411BC9556B000EF53F /* test_image2.json in Resources */,
+				6E2F00461BC9560B000EF53F /* SwiftOutline.svg in Resources */,
+				6E2F003B1BC93EFC000EF53F /* JW_Bezier_1.json in Resources */,
+				6E2F00311BC874D4000EF53F /* RPM_NavBall_Overlay.svg in Resources */,
+				6E2F00371BC93DAA000EF53F /* Ghostscript_Tiger.json in Resources */,
+				6E2F002D1BC6985D000EF53F /* TextDrawing.json in Resources */,
+				6E2F00391BC93DDB000EF53F /* Anti-normal.json in Resources */,
+				6E2F003F1BC9553B000EF53F /* SwiftOutline.json in Resources */,
+				6E2F002E1BC86873000EF53F /* Apple_Swift_Logo.svg in Resources */,
+				6E2F00451BC95606000EF53F /* JW_Bezier_1.svg in Resources */,
+				6E2F00471BC95617000EF53F /* test_image2.svg in Resources */,
+				6E2F00351BC93DA1000EF53F /* Ghostscript_Tiger_Optimized.json in Resources */,
+				6E2F003D1BC949EE000EF53F /* Markers.json in Resources */,
+				6E2F00431BC955F7000EF53F /* Ghostscript_Tiger.svg in Resources */,
+				6E2F004C1BC96BCB000EF53F /* 6th-day.json in Resources */,
+				6E2F00301BC86929000EF53F /* Apple_Swift_Logo.json in Resources */,
+				6E2F00441BC95602000EF53F /* Markers.svg in Resources */,
+				6E2F00331BC89861000EF53F /* RPM_NavBall_Overlay.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		45C2032A1B8E0E8200966AC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E8642D71BAB10F100D6128E /* MIPathFromSwiftSVGPath.swift in Sources */,
+				6E6BABEE1BB01CE00025D14A /* MISVGUtilities.swift in Sources */,
+				456363481B8EB63800FDE580 /* NSXML+Extensions.swift in Sources */,
+				45C203411B8E0E9400966AC6 /* SVGContainer+Optimisations.swift in Sources */,
+				6E57A0B51BBC460600AA0574 /* TextStyle.swift in Sources */,
+				45C2033D1B8E0E9400966AC6 /* SVGProcessor.swift in Sources */,
+				45C2033B1B8E0E9400966AC6 /* SVGElement.swift in Sources */,
+				4563634A1B8EC73000FDE580 /* Renderer.swift in Sources */,
+				456363451B8EB5BF00FDE580 /* SwiftGraphics+Extensions.swift in Sources */,
+				45C2033C1B8E0E9400966AC6 /* SVGElement+Extensions.swift in Sources */,
+				6EABBDC61BAF600C004C5C9F /* SVGStandardColors.swift in Sources */,
+				456363431B8EB58600FDE580 /* SVGValue.swift in Sources */,
+				45C2033F1B8E0E9400966AC6 /* TransformParser.swift in Sources */,
+				6E8642DB1BAB685800D6128E /* MIJSONConstants.m in Sources */,
+				45C203401B8E0E9400966AC6 /* Transform.swift in Sources */,
+				45C2033E1B8E0E9400966AC6 /* SVGRenderer.swift in Sources */,
+				6E4AFE281BAAF6A40015A1DE /* MIPathFromSVGPath.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45E6ADA01A9EAB0200386CFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45E6ADAC1A9EAB0200386CFE /* ViewController.swift in Sources */,
+				45A138401AC2755C00DE5248 /* SummaryViewController.swift in Sources */,
+				45D36F4B1A9EF8520005C3C9 /* SVGView.swift in Sources */,
+				459B56B71AB3F211002E781F /* Adaptor.swift in Sources */,
+				45E6ADAA1A9EAB0200386CFE /* AppDelegate.swift in Sources */,
+				45E6ADAE1A9EAB0200386CFE /* Document.swift in Sources */,
+				455449281AB3C89C009F1F92 /* CenteringClipView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E57A0B61BBEEE9500AA0574 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E57A0BD1BBEEE9500AA0574 /* SwiftSVGTests.swift in Sources */,
+				6E2F002B1BC693D2000EF53F /* MovingImagesTests.swift in Sources */,
+				6E2F00571BD93A97000EF53F /* MISVGColorsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		45C203351B8E0E8200966AC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45C2032E1B8E0E8200966AC6 /* SwiftSVG */;
+			targetProxy = 45C203341B8E0E8200966AC6 /* PBXContainerItemProxy */;
+		};
+		6E57A0C11BBEEE9500AA0574 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45C2032E1B8E0E8200966AC6 /* SwiftSVG */;
+			targetProxy = 6E57A0C01BBEEE9500AA0574 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		45E6ADB11A9EAB0200386CFE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45E6ADB21A9EAB0200386CFE /* Base */,
+			);
+			name = Main.storyboard;
+			path = .;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		45C203381B8E0E8200966AC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = SwiftSVG/Info.plist;
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = io.schwa.SwiftSVG;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		45C203391B8E0E8200966AC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = SwiftSVG/Info.plist;
+				INSTALL_PATH = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = io.schwa.SwiftSVG;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		45E6ADC01A9EAB0200386CFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		45E6ADC11A9EAB0200386CFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		45E6ADC31A9EAB0200386CFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = "SwiftSVG Demo/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.schwa.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "SwiftSVG Demo";
+			};
+			name = Debug;
+		};
+		45E6ADC41A9EAB0200386CFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = "SwiftSVG Demo/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.schwa.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "SwiftSVG Demo";
+			};
+			name = Release;
+		};
+		6E57A0C31BBEEE9500AA0574 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SwiftSVGTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Zukini.SwiftSVGTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6E57A0C41BBEEE9500AA0574 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SwiftSVGTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Zukini.SwiftSVGTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		45C2033A1B8E0E8200966AC6 /* Build configuration list for PBXNativeTarget "SwiftSVG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45C203381B8E0E8200966AC6 /* Debug */,
+				45C203391B8E0E8200966AC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45E6AD9F1A9EAB0200386CFE /* Build configuration list for PBXProject "SwiftSVG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45E6ADC01A9EAB0200386CFE /* Debug */,
+				45E6ADC11A9EAB0200386CFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45E6ADC21A9EAB0200386CFE /* Build configuration list for PBXNativeTarget "SwiftSVG Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45E6ADC31A9EAB0200386CFE /* Debug */,
+				45E6ADC41A9EAB0200386CFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E57A0C21BBEEE9500AA0574 /* Build configuration list for PBXNativeTarget "SwiftSVGTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E57A0C31BBEEE9500AA0574 /* Debug */,
+				6E57A0C41BBEEE9500AA0574 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 45E6AD9C1A9EAB0200386CFE /* Project object */;
+}

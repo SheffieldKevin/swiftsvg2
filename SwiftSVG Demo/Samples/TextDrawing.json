@@ -1,0 +1,74 @@
+{
+  "viewBox" : {
+    "size" : {
+      "width" : 300,
+      "height" : 200
+    },
+    "origin" : {
+      "y" : 0,
+      "x" : 0
+    }
+  },
+  "arrayofelements" : [
+    {
+      "arrayofelements" : [
+        {
+          "arrayofelements" : [
+            {
+              "contexttransformation" : [
+                {
+                  "transformationtype" : "translate",
+                  "translation" : {
+                    "y" : 200,
+                    "x" : 0
+                  }
+                },
+                {
+                  "scale" : {
+                    "y" : -1,
+                    "x" : 1
+                  },
+                  "transformationtype" : "scale"
+                }
+              ],
+              "strokecolor" : {
+                "red" : 0,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 0,
+                "alpha" : 1,
+                "green" : 0
+              },
+              "point" : {
+                "x" : 20,
+                "y" : 0
+              },
+              "fontsize" : 40,
+              "fillcolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 1,
+                "alpha" : 1,
+                "green" : 1
+              },
+              "elementtype" : "drawbasicstring",
+              "stringtext" : "Fill and stroke",
+              "stringstrokewidth" : -4,
+              "postscriptfontname" : "ArialMT"
+            }
+          ],
+          "elementtype" : "arrayofelements"
+        }
+      ],
+      "elementtype" : "arrayofelements"
+    }
+  ],
+  "linewidth" : 1,
+  "fillcolor" : {
+    "red" : 0,
+    "colorcolorprofilename" : "kCGColorSpaceSRGB",
+    "blue" : 0,
+    "alpha" : 1,
+    "green" : 0
+  },
+  "elementtype" : "arrayofelements"
+}

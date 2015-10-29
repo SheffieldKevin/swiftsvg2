@@ -1,0 +1,302 @@
+{
+  "viewBox" : {
+    "size" : {
+      "width" : 400,
+      "height" : 100
+    },
+    "origin" : {
+      "y" : 0,
+      "x" : 0
+    }
+  },
+  "arrayofelements" : [
+    {
+      "arrayofelements" : [
+        {
+          "affinetransform" : {
+            "m11" : 1,
+            "tX" : 0,
+            "m22" : 1,
+            "m21" : 0,
+            "m12" : 0,
+            "tY" : 0
+          },
+          "arrayofelements" : [
+            {
+              "elementtype" : "strokerectangle",
+              "rect" : {
+                "size" : {
+                  "width" : 100,
+                  "height" : 100
+                },
+                "origin" : {
+                  "y" : 0,
+                  "x" : 0
+                }
+              },
+              "strokecolor" : {
+                "red" : 0,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 0,
+                "alpha" : 1,
+                "green" : 0
+              }
+            },
+            {
+              "arrayofpathelements" : [
+                {
+                  "point" : {
+                    "x" : 0,
+                    "y" : 0
+                  },
+                  "elementtype" : "pathmoveto"
+                },
+                {
+                  "elementtype" : "pathlineto",
+                  "endpoint" : {
+                    "x" : 50,
+                    "y" : 100
+                  }
+                },
+                {
+                  "elementtype" : "pathlineto",
+                  "endpoint" : {
+                    "x" : 100,
+                    "y" : 0
+                  }
+                }
+              ],
+              "startpoint" : {
+                "x" : 0,
+                "y" : 0
+              },
+              "strokecolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 0,
+                "alpha" : 1,
+                "green" : 0
+              },
+              "elementtype" : "strokepath"
+            }
+          ],
+          "elementtype" : "arrayofelements"
+        },
+        {
+          "affinetransform" : {
+            "m11" : 1,
+            "tX" : 100,
+            "m22" : 1,
+            "m21" : 0,
+            "m12" : 0,
+            "tY" : 0
+          },
+          "arrayofelements" : [
+            {
+              "elementtype" : "strokerectangle",
+              "rect" : {
+                "size" : {
+                  "width" : 100,
+                  "height" : 100
+                },
+                "origin" : {
+                  "y" : 0,
+                  "x" : 0
+                }
+              },
+              "strokecolor" : {
+                "red" : 0,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 0,
+                "alpha" : 1,
+                "green" : 0
+              }
+            },
+            {
+              "arrayofpathelements" : [
+                {
+                  "point" : {
+                    "x" : 0,
+                    "y" : 0
+                  },
+                  "elementtype" : "pathmoveto"
+                },
+                {
+                  "elementtype" : "pathlineto",
+                  "endpoint" : {
+                    "x" : 50,
+                    "y" : 100
+                  }
+                },
+                {
+                  "elementtype" : "pathlineto",
+                  "endpoint" : {
+                    "x" : 100,
+                    "y" : 0
+                  }
+                }
+              ],
+              "startpoint" : {
+                "x" : 0,
+                "y" : 0
+              },
+              "strokecolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 0,
+                "alpha" : 1,
+                "green" : 0
+              },
+              "elementtype" : "strokepath"
+            }
+          ],
+          "elementtype" : "arrayofelements"
+        },
+        {
+          "affinetransform" : {
+            "m11" : 1,
+            "tX" : 200,
+            "m22" : 1,
+            "m21" : 0,
+            "m12" : 0,
+            "tY" : 0
+          },
+          "arrayofelements" : [
+            {
+              "elementtype" : "strokerectangle",
+              "rect" : {
+                "size" : {
+                  "width" : 100,
+                  "height" : 100
+                },
+                "origin" : {
+                  "y" : 0,
+                  "x" : 0
+                }
+              },
+              "strokecolor" : {
+                "red" : 0,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 0,
+                "alpha" : 1,
+                "green" : 0
+              }
+            },
+            {
+              "arrayofpathelements" : [
+                {
+                  "point" : {
+                    "x" : 0,
+                    "y" : 0
+                  },
+                  "elementtype" : "pathmoveto"
+                },
+                {
+                  "endpoint" : {
+                    "x" : 100,
+                    "y" : 0
+                  },
+                  "elementtype" : "pathquadraticcurve",
+                  "controlpoint1" : {
+                    "x" : 50,
+                    "y" : 100
+                  }
+                }
+              ],
+              "startpoint" : {
+                "x" : 0,
+                "y" : 0
+              },
+              "strokecolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 0,
+                "alpha" : 1,
+                "green" : 0
+              },
+              "elementtype" : "strokepath"
+            }
+          ],
+          "elementtype" : "arrayofelements"
+        },
+        {
+          "affinetransform" : {
+            "m11" : 1,
+            "tX" : 300,
+            "m22" : 1,
+            "m21" : 0,
+            "m12" : 0,
+            "tY" : 0
+          },
+          "arrayofelements" : [
+            {
+              "elementtype" : "strokerectangle",
+              "rect" : {
+                "size" : {
+                  "width" : 100,
+                  "height" : 100
+                },
+                "origin" : {
+                  "y" : 0,
+                  "x" : 0
+                }
+              },
+              "strokecolor" : {
+                "red" : 0,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 0,
+                "alpha" : 1,
+                "green" : 0
+              }
+            },
+            {
+              "arrayofpathelements" : [
+                {
+                  "point" : {
+                    "x" : 0,
+                    "y" : 0
+                  },
+                  "elementtype" : "pathmoveto"
+                },
+                {
+                  "endpoint" : {
+                    "x" : 100,
+                    "y" : 0
+                  },
+                  "elementtype" : "pathquadraticcurve",
+                  "controlpoint1" : {
+                    "x" : 50,
+                    "y" : 100
+                  }
+                }
+              ],
+              "startpoint" : {
+                "x" : 0,
+                "y" : 0
+              },
+              "strokecolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 0,
+                "alpha" : 1,
+                "green" : 0
+              },
+              "elementtype" : "strokepath"
+            }
+          ],
+          "elementtype" : "arrayofelements"
+        }
+      ],
+      "elementtype" : "arrayofelements"
+    }
+  ],
+  "linewidth" : 1,
+  "fillcolor" : {
+    "red" : 0,
+    "colorcolorprofilename" : "kCGColorSpaceSRGB",
+    "blue" : 0,
+    "alpha" : 1,
+    "green" : 0
+  },
+  "elementtype" : "arrayofelements"
+}

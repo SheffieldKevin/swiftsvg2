@@ -1,0 +1,676 @@
+{
+  "viewBox" : {
+    "size" : {
+      "width" : 640,
+      "height" : 640
+    },
+    "origin" : {
+      "y" : 0,
+      "x" : 0
+    }
+  },
+  "arrayofelements" : [
+    {
+      "elementdebugname" : "Black",
+      "arrayofelements" : [
+        {
+          "arrayofpathelements" : [
+            {
+              "point" : {
+                "x" : 640,
+                "y" : 640
+              },
+              "elementtype" : "pathmoveto"
+            },
+            {
+              "elementtype" : "pathlineto",
+              "endpoint" : {
+                "x" : 0,
+                "y" : 640
+              }
+            },
+            {
+              "elementtype" : "pathlineto",
+              "endpoint" : {
+                "x" : 0,
+                "y" : 0
+              }
+            },
+            {
+              "elementtype" : "pathlineto",
+              "endpoint" : {
+                "x" : 640,
+                "y" : 0
+              }
+            },
+            {
+              "elementtype" : "pathlineto",
+              "endpoint" : {
+                "x" : 640,
+                "y" : 640
+              }
+            },
+            {
+              "elementtype" : "pathclosesubpath"
+            },
+            {
+              "point" : {
+                "x" : 590,
+                "y" : 571
+              },
+              "elementtype" : "pathmoveto"
+            },
+            {
+              "elementtype" : "pathlineto",
+              "endpoint" : {
+                "x" : 590,
+                "y" : 187.382
+              }
+            },
+            {
+              "elementtype" : "pathlineto",
+              "endpoint" : {
+                "x" : 511,
+                "y" : 109
+              }
+            },
+            {
+              "elementtype" : "pathlineto",
+              "endpoint" : {
+                "x" : 511,
+                "y" : 66
+              }
+            },
+            {
+              "elementtype" : "pathlineto",
+              "endpoint" : {
+                "x" : 127,
+                "y" : 66
+              }
+            },
+            {
+              "elementtype" : "pathlineto",
+              "endpoint" : {
+                "x" : 127,
+                "y" : 110.853
+              }
+            },
+            {
+              "elementtype" : "pathlineto",
+              "endpoint" : {
+                "x" : 49,
+                "y" : 189
+              }
+            },
+            {
+              "elementtype" : "pathlineto",
+              "endpoint" : {
+                "x" : 49,
+                "y" : 449.971
+              }
+            },
+            {
+              "elementtype" : "pathlineto",
+              "endpoint" : {
+                "x" : 127,
+                "y" : 528
+              }
+            },
+            {
+              "elementtype" : "pathlineto",
+              "endpoint" : {
+                "x" : 127,
+                "y" : 571
+              }
+            },
+            {
+              "elementtype" : "pathlineto",
+              "endpoint" : {
+                "x" : 590,
+                "y" : 571
+              }
+            },
+            {
+              "elementtype" : "pathclosesubpath"
+            }
+          ],
+          "startpoint" : {
+            "x" : 0,
+            "y" : 0
+          },
+          "fillcolor" : {
+            "red" : 0.06274509803921569,
+            "colorcolorprofilename" : "kCGColorSpaceSRGB",
+            "blue" : 0.06274509803921569,
+            "alpha" : 1,
+            "green" : 0.06274509803921569
+          },
+          "elementtype" : "fillpath"
+        }
+      ],
+      "elementtype" : "arrayofelements"
+    },
+    {
+      "elementdebugname" : "Layer_2",
+      "arrayofelements" : [
+        {
+          "arrayofpathelements" : [
+            {
+              "endpoint" : {
+                "y" : 528,
+                "x" : 127
+              },
+              "elementtype" : "pathlineto"
+            },
+            {
+              "endpoint" : {
+                "y" : 449.9710083007812,
+                "x" : 49
+              },
+              "elementtype" : "pathlineto"
+            },
+            {
+              "endpoint" : {
+                "y" : 189,
+                "x" : 49
+              },
+              "elementtype" : "pathlineto"
+            },
+            {
+              "endpoint" : {
+                "y" : 110.8529968261719,
+                "x" : 127
+              },
+              "elementtype" : "pathlineto"
+            },
+            {
+              "endpoint" : {
+                "y" : 66,
+                "x" : 127
+              },
+              "elementtype" : "pathlineto"
+            },
+            {
+              "endpoint" : {
+                "y" : 66,
+                "x" : 511
+              },
+              "elementtype" : "pathlineto"
+            },
+            {
+              "endpoint" : {
+                "y" : 109,
+                "x" : 511
+              },
+              "elementtype" : "pathlineto"
+            },
+            {
+              "endpoint" : {
+                "y" : 187.3820037841797,
+                "x" : 590
+              },
+              "elementtype" : "pathlineto"
+            },
+            {
+              "endpoint" : {
+                "y" : 571,
+                "x" : 590
+              },
+              "elementtype" : "pathlineto"
+            },
+            {
+              "elementtype" : "pathclosesubpath"
+            }
+          ],
+          "miter" : 10,
+          "strokecolor" : {
+            "red" : 1,
+            "colorcolorprofilename" : "kCGColorSpaceSRGB",
+            "blue" : 1,
+            "alpha" : 1,
+            "green" : 1
+          },
+          "startpoint" : {
+            "x" : 127,
+            "y" : 571
+          },
+          "linewidth" : 2,
+          "elementtype" : "strokepath"
+        },
+        {
+          "line" : {
+            "endpoint" : {
+              "x" : 640,
+              "y" : 66
+            },
+            "startpoint" : {
+              "x" : 0,
+              "y" : 66
+            }
+          },
+          "miter" : 10,
+          "strokecolor" : {
+            "red" : 1,
+            "colorcolorprofilename" : "kCGColorSpaceSRGB",
+            "blue" : 1,
+            "alpha" : 1,
+            "green" : 1
+          },
+          "linewidth" : 2,
+          "elementtype" : "drawline"
+        },
+        {
+          "line" : {
+            "endpoint" : {
+              "x" : 640,
+              "y" : 571
+            },
+            "startpoint" : {
+              "x" : 0,
+              "y" : 571
+            }
+          },
+          "miter" : 10,
+          "strokecolor" : {
+            "red" : 1,
+            "colorcolorprofilename" : "kCGColorSpaceSRGB",
+            "blue" : 1,
+            "alpha" : 1,
+            "green" : 1
+          },
+          "linewidth" : 2,
+          "elementtype" : "drawline"
+        },
+        {
+          "arrayofelements" : [
+            {
+              "rect" : {
+                "size" : {
+                  "width" : 42,
+                  "height" : 6
+                },
+                "origin" : {
+                  "y" : 406,
+                  "x" : 3
+                }
+              },
+              "fillcolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 1,
+                "alpha" : 1,
+                "green" : 1
+              },
+              "elementtype" : "fillrectangle"
+            },
+            {
+              "rect" : {
+                "size" : {
+                  "width" : 16,
+                  "height" : 16
+                },
+                "origin" : {
+                  "y" : 451,
+                  "x" : 16
+                }
+              },
+              "miter" : 10,
+              "strokecolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 1,
+                "alpha" : 1,
+                "green" : 1
+              },
+              "linewidth" : 5,
+              "elementtype" : "strokeoval"
+            },
+            {
+              "rect" : {
+                "size" : {
+                  "width" : 16,
+                  "height" : 16
+                },
+                "origin" : {
+                  "y" : 501,
+                  "x" : 16
+                }
+              },
+              "miter" : 10,
+              "strokecolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 1,
+                "alpha" : 1,
+                "green" : 1
+              },
+              "linewidth" : 5,
+              "elementtype" : "strokeoval"
+            },
+            {
+              "rect" : {
+                "size" : {
+                  "width" : 16,
+                  "height" : 16
+                },
+                "origin" : {
+                  "y" : 351,
+                  "x" : 16
+                }
+              },
+              "miter" : 10,
+              "strokecolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 1,
+                "alpha" : 1,
+                "green" : 1
+              },
+              "linewidth" : 5,
+              "elementtype" : "strokeoval"
+            },
+            {
+              "rect" : {
+                "size" : {
+                  "width" : 16,
+                  "height" : 16
+                },
+                "origin" : {
+                  "y" : 301,
+                  "x" : 16
+                }
+              },
+              "miter" : 10,
+              "strokecolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 1,
+                "alpha" : 1,
+                "green" : 1
+              },
+              "linewidth" : 5,
+              "elementtype" : "strokeoval"
+            }
+          ],
+          "elementtype" : "arrayofelements"
+        },
+        {
+          "arrayofelements" : [
+            {
+              "rect" : {
+                "size" : {
+                  "width" : 42,
+                  "height" : 6
+                },
+                "origin" : {
+                  "y" : 406,
+                  "x" : 595
+                }
+              },
+              "fillcolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 1,
+                "alpha" : 1,
+                "green" : 1
+              },
+              "elementtype" : "fillrectangle"
+            },
+            {
+              "rect" : {
+                "size" : {
+                  "width" : 16,
+                  "height" : 16
+                },
+                "origin" : {
+                  "y" : 451,
+                  "x" : 608
+                }
+              },
+              "miter" : 10,
+              "strokecolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 1,
+                "alpha" : 1,
+                "green" : 1
+              },
+              "linewidth" : 5,
+              "elementtype" : "strokeoval"
+            },
+            {
+              "rect" : {
+                "size" : {
+                  "width" : 16,
+                  "height" : 16
+                },
+                "origin" : {
+                  "y" : 501,
+                  "x" : 608
+                }
+              },
+              "miter" : 10,
+              "strokecolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 1,
+                "alpha" : 1,
+                "green" : 1
+              },
+              "linewidth" : 5,
+              "elementtype" : "strokeoval"
+            },
+            {
+              "rect" : {
+                "size" : {
+                  "width" : 16,
+                  "height" : 16
+                },
+                "origin" : {
+                  "y" : 351,
+                  "x" : 608
+                }
+              },
+              "miter" : 10,
+              "strokecolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 1,
+                "alpha" : 1,
+                "green" : 1
+              },
+              "linewidth" : 5,
+              "elementtype" : "strokeoval"
+            },
+            {
+              "rect" : {
+                "size" : {
+                  "width" : 16,
+                  "height" : 16
+                },
+                "origin" : {
+                  "y" : 301,
+                  "x" : 608
+                }
+              },
+              "miter" : 10,
+              "strokecolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 1,
+                "alpha" : 1,
+                "green" : 1
+              },
+              "linewidth" : 5,
+              "elementtype" : "strokeoval"
+            }
+          ],
+          "elementtype" : "arrayofelements"
+        },
+        {
+          "line" : {
+            "endpoint" : {
+              "x" : 320,
+              "y" : 66
+            },
+            "startpoint" : {
+              "x" : 320,
+              "y" : 169
+            }
+          },
+          "miter" : 10,
+          "strokecolor" : {
+            "red" : 1,
+            "colorcolorprofilename" : "kCGColorSpaceSRGB",
+            "blue" : 1,
+            "alpha" : 1,
+            "green" : 1
+          },
+          "linewidth" : 2,
+          "elementtype" : "drawline"
+        },
+        {
+          "arrayofpathelements" : [
+            {
+              "endpoint" : {
+                "y" : 83,
+                "x" : 320
+              },
+              "elementtype" : "pathlineto"
+            },
+            {
+              "endpoint" : {
+                "y" : 66,
+                "x" : 334
+              },
+              "elementtype" : "pathlineto"
+            }
+          ],
+          "startpoint" : {
+            "x" : 306,
+            "y" : 66
+          },
+          "fillcolor" : {
+            "red" : 1,
+            "colorcolorprofilename" : "kCGColorSpaceSRGB",
+            "blue" : 1,
+            "alpha" : 1,
+            "green" : 1
+          },
+          "elementtype" : "fillpath"
+        },
+        {
+          "arrayofpathelements" : [
+            {
+              "endpoint" : {
+                "y" : 550,
+                "x" : 320
+              },
+              "elementtype" : "pathlineto"
+            },
+            {
+              "endpoint" : {
+                "y" : 571,
+                "x" : 303
+              },
+              "elementtype" : "pathlineto"
+            }
+          ],
+          "startpoint" : {
+            "x" : 337,
+            "y" : 571
+          },
+          "fillcolor" : {
+            "red" : 1,
+            "colorcolorprofilename" : "kCGColorSpaceSRGB",
+            "blue" : 1,
+            "alpha" : 1,
+            "green" : 1
+          },
+          "elementtype" : "fillpath"
+        },
+        {
+          "arrayofelements" : [
+            {
+              "line" : {
+                "endpoint" : {
+                  "x" : 320,
+                  "y" : 377
+                },
+                "startpoint" : {
+                  "x" : 320,
+                  "y" : 293
+                }
+              },
+              "miter" : 10,
+              "strokecolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 1,
+                "alpha" : 1,
+                "green" : 0
+              },
+              "linewidth" : 2,
+              "elementtype" : "drawline"
+            },
+            {
+              "line" : {
+                "endpoint" : {
+                  "x" : 363,
+                  "y" : 320
+                },
+                "startpoint" : {
+                  "x" : 277,
+                  "y" : 320
+                }
+              },
+              "miter" : 10,
+              "strokecolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 1,
+                "alpha" : 1,
+                "green" : 0
+              },
+              "linewidth" : 2,
+              "elementtype" : "drawline"
+            },
+            {
+              "line" : {
+                "endpoint" : {
+                  "x" : 331,
+                  "y" : 377
+                },
+                "startpoint" : {
+                  "x" : 309,
+                  "y" : 377
+                }
+              },
+              "miter" : 10,
+              "strokecolor" : {
+                "red" : 1,
+                "colorcolorprofilename" : "kCGColorSpaceSRGB",
+                "blue" : 1,
+                "alpha" : 1,
+                "green" : 0
+              },
+              "linewidth" : 2,
+              "elementtype" : "drawline"
+            }
+          ],
+          "elementtype" : "arrayofelements"
+        }
+      ],
+      "elementtype" : "arrayofelements"
+    }
+  ],
+  "linewidth" : 1,
+  "fillcolor" : {
+    "red" : 0,
+    "colorcolorprofilename" : "kCGColorSpaceSRGB",
+    "blue" : 0,
+    "alpha" : 1,
+    "green" : 0
+  },
+  "elementtype" : "arrayofelements"
+}
