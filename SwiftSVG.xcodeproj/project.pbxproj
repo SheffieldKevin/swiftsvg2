@@ -138,9 +138,9 @@
 
 /* Begin PBXFileReference section */
 		4513B7001AB745C1005649B9 /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
-		451958181AC22BEE00659E64 /* SwiftGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGraphics.framework; path = DerivedData/SwiftSVG/Build/Products/Debug/SwiftGraphics.framework; sourceTree = "<group>"; };
-		451958191AC22BEE00659E64 /* SwiftParsing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftParsing.framework; path = DerivedData/SwiftSVG/Build/Products/Debug/SwiftParsing.framework; sourceTree = "<group>"; };
-		4519581A1AC22BEE00659E64 /* SwiftUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUtilities.framework; path = DerivedData/SwiftSVG/Build/Products/Debug/SwiftUtilities.framework; sourceTree = "<group>"; };
+		451958181AC22BEE00659E64 /* SwiftGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGraphics.framework; path = DerivedData/SwiftMISVG/Build/Products/Debug/SwiftGraphics.framework; sourceTree = "<group>"; };
+		451958191AC22BEE00659E64 /* SwiftParsing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftParsing.framework; path = DerivedData/SwiftMISVG/Build/Products/Debug/SwiftParsing.framework; sourceTree = "<group>"; };
+		4519581A1AC22BEE00659E64 /* SwiftUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUtilities.framework; path = DerivedData/SwiftMISVG/Build/Products/Debug/SwiftUtilities.framework; sourceTree = "<group>"; };
 		4522FA8A1AB4BA7E00DFEBA5 /* TransformParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformParser.swift; sourceTree = "<group>"; };
 		454734B11AB7A30300D877FD /* SVGValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGValue.swift; sourceTree = "<group>"; };
 		454799841ABF3CEB000B19B8 /* Apple_Swift_Logo.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Apple_Swift_Logo.svg; sourceTree = "<group>"; };
