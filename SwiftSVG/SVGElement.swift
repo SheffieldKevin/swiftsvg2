@@ -228,6 +228,7 @@ public typealias MovingImagesText = [NSString : NSObject]
 
 public protocol PathGenerator: CGPathable {
     var mipath:MovingImagesPath { get }
+    var svgpath:String? { get }
 }
 
 public protocol TextRenderer {
@@ -241,15 +242,18 @@ public protocol TextRenderer {
 public class SVGPath: SVGElement, PathGenerator {
     public private(set) var cgpath: CGPath
     public private(set) var mipath: MovingImagesPath
+    public private(set) var svgpath: String?
 
-    public init(path: CGPath, miPath: MovingImagesPath) {
+    public init(path: CGPath, miPath: MovingImagesPath, svgPath: String) {
         self.cgpath = path
         self.mipath = miPath
+        self.svgpath = svgPath
     }
 
     internal func addSVGPath(svgPath: SVGPath) {
         addMIPaths(&self.mipath, miPath2: svgPath.mipath)
         self.cgpath = self.cgpath + svgPath.cgpath
+        self.svgpath = .None
     }
 }
 
@@ -259,6 +263,9 @@ public class SVGLine: SVGElement, PathGenerator {
 
     lazy public var cgpath: CGPath = self.makePath()
     lazy public var mipath: MovingImagesPath = makeLineDictionary(self.startPoint, endPoint: self.endPoint)
+    public var svgpath: String? {
+        get { return .None }
+    }
 
     public init(startPoint: CGPoint, endPoint: CGPoint) {
         self.startPoint = startPoint
@@ -279,6 +286,9 @@ public class SVGPolygon: SVGElement, PathGenerator {
     
     lazy public var cgpath:CGPath = self.polygon.cgpath
     lazy public var mipath:MovingImagesPath = makePolygonDictionary(self.polygon.points)
+    public var svgpath: String? {
+        get { return .None }
+    }
     
     public init(points: [CGPoint]) {
         self.polygon = SwiftGraphics.Polygon(points: points)
@@ -290,6 +300,9 @@ public class SVGPolyline: SVGElement, PathGenerator {
     
     lazy public var cgpath:CGPath = self.makePath()
     lazy public var mipath:MovingImagesPath = makePolylineDictionary(self.points)
+    public var svgpath: String? {
+        get { return .None }
+    }
     
     public init(points: [CGPoint]) {
         self.points = points
@@ -309,6 +322,9 @@ public class SVGRect: SVGElement, PathGenerator {
 
     lazy public var cgpath:CGPath = self.makeCGPath()
     lazy public var mipath:MovingImagesPath = self.makeMIPath()
+    public var svgpath: String? {
+        get { return .None }
+    }
     
     // http://www.w3.org/TR/SVG/shapes.html#RectElement
     public init(rect: CGRect, rx: CGFloat? = Optional.None, ry: CGFloat? = Optional.None) {
@@ -359,6 +375,9 @@ public class SVGEllipse: SVGElement, PathGenerator {
     
     lazy public var cgpath:CGPath = CGPathCreateWithEllipseInRect(self.rect, nil)
     lazy public var mipath:MovingImagesPath = self.makeMIPath()
+    public var svgpath: String? {
+        get { return .None }
+    }
     
     public init(rect: CGRect) {
         self.rect = rect
@@ -375,6 +394,9 @@ public class SVGCircle: SVGElement, PathGenerator {
 
     lazy public var cgpath:CGPath = CGPathCreateWithEllipseInRect(self.rect, nil)
     lazy public var mipath:MovingImagesPath = self.makeMIPath()
+    public var svgpath: String? {
+        get { return .None }
+    }
     
     public var rect: CGRect {
         let rectSize = CGSize(width: 2.0 * radius, height: 2.0 * radius)

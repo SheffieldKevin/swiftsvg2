@@ -193,6 +193,11 @@ public class MovingImagesRenderer: Renderer {
     }
 
     public func addPath(path:PathGenerator) {
+        if let svgPath = path.svgpath {
+            current.movingImages["svgpath"] = svgPath
+            return
+        }
+
         for (key, value) in path.mipath {
             current.movingImages[key] = value
         }
