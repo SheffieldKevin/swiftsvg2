@@ -1,0 +1,9 @@
+[submodule "SwiftGraphics"]
+	path = SwiftGraphics
+	url = git://github.com/SheffieldKevin/SwiftGraphics.git
+[submodule "SwiftParsing"]
+	path = SwiftParsing
+	url = git://github.com/SheffieldKevin/SwiftParsing.git
+[submodule "SwiftUtilities"]
+	path = SwiftUtilities
+	url = git://github.com/SheffieldKevin/SwiftUtilities.git
