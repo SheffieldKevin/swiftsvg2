@@ -13,7 +13,8 @@ let defaultSaveFolder = "~/Desktop/Current/swiftsvg"
 func jsonObjectToString(jsonObject: AnyObject) -> String? {
     if NSJSONSerialization.isValidJSONObject(jsonObject) {
         let data = try? NSJSONSerialization.dataWithJSONObject(jsonObject,
-            options: NSJSONWritingOptions.PrettyPrinted)
+                       options: NSJSONWritingOptions.PrettyPrinted)
+                    // options: NSJSONWritingOptions.init(rawValue: 0))
         if let data = data,
             let jsonString = NSString(data: data, encoding: NSUTF8StringEncoding) {
                 return jsonString as String

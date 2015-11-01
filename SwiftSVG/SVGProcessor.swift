@@ -118,11 +118,14 @@ public class SVGProcessor {
         }
 
         switch name {
-            //            case "defs":
-            //    svgElement = try processDEFS(xmlElement, state: state)
+            case "defs":
+                svgElement = try processDEFS(xmlElement, state: state)
             case "svg":
                 svgElement = try processSVGDocument(xmlElement, state: state)
             case "g":
+                svgElement = try processSVGGroup(xmlElement, state: state)
+            // The "symbol" element being equated to a group element here is a pure hack.
+            case "symbol":
                 svgElement = try processSVGGroup(xmlElement, state: state)
             case "path":
                 svgElement = try processSVGPath(xmlElement, state: state)
@@ -140,6 +143,8 @@ public class SVGProcessor {
                 svgElement = try processSVGPolyline(xmlElement, state:state)
             case "text":
                 svgElement = try processSVGText(xmlElement)
+            case "use":
+                svgElement = try processUSEElement(xmlElement, state:state)
             case "title":
                 state.document!.title = xmlElement.stringValue as String?
             case "desc":
@@ -152,7 +157,15 @@ public class SVGProcessor {
         if let svgElement = svgElement {
             svgElement.textStyle = try processTextStyle(xmlElement)
             svgElement.style = try processStyle(xmlElement, svgElement: svgElement)
-            svgElement.transform = try processTransform(xmlElement)
+            if let theTransform = svgElement.transform {
+                if let newTransform = try processTransform(xmlElement) {
+                    // svgElement.transform = theTransform + newTransform
+                    svgElement.transform = newTransform + theTransform
+                }
+            }
+            else {
+                svgElement.transform = try processTransform(xmlElement)
+            }
 
             if let id = xmlElement["id"]?.stringValue {
                 svgElement.id = id
@@ -186,6 +199,36 @@ public class SVGProcessor {
             }
         }
         return nil
+    }
+
+    public func processUSEElement(xmlElement: NSXMLElement, state: State) throws -> SVGElement? {
+        guard let string = xmlElement["xlink:href"]?.stringValue where string.characters.count > 1 else {
+            throw Error.corruptXML
+        }
+        
+        guard string.hasPrefix("#") else {
+            throw Error.corruptXML
+        }
+        
+        let subString = string.substringFromIndex(string.startIndex.successor())
+        guard let element = state.elementsByID[subString] else {
+            // print("We don't have a use element for id: \(subString)")
+            state.events.append(Event(severity: .warning, message: "Could not find element with id: \(subString)"))
+            return .None
+        }
+        // print("We have a use element for id: \(subString)")
+        // print("Element is: \(element)")
+        xmlElement["xlink:href"] = nil
+        let ox = try SVGProcessor.stringToOptionalCGFloat(xmlElement["x"]?.stringValue)
+        let oy = try SVGProcessor.stringToOptionalCGFloat(xmlElement["y"]?.stringValue)
+        if let x = ox, let y = oy {
+            let group = SVGGroup(children: [element])
+            group.transform = Translate(tx: x, ty: y)
+            xmlElement["x"] = nil
+            xmlElement["y"] = nil
+            return group
+        }
+        return element
     }
 
     public func processSVGGroup(xmlElement: NSXMLElement, state: State) throws -> SVGGroup? {
