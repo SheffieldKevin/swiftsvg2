@@ -279,6 +279,9 @@ extern NSString *const MIJSONKeyVariablesDictionary;
 /// The key for representing an array of path elements. "arrayofpathelements"
 extern NSString *const MIJSONKeyArrayOfPathElements;
 
+/// The key for representing an SVG style path representation. "svgpath"
+extern NSString *const MIJSONKeySVGPath;
+
 /// The key for representing a rectangle. "rect". Made of: { origin, size }.
 extern NSString *const MIJSONKeyRect;
 
@@ -788,6 +791,20 @@ extern NSString *const MIJSONKeyInnerShadow;
  the previous. Default is the nonzero winding number rule.
 */
 extern NSString *const MIJSONKeyClippingpath;
+
+/*
+ @brief Array of line dash lengths to create a line dash pattern. "dasharray"
+ @discussion When setting the dashing for stroking a line you define a line pattern.
+ The pattern is defined by a series of lengths, the first length being how long
+ the first line segment drawn is, the second is how long the segment is that is
+ not drawn and then you can repeat.
+*/
+extern NSString *const MIJSONKeyLineDashArray;
+
+/*
+ @brief A value that specifies how far into dash pattern the line starts "dashphase"
+*/
+extern NSString *const MIJSONKeyLineDashPhase;
 
 /*
  @brief Use an image as a mask. Dictionary spec for applying the image mask.

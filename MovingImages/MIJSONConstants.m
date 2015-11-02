@@ -56,6 +56,7 @@ NSString *const MIJSONKeyVariablesDictionary = @"variables";
 // Specific path related keys
 
 NSString *const MIJSONKeyArrayOfPathElements = @"arrayofpathelements";
+NSString *const MIJSONKeySVGPath = @"svgpath";
 
 // Color related keys.
 
@@ -119,6 +120,8 @@ NSString *const MIJSONKeyMiter = @"miter"; // str enum
 NSString *const MIJSONKeyShadow = @"shadow"; // dictionary
 NSString *const MIJSONKeyInnerShadow = @"innershadow"; // dictionary.
 NSString *const MIJSONKeyClippingpath = @"clippingpath"; // dictionary.
+NSString *const MIJSONKeyLineDashArray = @"dasharray"; // array of CGFloat.
+NSString *const MIJSONKeyLineDashPhase = @"dashphase"; // CGFloat.
 NSString *const MIJSONKeyApplyImageMask = @"applyimagemask"; // dictionary.
 NSString *const MIJSONKeyShadowOffset = @"offset"; // { width, height }
 NSString *const MIJSONKeyBlur = @"blur"; // float.
