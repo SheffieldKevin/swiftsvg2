@@ -194,7 +194,7 @@ public class MovingImagesRenderer: Renderer {
 
     public func addPath(path:PathGenerator) {
         if let svgPath = path.svgpath {
-            current.movingImages["svgpath"] = svgPath
+            current.movingImages[MIJSONKeySVGPath] = svgPath
             return
         }
 
@@ -332,25 +332,20 @@ public class MovingImagesRenderer: Renderer {
             if let alpha = style.alpha {
                 current.movingImages[MIJSONKeyAlpha] = alpha
             }
+            if let lineDash = style.lineDash {
+                if let lineDashPhase = style.lineDashPhase {
+                    current.movingImages[MIJSONKeyLineDashArray] = lineDash
+                    current.movingImages[MIJSONKeyLineDashPhase] = lineDashPhase
+                } else {
+                    current.movingImages[MIJSONKeyLineDashArray] = lineDash
+                }
+            }
 /*  Not yet implemented in SwiftSVG.
             if let blendMode = newStyle.blendMode {
                 setBlendMode(blendMode)
             }
 */
-            
-// TODO: Not implemented in MovingImages.
-/*
-            if let lineDash = newStyle.lineDash {
-                if let lineDashPhase = newStyle.lineDashPhase {
-                    setLineDash(lineDash, phase: lineDashPhase)
-                } else {
-                    setLineDash(lineDash, phase: 0.0)
-                }
-            }
-            if let flatness = newStyle.flatness {
-                setFlatness(flatness)
-            }
-*/
+
         }
     }
 }

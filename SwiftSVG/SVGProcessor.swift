@@ -125,6 +125,7 @@ public class SVGProcessor {
             case "g":
                 svgElement = try processSVGGroup(xmlElement, state: state)
             // The "symbol" element being equated to a group element here is a pure hack.
+            // TODO: create a SVGSymbol class and a processSVGSymbol method.
             case "symbol":
                 svgElement = try processSVGGroup(xmlElement, state: state)
             case "path":
@@ -504,52 +505,6 @@ public class SVGProcessor {
         let parts = style.componentsSeparatedByCharactersInSet(seperators)
         let pairSeperator = NSCharacterSet(charactersInString: ":")
 
-/*
-        parts.forEach {
-            let pair = $0.componentsSeparatedByCharactersInSet(pairSeperator)
-            guard pair.count == 2 else {
-                return
-            }
-            let styleElement:StyleElement?
-            
-            let propertyName = pair[0].stringByTrimmingCharactersInSet(trimChars)
-            let value = pair[1].stringByTrimmingCharactersInSet(trimChars)
-            switch(propertyName) {
-                case "fill":
-                    styleElement = processFillColor(value, svgElement: svgElement)
-                case "stroke":
-                    styleElement = processStrokeColor(value)
-                case "stroke-width":
-                    let floatVal = try? SVGProcessor.stringToCGFloat(value)
-                    if let strokeValue = floatVal {
-                        styleElement = StyleElement.lineWidth(strokeValue)
-                    }
-                    else {
-                        styleElement = .None
-                    }
-                case "stroke-miterlimit":
-                    let floatVal = try? SVGProcessor.stringToCGFloat(value)
-                    if let miterLimit = floatVal {
-                        styleElement = StyleElement.miterLimit(miterLimit)
-                    }
-                    else {
-                        styleElement = .None
-                    }
-                case "display":
-                    if let svgElement = svgElement where value == "none" {
-                        svgElement.display = false
-                    }
-                    styleElement = .None
-                default:
-                    styleElement = .None
-            }
-            
-            if let theElement = styleElement {
-                styleElements.append(theElement)
-            }
-        }
-*/
-
         let styles:[StyleElement?] = parts.map {
             let pair = $0.componentsSeparatedByCharactersInSet(pairSeperator)
             if pair.count != 2 {
@@ -577,6 +532,18 @@ public class SVGProcessor {
                 case "display":
                     if let svgElement = svgElement where value == "none" {
                         svgElement.display = false
+                    }
+                    return .None
+                case "stroke-dasharray":
+                    if let dashSegmentsOpt = try? SVGProcessor.processDashSegments(value),
+                        let dashSegments = dashSegmentsOpt {
+                        return StyleElement.lineDash(dashSegments)
+                    }
+                    return .None
+                case "stroke-dashoffset":
+                    if let dashPhase =  try? SVGProcessor.stringToOptionalCGFloat(value),
+                        let dashPhaseValue = dashPhase {
+                        return StyleElement.lineDashPhase(dashPhaseValue)
                     }
                     return .None
                 default:
@@ -658,8 +625,15 @@ public class SVGProcessor {
             }
             xmlElement["display"] = nil
         }
-                            
-        //
+        
+        if let dashSegments = try SVGProcessor.processDashSegments(xmlElement) {
+            styleElements.append(StyleElement.lineDash(dashSegments))
+            let dashPhase =  try SVGProcessor.stringToOptionalCGFloat(xmlElement["stroke-dashoffset"]?.stringValue)
+            if let dashPhaseValue = dashPhase {
+                styleElements.append(StyleElement.lineDashPhase(dashPhaseValue))
+            }
+        }
+        
         if styleElements.count > 0 {
             return SwiftGraphics.Style(elements: styleElements)
         }
@@ -668,6 +642,31 @@ public class SVGProcessor {
         }
     }
 
+    public class func processDashSegments(value: String) throws -> [CGFloat]? {
+        let COMMA = Literal(",")
+        let OPT_COMMA = zeroOrOne(COMMA).makeStripped()
+        let VALUE_LIST = oneOrMore((cgFloatValue + OPT_COMMA).makeStripped().makeFlattened())
+        let result = try VALUE_LIST.parse(value)
+        switch result {
+            case .Ok(let value):
+                guard let value = value as? [Any] else {
+                    return .None
+                }
+                return value.map() { return $0 as! CGFloat }
+            default:
+                return .None
+        }
+    }
+    
+    public class func processDashSegments(xmlElement: NSXMLElement) throws -> [CGFloat]? {
+        guard let value = xmlElement["stroke-dasharray"]?.stringValue else {
+            return nil
+        }
+        let result = try self.processDashSegments(value)
+        xmlElement["stroke-dasharray"] = nil
+        return result
+    }
+    
     public func processTransform(xmlElement: NSXMLElement) throws -> Transform2D? {
         guard let value = xmlElement["transform"]?.stringValue else {
             return nil
