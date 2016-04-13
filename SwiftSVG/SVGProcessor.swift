@@ -683,9 +683,10 @@ public class SVGProcessor {
             throw Error.corruptXML
         }
         var out : [CGPoint] = []
-        for var i = 0; i < data.count-1; i += 2 {
-            out.append(CGPointMake(CGFloat(data[i]), CGFloat(data[i+1])))
+        for i in 0.stride(to: data.count, by: 2) {
+            out.append(CGPoint(x: CGFloat(data[i]), y: CGFloat(data[i + 1])))
         }
+        
         return out
     }
 
