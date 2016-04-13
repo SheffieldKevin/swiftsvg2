@@ -169,6 +169,10 @@
 		45E6ADAF1A9EAB0200386CFE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		45E6ADB21A9EAB0200386CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45E6ADE61A9EABA700386CFE /* SVGElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGElement.swift; sourceTree = "<group>"; };
+		6E17A10D1BE904CE006021E8 /* SwiftSVGiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftSVGiOS.h; sourceTree = "<group>"; };
+		6E17A10F1BE904CE006021E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E17A1191BE904CE006021E8 /* SwiftSVGiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSVGiOSTests.swift; sourceTree = "<group>"; };
+		6E17A11B1BE904CE006021E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E2F002A1BC693D2000EF53F /* MovingImagesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovingImagesTests.swift; path = MovingImagesTests/MovingImagesTests.swift; sourceTree = "<group>"; };
 		6E2F002F1BC86929000EF53F /* Apple_Swift_Logo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Apple_Swift_Logo.json; path = "SwiftSVG Demo/Samples/Apple_Swift_Logo.json"; sourceTree = "<group>"; };
 		6E2F00321BC89861000EF53F /* RPM_NavBall_Overlay.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = RPM_NavBall_Overlay.json; path = "SwiftSVG Demo/Samples/RPM_NavBall_Overlay.json"; sourceTree = "<group>"; };
@@ -327,6 +331,8 @@
 				45E6ADA61A9EAB0200386CFE /* SwiftSVG Demo */,
 				45C203301B8E0E8200966AC6 /* SwiftSVG */,
 				6E57A0BB1BBEEE9500AA0574 /* SwiftSVGTests */,
+				6E17A10C1BE904CE006021E8 /* SwiftSVGiOS */,
+				6E17A1181BE904CE006021E8 /* SwiftSVGiOSTests */,
 				451958171AC22BDA00659E64 /* Frameworks */,
 				45E6ADA51A9EAB0200386CFE /* Products */,
 			);
@@ -364,6 +370,24 @@
 				45E6ADA81A9EAB0200386CFE /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6E17A10C1BE904CE006021E8 /* SwiftSVGiOS */ = {
+			isa = PBXGroup;
+			children = (
+				6E17A10D1BE904CE006021E8 /* SwiftSVGiOS.h */,
+				6E17A10F1BE904CE006021E8 /* Info.plist */,
+			);
+			path = SwiftSVGiOS;
+			sourceTree = "<group>";
+		};
+		6E17A1181BE904CE006021E8 /* SwiftSVGiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				6E17A1191BE904CE006021E8 /* SwiftSVGiOSTests.swift */,
+				6E17A11B1BE904CE006021E8 /* Info.plist */,
+			);
+			path = SwiftSVGiOSTests;
 			sourceTree = "<group>";
 		};
 		6E2F002C1BC696B8000EF53F /* MITests */ = {
@@ -488,7 +512,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = No;
 				TargetAttributes = {
