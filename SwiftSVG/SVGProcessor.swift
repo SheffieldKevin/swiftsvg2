@@ -11,6 +11,36 @@ import Foundation
 import SwiftGraphics
 import SwiftParsing
 
+private extension CGLineJoin {
+    static func valueFromSVG(string string: String) -> CGLineJoin? {
+        switch(string) {
+        case "bevel":
+            return CGLineJoin.Bevel
+        case "miter":
+            return CGLineJoin.Miter
+        case "round":
+            return CGLineJoin.Round
+        default:
+            return .None
+        }
+    }
+}
+
+private extension CGLineCap {
+    static func valueFromSVG(string string: String) -> CGLineCap? {
+        switch(string) {
+        case "butt":
+            return CGLineCap.Butt
+        case "round":
+            return CGLineCap.Round
+        case "square":
+            return CGLineCap.Square
+        default:
+            return .None
+        }
+    }
+}
+
 public class SVGProcessor {
 
     public class State {
@@ -529,6 +559,20 @@ public class SVGProcessor {
                         return StyleElement.MiterLimit(miterLimit)
                     }
                     return .None
+                case "stroke-linejoin":
+                    let lineJoin = CGLineJoin.valueFromSVG(string: value)
+                    
+                    if let lineJoinValue = lineJoin {
+                        return StyleElement.LineJoin(lineJoinValue)
+                    }
+                    return .None
+                case "stroke-linecap":
+                    let lineCap = CGLineCap.valueFromSVG(string: value)
+                    
+                    if let lineCapValue = lineCap {
+                        return StyleElement.LineCap(lineCapValue)
+                    }
+                    return .None
                 case "display":
                     if let svgElement = svgElement where value == "none" {
                         svgElement.display = false
@@ -612,6 +656,20 @@ public class SVGProcessor {
             styleElements.append(StyleElement.LineWidth(strokeValue))
         }
         xmlElement["stroke-width"] = nil
+
+        let lineJoinString = xmlElement["stroke-linejoin"]?.stringValue
+        if let lineJoinStringValue = lineJoinString,
+            let lineJoin = CGLineJoin.valueFromSVG(string: lineJoinStringValue) {
+            styleElements.append(StyleElement.LineJoin(lineJoin))
+        }
+        xmlElement["stroke-linejoin"] = nil
+
+        let lineCapString = xmlElement["stroke-linecap"]?.stringValue
+        if let lineCapStringValue = lineCapString,
+            let lineCap = CGLineCap.valueFromSVG(string: lineCapStringValue) {
+            styleElements.append(StyleElement.LineCap(lineCap))
+        }
+        xmlElement["stroke-linecap"] = nil
 
         let mitreLimit = try SVGProcessor.stringToOptionalCGFloat(xmlElement["stroke-miterlimit"]?.stringValue)
         if let mitreLimitValue = mitreLimit {

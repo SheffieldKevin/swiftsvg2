@@ -13,12 +13,12 @@ import SwiftGraphics
 // MARK: -
 
 public protocol Node {
-    typealias ParentType
+    associatedtype ParentType
     var parent: ParentType? { get }
 }
 
 public protocol GroupNode: Node {
-    typealias NodeType
+    associatedtype NodeType
     var children: [NodeType] { get }
 }
 
@@ -137,8 +137,10 @@ public class SVGElement: Node {
     }
     
     func printSelfAndParents() {
-        for var parent:SVGElement? = self; parent != nil; parent = parent!.parent {
-            parent?.printElement()
+        var parent: SVGElement? = self
+        while let localParent = parent {
+            localParent.printElement()
+            parent = localParent.parent
         }
     }
 }
