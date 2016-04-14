@@ -120,47 +120,47 @@ extension SwiftGraphics.Style {
         var elements: [StyleElement] = []
 
         if let fillColor = fillColor {
-            elements.append(.fillColor(fillColor))
+            elements.append(.FillColor(fillColor))
         }
 
         if let strokeColor = strokeColor {
-            elements.append(.fillColor(strokeColor))
+            elements.append(.StrokeColor(strokeColor))
         }
 
         if let lineWidth = lineWidth {
-            elements.append(.lineWidth(lineWidth))
+            elements.append(.LineWidth(lineWidth))
         }
 
         if let lineCap = lineCap {
-            elements.append(.lineCap(lineCap))
+            elements.append(.LineCap(lineCap))
         }
 
         if let lineJoin = lineJoin {
-            elements.append(.lineJoin(lineJoin))
+            elements.append(.LineJoin(lineJoin))
         }
 
         if let miterLimit = miterLimit {
-            elements.append(.miterLimit(miterLimit))
+            elements.append(.MiterLimit(miterLimit))
         }
 
         if let lineDash = lineDash {
-            elements.append(.lineDash(lineDash))
+            elements.append(.LineDash(lineDash))
         }
 
         if let lineDashPhase = lineDashPhase {
-            elements.append(.lineDashPhase(lineDashPhase))
+            elements.append(.LineDashPhase(lineDashPhase))
         }
 
         if let flatness = flatness {
-            elements.append(.flatness(flatness))
+            elements.append(.Flatness(flatness))
         }
 
         if let alpha = alpha {
-            elements.append(.alpha(alpha))
+            elements.append(.Alpha(alpha))
         }
 
         if let blendMode = blendMode {
-            elements.append(.blendMode(blendMode))
+            elements.append(.BlendMode(blendMode))
         }
 
         return elements

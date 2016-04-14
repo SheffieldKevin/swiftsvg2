@@ -6,6 +6,7 @@
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "729A64D6D525F9784C8EE5D237BF81C9AEA202EE" : 0,
     "BA3A226EFF71F2AE4318E7E030C72BF756F6CD95" : 0,
+    "D5BB88F9C29FCDD95A6F984233028EF130C5E22C" : 0,
     "C86CFD15117A32C7175CD6D719DB9143F9208F06" : 0,
     "575D880AECD46D5450DCE1653E0F6C244B39D702" : 0
   },
@@ -13,6 +14,7 @@
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "729A64D6D525F9784C8EE5D237BF81C9AEA202EE" : "swiftsvg2\/SwiftUtilities\/",
     "BA3A226EFF71F2AE4318E7E030C72BF756F6CD95" : "swiftsvg2\/",
+    "D5BB88F9C29FCDD95A6F984233028EF130C5E22C" : "swiftsvg2\/SwiftGraphics\/Externals\/SwiftRandom\/",
     "C86CFD15117A32C7175CD6D719DB9143F9208F06" : "swiftsvg2\/SwiftParsing\/",
     "575D880AECD46D5450DCE1653E0F6C244B39D702" : "swiftsvg2\/SwiftGraphics\/"
   },
@@ -39,6 +41,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SheffieldKevin\/SwiftParsing.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C86CFD15117A32C7175CD6D719DB9143F9208F06"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/schwa\/SwiftRandom.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D5BB88F9C29FCDD95A6F984233028EF130C5E22C"
     }
   ]
 }

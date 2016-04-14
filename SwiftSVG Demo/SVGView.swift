@@ -22,7 +22,7 @@ class SVGView: NSView {
         didSet {
             if let svgDocument = svgDocument, let viewBox = svgDocument.viewBox {
                 horizontalConstraint?.constant = viewBox.width
-                verticalConstraint?.constant = viewBox.width
+                verticalConstraint?.constant = viewBox.height
             }
             needsDisplay = true
             needsLayout = true
@@ -31,7 +31,7 @@ class SVGView: NSView {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        addGestureRecognizer(NSClickGestureRecognizer(target: self, action: Selector("tap:")))
+        addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(SVGView.tap(_:))))
     }
 
     override func layout() {
@@ -98,7 +98,7 @@ class SVGView: NSView {
             // TODO: HACK
             let color = NSColor(red: red, green: green, blue: blue, alpha: 1.0).CGColor
 
-            let style = Style(elements: [.fillColor(color)])
+            let style = Style(elements: [.FillColor(color)])
             index = index + 1
             return style
         }

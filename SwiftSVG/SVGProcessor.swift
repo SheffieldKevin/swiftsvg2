@@ -481,7 +481,7 @@ public class SVGProcessor {
         if let colorDict = processColorString(colorString),
             let color = SVGColors.colorDictionaryToCGColor(colorDict)
         {
-            return StyleElement.fillColor(color)
+            return StyleElement.FillColor(color)
         }
         else {
             return nil
@@ -492,7 +492,7 @@ public class SVGProcessor {
         if let colorDict = processColorString(colorString),
             let color = SVGColors.colorDictionaryToCGColor(colorDict)
         {
-            return StyleElement.strokeColor(color)
+            return StyleElement.StrokeColor(color)
         }
         else {
             return nil
@@ -520,13 +520,13 @@ public class SVGProcessor {
                 case "stroke-width":
                     let floatVal = try? SVGProcessor.stringToCGFloat(value)
                     if let strokeValue = floatVal {
-                        return StyleElement.lineWidth(strokeValue)
+                        return StyleElement.LineWidth(strokeValue)
                     }
                     return .None
                 case "stroke-miterlimit":
                     let floatVal = try? SVGProcessor.stringToCGFloat(value)
                     if let miterLimit = floatVal {
-                        return StyleElement.miterLimit(miterLimit)
+                        return StyleElement.MiterLimit(miterLimit)
                     }
                     return .None
                 case "display":
@@ -537,13 +537,13 @@ public class SVGProcessor {
                 case "stroke-dasharray":
                     if let dashSegmentsOpt = try? SVGProcessor.processDashSegments(value),
                         let dashSegments = dashSegmentsOpt {
-                        return StyleElement.lineDash(dashSegments)
+                        return StyleElement.LineDash(dashSegments)
                     }
                     return .None
                 case "stroke-dashoffset":
                     if let dashPhase =  try? SVGProcessor.stringToOptionalCGFloat(value),
                         let dashPhaseValue = dashPhase {
-                        return StyleElement.lineDashPhase(dashPhaseValue)
+                        return StyleElement.LineDashPhase(dashPhaseValue)
                     }
                     return .None
                 default:
@@ -609,13 +609,13 @@ public class SVGProcessor {
 
         let stroke = try SVGProcessor.stringToOptionalCGFloat(xmlElement["stroke-width"]?.stringValue)
         if let strokeValue = stroke {
-            styleElements.append(StyleElement.lineWidth(strokeValue))
+            styleElements.append(StyleElement.LineWidth(strokeValue))
         }
         xmlElement["stroke-width"] = nil
 
         let mitreLimit = try SVGProcessor.stringToOptionalCGFloat(xmlElement["stroke-miterlimit"]?.stringValue)
         if let mitreLimitValue = mitreLimit {
-            styleElements.append(StyleElement.miterLimit(mitreLimitValue))
+            styleElements.append(StyleElement.MiterLimit(mitreLimitValue))
         }
         xmlElement["stroke-miterlimit"] = nil
 
@@ -627,10 +627,10 @@ public class SVGProcessor {
         }
         
         if let dashSegments = try SVGProcessor.processDashSegments(xmlElement) {
-            styleElements.append(StyleElement.lineDash(dashSegments))
+            styleElements.append(StyleElement.LineDash(dashSegments))
             let dashPhase =  try SVGProcessor.stringToOptionalCGFloat(xmlElement["stroke-dashoffset"]?.stringValue)
             if let dashPhaseValue = dashPhase {
-                styleElements.append(StyleElement.lineDashPhase(dashPhaseValue))
+                styleElements.append(StyleElement.LineDashPhase(dashPhaseValue))
             }
         }
         
