@@ -291,45 +291,11 @@ public class SVGProcessor {
         return svgElement
     }
 
-    private class func stringToCGFloat(string: String?) throws -> CGFloat {
-        guard let string = string else {
-            throw Error.expectedSVGElementNotFound
-        }
-        // This is probably a bit reckless. 
-        let string2 = string.stringByTrimmingCharactersInSet(NSCharacterSet.lowercaseLetterCharacterSet())
-        guard let value = NSNumberFormatter().numberFromString(string2)?.doubleValue else {
-            throw Error.corruptXML
-        }
-        return CGFloat(value)
-    }
-    
-    private class func stringToOptionalCGFloat(string: String?) throws -> CGFloat? {
-        guard let string = string else {
-            return Optional.None
-        }
-        let string2 = string.stringByTrimmingCharactersInSet(NSCharacterSet.lowercaseLetterCharacterSet())
-        guard let value = NSNumberFormatter().numberFromString(string2)?.doubleValue else {
-            throw Error.corruptXML
-        }
-        return CGFloat(value)
-    }
-    
-    private class func stringToCGFloat(string: String?, defaultVal: CGFloat) throws -> CGFloat {
-        guard let string = string else {
-            return defaultVal
-        }
-        let string2 = string.stringByTrimmingCharactersInSet(NSCharacterSet.lowercaseLetterCharacterSet())
-        guard let value = NSNumberFormatter().numberFromString(string2) else {
-            throw Error.corruptXML
-        }
-        return CGFloat(value.doubleValue)
-    }
-    
     public func processSVGPolygon(xmlElement: NSXMLElement, state: State) throws -> SVGPolygon? {
         guard let pointsString = xmlElement["points"]?.stringValue else {
             throw Error.expectedSVGElementNotFound
         }
-        let points = try parseListOfPoints(pointsString)
+        let points = try SVGProcessor.parseListOfPoints(pointsString)
         
         xmlElement["points"] = nil
         let svgElement = SVGPolygon(points: points)
@@ -340,7 +306,7 @@ public class SVGProcessor {
         guard let pointsString = xmlElement["points"]?.stringValue else {
             throw Error.expectedSVGElementNotFound
         }
-        let points = try parseListOfPoints(pointsString)
+        let points = try SVGProcessor.parseListOfPoints(pointsString)
         
         xmlElement["points"] = nil
         let svgElement = SVGPolyline(points: points)
@@ -733,9 +699,22 @@ public class SVGProcessor {
         return transform
     }
 
-    // TODO: @schwa - I couldn't work out how to apply your parser to an array of points float,float
+    public func 
+}
+
+private protocol Parser {
+    static func floatsToPoints(data: [Float]) throws -> [CGPoint]
+    static func parseListOfPoints(entry : String) throws -> [CGPoint]
+    static func stringToCGFloat(string: String?) throws -> CGFloat
+    static func stringToOptionalCGFloat(string: String?) throws -> CGFloat?
+    static func stringToCGFloat(string: String?, defaultVal: CGFloat) throws -> CGFloat
+}
+
+// MARK: SVGProcessor: String to number parser methods.
+
+extension SVGProcessor: Parser {
     /// Convert an even list of floats to CGPoints
-    private func floatsToPoints(data: [Float]) throws -> [CGPoint] {
+    private class func floatsToPoints(data: [Float]) throws -> [CGPoint] {
         guard data.count % 2 == 0 else {
             throw Error.corruptXML
         }
@@ -746,9 +725,9 @@ public class SVGProcessor {
         
         return out
     }
-
+    
     /// Parse the list of points from a polygon/polyline entry
-    private func parseListOfPoints(entry : String) throws -> [CGPoint] {
+    private class func parseListOfPoints(entry : String) throws -> [CGPoint] {
         // Split by all commas and whitespace, then group into coords of two floats
         let entry = entry.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         let separating = NSMutableCharacterSet.whitespaceAndNewlineCharacterSet()
@@ -756,9 +735,41 @@ public class SVGProcessor {
         let parts = entry.componentsSeparatedByCharactersInSet(separating).filter { !$0.isEmpty }
         return try floatsToPoints(parts.map({Float($0)!}))
     }
-}
 
-// MARK: -
+    private class func stringToCGFloat(string: String?) throws -> CGFloat {
+        guard let string = string else {
+            throw Error.expectedSVGElementNotFound
+        }
+        // This is probably a bit reckless.
+        let string2 = string.stringByTrimmingCharactersInSet(NSCharacterSet.lowercaseLetterCharacterSet())
+        guard let value = NSNumberFormatter().numberFromString(string2)?.doubleValue else {
+            throw Error.corruptXML
+        }
+        return CGFloat(value)
+    }
+    
+    private class func stringToOptionalCGFloat(string: String?) throws -> CGFloat? {
+        guard let string = string else {
+            return Optional.None
+        }
+        let string2 = string.stringByTrimmingCharactersInSet(NSCharacterSet.lowercaseLetterCharacterSet())
+        guard let value = NSNumberFormatter().numberFromString(string2)?.doubleValue else {
+            throw Error.corruptXML
+        }
+        return CGFloat(value)
+    }
+    
+    private class func stringToCGFloat(string: String?, defaultVal: CGFloat) throws -> CGFloat {
+        guard let string = string else {
+            return defaultVal
+        }
+        let string2 = string.stringByTrimmingCharactersInSet(NSCharacterSet.lowercaseLetterCharacterSet())
+        guard let value = NSNumberFormatter().numberFromString(string2) else {
+            throw Error.corruptXML
+        }
+        return CGFloat(value.doubleValue)
+    }
+}
 
 extension SVGProcessor.Event: CustomStringConvertible {
     public var description: String {
