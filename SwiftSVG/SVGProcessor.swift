@@ -219,7 +219,7 @@ public class SVGProcessor {
         // A def element can be children of documents and groups.
         // Any member of def elements should be accessible anywhere within the SVGDocument.
         guard let nodes = xmlElement.children else {
-            throw Error.corruptXML
+            return .None
         }
         
         // I suspect that we might need a seperate processor for members of the defs element.
