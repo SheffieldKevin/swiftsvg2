@@ -33,7 +33,7 @@ public class SVGElement: Node {
     public internal(set) var id: String? = nil
     public internal(set) var xmlElement: NSXMLElement? = nil
     public internal(set) var textStyle: TextStyle? = nil
-    
+    public internal(set) var gradientFill: SVGElement? = nil
     public internal(set) var display = true
 
     var drawFill = true // If fill="none" this explictly turns off fill.
@@ -554,4 +554,29 @@ public class SVGSimpleText: SVGElement {
         self.spans.forEach() { $0.textElement = self }
     }
 
+}
+
+public class SVGLinearGradientStop {
+    internal let offset: CGFloat
+    internal let opacity: CGFloat
+    internal let color: CGColor
+
+    public init(offset: CGFloat, opacity: CGFloat, color: CGColor) {
+        self.offset = offset
+        self.opacity = opacity
+        self.color = color
+    }
+}
+
+public class SVGLinearGradient: SVGElement {
+    internal let point1: CGPoint?
+    internal let point2: CGPoint?
+    internal let stops: [SVGLinearGradientStop]
+    
+    public init(stops: [SVGLinearGradientStop], point1: CGPoint? = .None, point2: CGPoint? = .None) {
+        self.stops = stops
+        self.point1 = point1
+        self.point2 = point2
+        super.init()
+    }
 }
