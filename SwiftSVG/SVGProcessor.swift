@@ -318,12 +318,11 @@ public class SVGProcessor {
         guard let string = string else {
             return defaultVal
         }
-
         let string2 = string.stringByTrimmingCharactersInSet(NSCharacterSet.lowercaseLetterCharacterSet())
-        guard let value = NSNumberFormatter().numberFromString(string2)?.doubleValue else {
+        guard let value = NSNumberFormatter().numberFromString(string2) else {
             throw Error.corruptXML
         }
-        return CGFloat(value)
+        return CGFloat(value.doubleValue)
     }
     
     public func processSVGPolygon(xmlElement: NSXMLElement, state: State) throws -> SVGPolygon? {
