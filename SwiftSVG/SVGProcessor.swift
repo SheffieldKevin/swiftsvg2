@@ -436,9 +436,7 @@ public class SVGProcessor {
         xmlElement["x"] = nil
         xmlElement["y"] = nil
 
-        guard let nodes = xmlElement.children where nodes.count > 0 else {
-            throw Error.expectedSVGElementNotFound
-        }
+        let nodes = xmlElement.children ?? [NSXMLNode]()
         
         let textSpans = try nodes.map { node -> SVGTextSpan? in
             if let textItem = node as? NSXMLElement {
@@ -450,8 +448,12 @@ public class SVGProcessor {
             return nil
         }
 
-        let flattenedTextSpans = textSpans.flatMap { $0 }
-        
+        var flattenedTextSpans = textSpans.flatMap { $0 }
+        if let text = xmlElement.stringValue {
+            let textSpane = SVGTextSpan(string: text, textOrigin: textOrigin)
+            flattenedTextSpans = [textSpane] + flattenedTextSpans
+        }
+
         xmlElement.setChildren(nil)
         if flattenedTextSpans.count > 0 {
             return SVGSimpleText(spans: flattenedTextSpans)
@@ -681,7 +683,7 @@ public class SVGProcessor {
         }
     }
     
-    public class func processDashSegments(xmlElement: NSXMLElement) throws -> [CGFloat]? {
+    private class func processDashSegments(xmlElement: NSXMLElement) throws -> [CGFloat]? {
         guard let value = xmlElement["stroke-dasharray"]?.stringValue else {
             return nil
         }
@@ -690,7 +692,7 @@ public class SVGProcessor {
         return result
     }
     
-    public func processTransform(xmlElement: NSXMLElement) throws -> Transform2D? {
+    private func processTransform(xmlElement: NSXMLElement) throws -> Transform2D? {
         guard let value = xmlElement["transform"]?.stringValue else {
             return nil
         }
@@ -742,10 +744,16 @@ extension SVGProcessor: Parser {
         }
         // This is probably a bit reckless.
         let string2 = string.stringByTrimmingCharactersInSet(NSCharacterSet.lowercaseLetterCharacterSet())
-        guard let value = NSNumberFormatter().numberFromString(string2)?.doubleValue else {
+        if string2.characters.isEmpty {
             throw Error.corruptXML
         }
-        return CGFloat(value)
+        if string2.characters.last! == Character("%") {
+            return try self.percentageStringToCGFloat(String(string2.characters.dropLast()))
+        }
+        guard let value = NSNumberFormatter().numberFromString(string2) else {
+            throw Error.corruptXML
+        }
+        return CGFloat(value.doubleValue)
     }
     
     private class func stringToOptionalCGFloat(string: String?) throws -> CGFloat? {
@@ -753,10 +761,10 @@ extension SVGProcessor: Parser {
             return Optional.None
         }
         let string2 = string.stringByTrimmingCharactersInSet(NSCharacterSet.lowercaseLetterCharacterSet())
-        guard let value = NSNumberFormatter().numberFromString(string2)?.doubleValue else {
+        guard let value = NSNumberFormatter().numberFromString(string2) else {
             throw Error.corruptXML
         }
-        return CGFloat(value)
+        return CGFloat(value.doubleValue)
     }
     
     private class func stringToCGFloat(string: String?, defaultVal: CGFloat) throws -> CGFloat {
@@ -768,6 +776,18 @@ extension SVGProcessor: Parser {
             throw Error.corruptXML
         }
         return CGFloat(value.doubleValue)
+    }
+    
+    private class func percentageStringToCGFloat(string: String?) throws -> CGFloat {
+        guard let string = string else {
+            throw Error.corruptXML
+        }
+        
+        let theValue = NSNumberFormatter().numberFromString(string)
+        guard let value = theValue else {
+            throw Error.corruptXML
+        }
+        return CGFloat(value.doubleValue * 0.01)
     }
 }
 

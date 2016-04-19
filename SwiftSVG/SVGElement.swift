@@ -556,7 +556,7 @@ public class SVGSimpleText: SVGElement {
 
 }
 
-public class SVGLinearGradientStop {
+public class SVGGradientStop {
     internal let offset: CGFloat
     internal let opacity: CGFloat
     internal let color: CGColor
@@ -568,15 +568,22 @@ public class SVGLinearGradientStop {
     }
 }
 
+public enum SVGGradientUnit : String {
+    case userSpaceOnUse
+    case objectBoundingBox
+}
+
 public class SVGLinearGradient: SVGElement {
     internal let point1: CGPoint?
     internal let point2: CGPoint?
-    internal let stops: [SVGLinearGradientStop]
+    internal let stops: [SVGGradientStop]
+    internal let gradientUnit: SVGGradientUnit
     
-    public init(stops: [SVGLinearGradientStop], point1: CGPoint? = .None, point2: CGPoint? = .None) {
+    public init(stops: [SVGGradientStop], gradientUnit: SVGGradientUnit, point1: CGPoint? = .None, point2: CGPoint? = .None) {
         self.stops = stops
         self.point1 = point1
         self.point2 = point2
+        self.gradientUnit = gradientUnit
         super.init()
     }
 }
