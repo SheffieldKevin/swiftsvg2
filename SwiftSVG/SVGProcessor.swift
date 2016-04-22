@@ -62,8 +62,10 @@ public class SVGProcessor {
     }
 
     public enum Error: ErrorType {
-        case corruptXML
-        case expectedSVGElementNotFound
+        case corruptXML(String, String, Int)
+        case invalidSVG(String, String, Int)
+        case expectedSVGElementNotFound(String, String, Int)
+        case missingRequiredSVGProperty(String, String, Int)
     }
 
     public init() {
@@ -144,7 +146,7 @@ public class SVGProcessor {
         var svgElement: SVGElement? = nil
 
         guard let name = xmlElement.name else {
-            throw Error.corruptXML
+            throw Error.corruptXML(#file, #function, #line)
         }
 
         switch name {
@@ -176,6 +178,8 @@ public class SVGProcessor {
                 svgElement = try processSVGText(xmlElement)
             case "use":
                 svgElement = try processUSEElement(xmlElement, state:state)
+            case "linearGradient":
+                svgElement = try processGradientDefs(xmlElement)
             case "title":
                 state.document!.title = xmlElement.stringValue as String?
             case "desc":
@@ -234,11 +238,11 @@ public class SVGProcessor {
 
     public func processUSEElement(xmlElement: NSXMLElement, state: State) throws -> SVGElement? {
         guard let string = xmlElement["xlink:href"]?.stringValue where string.characters.count > 1 else {
-            throw Error.corruptXML
+            throw Error.corruptXML(#file, #function, #line)
         }
         
         guard string.hasPrefix("#") else {
-            throw Error.corruptXML
+            throw Error.corruptXML(#file, #function, #line)
         }
         
         let subString = string.substringFromIndex(string.startIndex.successor())
@@ -281,7 +285,7 @@ public class SVGProcessor {
 
     public func processSVGPath(xmlElement: NSXMLElement, state: State) throws -> SVGPath? {
         guard let string = xmlElement["d"]?.stringValue else {
-            throw Error.expectedSVGElementNotFound
+            throw Error.expectedSVGElementNotFound(#file, #function, #line)
         }
 
         var pathArray = NSMutableArray(capacity: 0)
@@ -293,7 +297,7 @@ public class SVGProcessor {
 
     public func processSVGPolygon(xmlElement: NSXMLElement, state: State) throws -> SVGPolygon? {
         guard let pointsString = xmlElement["points"]?.stringValue else {
-            throw Error.expectedSVGElementNotFound
+            throw Error.expectedSVGElementNotFound(#file, #function, #line)
         }
         let points = try SVGProcessor.parseListOfPoints(pointsString)
         
@@ -304,7 +308,7 @@ public class SVGProcessor {
 
     public func processSVGPolyline(xmlElement: NSXMLElement, state: State) throws -> SVGPolyline? {
         guard let pointsString = xmlElement["points"]?.stringValue else {
-            throw Error.expectedSVGElementNotFound
+            throw Error.expectedSVGElementNotFound(#file, #function, #line)
         }
         let points = try SVGProcessor.parseListOfPoints(pointsString)
         
@@ -413,7 +417,7 @@ public class SVGProcessor {
         let y = try SVGProcessor.stringToCGFloat(xmlElement["y"]?.stringValue, defaultVal: textOrigin.y)
         let newOrigin = CGPoint(x: x, y: y)
         guard let string = xmlElement.stringValue else {
-            throw Error.corruptXML
+            throw Error.corruptXML(#file, #function, #line)
         }
         let textSpan = SVGTextSpan(string: string, textOrigin: newOrigin)
         let textStyle = try self.processTextStyle(xmlElement)
@@ -450,8 +454,8 @@ public class SVGProcessor {
 
         var flattenedTextSpans = textSpans.flatMap { $0 }
         if let text = xmlElement.stringValue {
-            let textSpane = SVGTextSpan(string: text, textOrigin: textOrigin)
-            flattenedTextSpans = [textSpane] + flattenedTextSpans
+            let textSpan = SVGTextSpan(string: text, textOrigin: textOrigin)
+            flattenedTextSpans = [textSpan] + flattenedTextSpans
         }
 
         xmlElement.setChildren(nil)
@@ -475,6 +479,7 @@ public class SVGProcessor {
             svgElement.drawFill = false
             return nil
         }
+
         if let colorDict = processColorString(colorString),
             let color = SVGColors.colorDictionaryToCGColor(colorDict)
         {
@@ -701,10 +706,110 @@ public class SVGProcessor {
         return transform
     }
 
-    public func 
+    private func processGradientStop(xmlElement: NSXMLElement) throws -> SVGGradientStop {
+        let offset = try SVGProcessor.stringToCGFloat(xmlElement["offset"]?.stringValue)
+        
+        if let style = xmlElement["style"]?.stringValue {
+            let seperators = NSCharacterSet(charactersInString: ";")
+            let trimChars = NSCharacterSet.whitespaceAndNewlineCharacterSet()
+            let parts = style.componentsSeparatedByCharactersInSet(seperators)
+            let pairSeperator = NSCharacterSet(charactersInString: ":")
+            
+            var stopColor: CGColor?
+            var stopOpacity: CGFloat = 1.0
+
+            for styleItem in parts where !styleItem.isEmpty {
+                let pair = styleItem.componentsSeparatedByCharactersInSet(pairSeperator)
+                if pair.count != 2 {
+                    throw Error.invalidSVG(#file, #function, #line)
+                }
+                let propertyName = pair[0].stringByTrimmingCharactersInSet(trimChars)
+                let value = pair[1].stringByTrimmingCharactersInSet(trimChars)
+                switch(propertyName) {
+                    case "stop-color":
+                        guard let stopColorDict = SVGProcessor.processColorString(value),
+                            let color = SVGColors.colorDictionaryToCGColor(stopColorDict) else {
+                                throw Error.invalidSVG(#file, #function, #line)
+                        }
+                        stopColor = color
+
+                    case "stop-opacity":
+                        stopOpacity = try SVGProcessor.stringToCGFloat(xmlElement["stop-opacity"]?.stringValue, defaultVal: 1.0)
+                    
+                    default:
+                        print("Unhandled stop property \(propertyName)")
+                        break
+                }
+            }
+            guard let color = stopColor else {
+                throw Error.invalidSVG(#file, #function, #line)
+            }
+            return SVGGradientStop(offset: offset, opacity: stopOpacity, color: color)
+        }
+
+        guard let colorNode = xmlElement["stop-color"] else {
+            throw Error.missingRequiredSVGProperty(#file, #function, #line)
+        }
+        guard let colorString = colorNode.stringValue else {
+            throw Error.corruptXML(#file, #function, #line)
+        }
+        guard let stopColorDict = SVGProcessor.processColorString(colorString),
+            let stopColor = SVGColors.colorDictionaryToCGColor(stopColorDict) else {
+            throw Error.invalidSVG(#file, #function, #line)
+        }
+        let opacity = try SVGProcessor.stringToCGFloat(xmlElement["stop-opacity"]?.stringValue, defaultVal: 1.0)
+        return SVGGradientStop(offset: offset, opacity: opacity, color: stopColor)
+    }
+    
+    private func processGradientStops(xmlElements: [NSXMLNode]?) throws -> [SVGGradientStop]? {
+        guard let xmlElements = xmlElements else {
+            return .None
+        }
+        var gradientStops = [SVGGradientStop]()
+        for xmlNode in xmlElements {
+            guard let xmlElement = xmlNode as? NSXMLElement else {
+                throw Error.corruptXML(#file, #function, #line)
+            }
+            let stop = try processGradientStop(xmlElement)
+            gradientStops.append(stop)
+        }
+        if gradientStops.isEmpty {
+            return .None
+        }
+        return gradientStops
+    }
+    
+    public func processGradientDefs(xmlElement: NSXMLElement) throws -> SVGLinearGradient? {
+/*
+        guard let nodes = xmlElement.children where nodes.count > 0 else {
+            throw Error.expectedSVGElementNotFound(#file, #function, #line)
+        }
+*/
+        let stops = try processGradientStops(xmlElement.children)
+        let x1 = try SVGProcessor.stringToOptionalCGFloat(xmlElement["x1"]?.stringValue)
+        let y1 = try SVGProcessor.stringToOptionalCGFloat(xmlElement["y1"]?.stringValue)
+        let x2 = try SVGProcessor.stringToOptionalCGFloat(xmlElement["x2"]?.stringValue)
+        let y2 = try SVGProcessor.stringToOptionalCGFloat(xmlElement["y2"]?.stringValue)
+
+        xmlElement["x1"] = nil
+        xmlElement["y1"] = nil
+        xmlElement["x2"] = nil
+        xmlElement["y2"] = nil
+
+        let gradientUnitString = xmlElement["gradientUnits"]?.stringValue ?? "objectBoundingBox"
+        guard let gradientUnit = SVGGradientUnit(rawValue: gradientUnitString) else {
+            throw Error.invalidSVG(#file, #function, #line)
+        }
+        xmlElement["gradientUnits"] = nil
+        let point1 = SVGProcessor.makeOptionalPoint(x: x1, y: y1)
+        let point2 = SVGProcessor.makeOptionalPoint(x: x2, y: y2)
+        
+        return SVGLinearGradient(stops: stops, gradientUnit: gradientUnit, point1: point1, point2: point2)
+    }
 }
 
 private protocol Parser {
+    static func makeOptionalPoint(x x: CGFloat?, y: CGFloat?) -> CGPoint?
     static func floatsToPoints(data: [Float]) throws -> [CGPoint]
     static func parseListOfPoints(entry : String) throws -> [CGPoint]
     static func stringToCGFloat(string: String?) throws -> CGFloat
@@ -715,10 +820,18 @@ private protocol Parser {
 // MARK: SVGProcessor: String to number parser methods.
 
 extension SVGProcessor: Parser {
+    private class func makeOptionalPoint(x x: CGFloat?, y: CGFloat?) -> CGPoint? {
+        if let x = x, let y = y {
+            return CGPoint(x: x, y: y)
+        }
+        return .None
+    }
+    
+    
     /// Convert an even list of floats to CGPoints
     private class func floatsToPoints(data: [Float]) throws -> [CGPoint] {
         guard data.count % 2 == 0 else {
-            throw Error.corruptXML
+            throw Error.corruptXML(#file, #function, #line)
         }
         var out : [CGPoint] = []
         for i in 0.stride(to: data.count, by: 2) {
@@ -740,18 +853,18 @@ extension SVGProcessor: Parser {
 
     private class func stringToCGFloat(string: String?) throws -> CGFloat {
         guard let string = string else {
-            throw Error.expectedSVGElementNotFound
+            throw Error.expectedSVGElementNotFound(#file, #function, #line)
         }
         // This is probably a bit reckless.
         let string2 = string.stringByTrimmingCharactersInSet(NSCharacterSet.lowercaseLetterCharacterSet())
         if string2.characters.isEmpty {
-            throw Error.corruptXML
+            throw Error.corruptXML(#file, #function, #line)
         }
         if string2.characters.last! == Character("%") {
             return try self.percentageStringToCGFloat(String(string2.characters.dropLast()))
         }
         guard let value = NSNumberFormatter().numberFromString(string2) else {
-            throw Error.corruptXML
+            throw Error.corruptXML(#file, #function, #line)
         }
         return CGFloat(value.doubleValue)
     }
@@ -762,7 +875,7 @@ extension SVGProcessor: Parser {
         }
         let string2 = string.stringByTrimmingCharactersInSet(NSCharacterSet.lowercaseLetterCharacterSet())
         guard let value = NSNumberFormatter().numberFromString(string2) else {
-            throw Error.corruptXML
+            throw Error.corruptXML(#file, #function, #line)
         }
         return CGFloat(value.doubleValue)
     }
@@ -773,19 +886,19 @@ extension SVGProcessor: Parser {
         }
         let string2 = string.stringByTrimmingCharactersInSet(NSCharacterSet.lowercaseLetterCharacterSet())
         guard let value = NSNumberFormatter().numberFromString(string2) else {
-            throw Error.corruptXML
+            throw Error.corruptXML(#file, #function, #line)
         }
         return CGFloat(value.doubleValue)
     }
     
     private class func percentageStringToCGFloat(string: String?) throws -> CGFloat {
         guard let string = string else {
-            throw Error.corruptXML
+            throw Error.corruptXML(#file, #function, #line)
         }
         
         let theValue = NSNumberFormatter().numberFromString(string)
         guard let value = theValue else {
-            throw Error.corruptXML
+            throw Error.corruptXML(#file, #function, #line)
         }
         return CGFloat(value.doubleValue * 0.01)
     }

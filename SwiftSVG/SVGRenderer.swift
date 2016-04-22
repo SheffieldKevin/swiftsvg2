@@ -115,18 +115,22 @@ public class SVGRenderer {
         }
     }
 
-    public func pathForElement(svgElement: SVGElement) throws -> CGPath? {
+    public func pathForElement(svgElement: SVGElement) -> CGPath? {
         switch svgElement {
             case let svgDocument as SVGDocument:
                 let path = CGPathCreateMutable()
                 for svgElement in svgDocument.children {
-                    CGPathAddPath(path, nil, try pathForElement(svgElement))
+                    if let pathOfChildren = pathForElement(svgElement) {
+                        CGPathAddPath(path, nil, pathOfChildren)
+                    }
                 }
                 return path
             case let svgGroup as SVGGroup:
                 let path = CGPathCreateMutable()
                 for svgElement in svgGroup.children {
-                    CGPathAddPath(path, nil, try pathForElement(svgElement))
+                    if let pathOfChildren = pathForElement(svgElement) {
+                        CGPathAddPath(path, nil, pathOfChildren)
+                    }
                 }
                 return path
             case let pathable as CGPathable:

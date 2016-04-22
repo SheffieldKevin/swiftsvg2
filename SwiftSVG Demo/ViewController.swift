@@ -87,7 +87,7 @@ class ViewController: NSViewController {
                     renderer.concatCTM(transform.toCGAffineTransform())
                 }
 
-                if let path = try self.svgView.svgRenderer.pathForElement(svgElement) {
+                if let path = self.svgView.svgRenderer.pathForElement(svgElement) {
                     // renderer.strokeColor = CGColor.greenColor()
                     renderer.fillColor = CGColor.greenColor()
                     renderer.addCGPath(path)

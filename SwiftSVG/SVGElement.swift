@@ -576,10 +576,10 @@ public enum SVGGradientUnit : String {
 public class SVGLinearGradient: SVGElement {
     internal let point1: CGPoint?
     internal let point2: CGPoint?
-    internal let stops: [SVGGradientStop]
+    internal let stops: [SVGGradientStop]?
     internal let gradientUnit: SVGGradientUnit
     
-    public init(stops: [SVGGradientStop], gradientUnit: SVGGradientUnit, point1: CGPoint? = .None, point2: CGPoint? = .None) {
+    public init(stops: [SVGGradientStop]?, gradientUnit: SVGGradientUnit, point1: CGPoint? = .None, point2: CGPoint? = .None) {
         self.stops = stops
         self.point1 = point1
         self.point2 = point2
