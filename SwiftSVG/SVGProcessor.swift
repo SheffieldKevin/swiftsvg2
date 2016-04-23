@@ -294,7 +294,6 @@ public class SVGProcessor {
         var pathArray = NSMutableArray(capacity: 0)
         let path = MICGPathFromSVGPath(string, pathArray: &pathArray)
         xmlElement["d"] = nil
-        // let svgElement = SVGPath(path: path, miPath: makePathDictionary(pathArray), svgPath: string)
         let svgElement = SVGPath(path: path, svgPath: string)
         return svgElement
     }

@@ -276,6 +276,7 @@ internal func makeCGAffineTransformDictionary(transform: CGAffineTransform) -> [
     ]
 }
 
+/*
 internal func addMIPaths(inout miPath1: MovingImagesPath, miPath2: MovingImagesPath) {
     if let miPathElements1 = miPath1[MIJSONKeyArrayOfPathElements] as? [[NSString : AnyObject]],
         let miPathElements2 = miPath2[MIJSONKeyArrayOfPathElements] as? [[NSString : AnyObject]]
@@ -283,6 +284,7 @@ internal func addMIPaths(inout miPath1: MovingImagesPath, miPath2: MovingImagesP
         miPath1[MIJSONKeyArrayOfPathElements] = miPathElements1 + miPathElements2
     }
 }
+*/
 
 internal func makeMovingImagesText(string: CFString,
                        fontSize: CGFloat,
