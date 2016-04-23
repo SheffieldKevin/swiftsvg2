@@ -45,7 +45,7 @@ public class SVGProcessor {
 
     public class State {
         var document: SVGDocument?
-        var elementsByID: [String: SVGElement] = [: ]
+        var elementsByID: [String:SVGElement] = [: ]
         var events: [Event] = []
     }
 
@@ -179,7 +179,7 @@ public class SVGProcessor {
             case "use":
                 svgElement = try processUSEElement(xmlElement, state:state)
             case "linearGradient":
-                svgElement = try processGradientDefs(xmlElement)
+                svgElement = try processGradientDefs(xmlElement, state:state)
             case "title":
                 state.document!.title = xmlElement.stringValue as String?
             case "desc":
@@ -193,13 +193,13 @@ public class SVGProcessor {
             svgElement.textStyle = try processTextStyle(xmlElement)
             svgElement.style = try processStyle(xmlElement, svgElement: svgElement)
             if let theTransform = svgElement.transform {
-                if let newTransform = try processTransform(xmlElement) {
+                if let newTransform = try processTransform(xmlElement, elementKey: "transform") {
                     // svgElement.transform = theTransform + newTransform
                     svgElement.transform = newTransform + theTransform
                 }
             }
             else {
-                svgElement.transform = try processTransform(xmlElement)
+                svgElement.transform = try processTransform(xmlElement, elementKey: "transform")
             }
 
             if let id = xmlElement["id"]?.stringValue {
@@ -232,6 +232,9 @@ public class SVGProcessor {
             if let svgElement = try self.processSVGElement(node as! NSXMLElement, state: state) {
                 defElements.append(svgElement)
             }
+        }
+        if defElements.count > 0 {
+            state.document!.defs = defElements
         }
         return nil
     }
@@ -422,7 +425,7 @@ public class SVGProcessor {
         let textSpan = SVGTextSpan(string: string, textOrigin: newOrigin)
         let textStyle = try self.processTextStyle(xmlElement)
         let style = try processStyle(xmlElement)
-        let transform = try processTransform(xmlElement)
+        let transform = try processTransform(xmlElement, elementKey: "transform")
         textSpan.textStyle = textStyle
         textSpan.style = style
         textSpan.transform = transform
@@ -696,14 +699,22 @@ public class SVGProcessor {
         xmlElement["stroke-dasharray"] = nil
         return result
     }
-    
-    private func processTransform(xmlElement: NSXMLElement) throws -> Transform2D? {
-        guard let value = xmlElement["transform"]?.stringValue else {
+
+    private func processTransform(xmlElement: NSXMLElement, elementKey: String) throws -> Transform2D? {
+        guard let value = xmlElement[elementKey]?.stringValue else {
             return nil
         }
+        xmlElement[elementKey] = nil
         let transform = try svgTransformAttributeStringToTransform(value)
-        xmlElement["transform"] = nil
         return transform
+    }
+
+    private func processInheritedGradient(xmlElement: NSXMLElement, elementKey: String, state: State) -> SVGLinearGradient? {
+        guard let value = xmlElement[elementKey]?.stringValue else {
+            return nil
+        }
+        xmlElement[elementKey] = nil
+        return state.elementsByID[value] as? SVGLinearGradient
     }
 
     private func processGradientStop(xmlElement: NSXMLElement) throws -> SVGGradientStop {
@@ -779,12 +790,7 @@ public class SVGProcessor {
         return gradientStops
     }
     
-    public func processGradientDefs(xmlElement: NSXMLElement) throws -> SVGLinearGradient? {
-/*
-        guard let nodes = xmlElement.children where nodes.count > 0 else {
-            throw Error.expectedSVGElementNotFound(#file, #function, #line)
-        }
-*/
+    public func processGradientDefs(xmlElement: NSXMLElement, state: State) throws -> SVGLinearGradient? {
         let stops = try processGradientStops(xmlElement.children)
         let x1 = try SVGProcessor.stringToOptionalCGFloat(xmlElement["x1"]?.stringValue)
         let y1 = try SVGProcessor.stringToOptionalCGFloat(xmlElement["y1"]?.stringValue)
@@ -804,7 +810,12 @@ public class SVGProcessor {
         let point1 = SVGProcessor.makeOptionalPoint(x: x1, y: y1)
         let point2 = SVGProcessor.makeOptionalPoint(x: x2, y: y2)
         
-        return SVGLinearGradient(stops: stops, gradientUnit: gradientUnit, point1: point1, point2: point2)
+        let gradientTransform = try processTransform(xmlElement, elementKey: "gradientTransform")
+        let inherited = processInheritedGradient(xmlElement, elementKey: "xlink:href", state: state)
+        
+        return SVGLinearGradient(stops: stops, gradientUnit: gradientUnit,
+                                 point1: point1, point2: point2,
+                                 transform: gradientTransform, inherited: inherited)
     }
 }
 
@@ -826,7 +837,6 @@ extension SVGProcessor: Parser {
         }
         return .None
     }
-    
     
     /// Convert an even list of floats to CGPoints
     private class func floatsToPoints(data: [Float]) throws -> [CGPoint] {

@@ -33,7 +33,7 @@ public class SVGElement: Node {
     public internal(set) var id: String? = nil
     public internal(set) var xmlElement: NSXMLElement? = nil
     public internal(set) var textStyle: TextStyle? = nil
-    public internal(set) var gradientFill: SVGElement? = nil
+    public internal(set) var gradientFill: SVGLinearGradient? = nil
     public internal(set) var display = true
 
     var drawFill = true // If fill="none" this explictly turns off fill.
@@ -215,6 +215,14 @@ public class SVGDocument: SVGContainer {
     public var viewBox: CGRect?
     public var title: String?
     public var documentDescription: String?
+    public var defs: [SVGElement]?
+    
+    override public func printElements() {
+        super.printElements()
+        if let defs = self.defs {
+            defs.forEach() { $0.printElements() }
+        }
+    }
 }
 
 // MARK: -
@@ -553,7 +561,6 @@ public class SVGSimpleText: SVGElement {
         super.init()
         self.spans.forEach() { $0.textElement = self }
     }
-
 }
 
 public class SVGGradientStop {
@@ -579,11 +586,15 @@ public class SVGLinearGradient: SVGElement {
     internal let stops: [SVGGradientStop]?
     internal let gradientUnit: SVGGradientUnit
     
-    public init(stops: [SVGGradientStop]?, gradientUnit: SVGGradientUnit, point1: CGPoint? = .None, point2: CGPoint? = .None) {
+    public init(stops: [SVGGradientStop]?, gradientUnit: SVGGradientUnit,
+                point1: CGPoint? = .None, point2: CGPoint? = .None,
+                transform: Transform2D?, inherited: SVGLinearGradient?) {
         self.stops = stops
         self.point1 = point1
         self.point2 = point2
         self.gradientUnit = gradientUnit
         super.init()
+        self.gradientFill = inherited
+        self.transform = transform
     }
 }
