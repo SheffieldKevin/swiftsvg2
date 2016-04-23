@@ -197,10 +197,11 @@ public class MovingImagesRenderer: Renderer {
             current.movingImages[MIJSONKeySVGPath] = svgPath
             return
         }
-
+/*
         for (key, value) in path.mipath {
             current.movingImages[key] = value
         }
+*/
     }
 
     public func drawText(textRenderer: TextRenderer) {

@@ -237,7 +237,7 @@ public typealias MovingImagesPath = [NSString : NSObject]
 public typealias MovingImagesText = [NSString : NSObject]
 
 public protocol PathGenerator: CGPathable {
-    var mipath:MovingImagesPath { get }
+//    var mipath:MovingImagesPath { get }
     var svgpath:String? { get }
 }
 
@@ -251,17 +251,18 @@ public protocol TextRenderer {
 
 public class SVGPath: SVGElement, PathGenerator {
     public private(set) var cgpath: CGPath
-    public private(set) var mipath: MovingImagesPath
+    // public private(set) var mipath: MovingImagesPath
     public private(set) var svgpath: String?
 
-    public init(path: CGPath, miPath: MovingImagesPath, svgPath: String) {
+    // public init(path: CGPath, miPath: MovingImagesPath, svgPath: String) {
+    public init(path: CGPath, svgPath: String) {
         self.cgpath = path
-        self.mipath = miPath
+        // self.mipath = miPath
         self.svgpath = svgPath
     }
 
     internal func addSVGPath(svgPath: SVGPath) {
-        addMIPaths(&self.mipath, miPath2: svgPath.mipath)
+        // addMIPaths(&self.mipath, miPath2: svgPath.mipath)
         self.cgpath = self.cgpath + svgPath.cgpath
         self.svgpath = .None
     }
