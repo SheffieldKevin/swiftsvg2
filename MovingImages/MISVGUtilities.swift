@@ -302,13 +302,11 @@ internal func makeMovingImagesText(string: CFString,
     ]
     
     if let fillColor = fillColor {
-        // theDict[MIJSONKeyFillColor] = SVGColors.makeMIColorDictFromColor(fillColor)
-        theDict[MIJSONKeyFillColor] = SVGColors.makeHexColor(color: fillColor)
+        theDict[MIJSONKeyFillColor] = SVGColors.makeMIColorFromColor(fillColor)
     }
     
     if let strokeColor = strokeColor {
-        // theDict[MIJSONKeyStrokeColor] = SVGColors.makeMIColorDictFromColor(strokeColor)
-        theDict[MIJSONKeyStrokeColor] = SVGColors.makeHexColor(color: strokeColor)
+        theDict[MIJSONKeyStrokeColor] = SVGColors.makeMIColorFromColor(strokeColor)
     }
     
     if let strokeWidth = strokeWidth {
@@ -355,6 +353,17 @@ extension SVGColors {
     class func makeHexColor(color color: CGColor) -> String {
         let colorC = CGColorGetComponents(color)
         return makeHexColor(red: colorC[0], green: colorC[1], blue: colorC[2])
+    }
+
+    class func makeMIColorFromColor(color: CGColor) -> NSObject {
+        // If alpha is not unity, don't create a hex string color.
+        let colorComponents = CGColorGetComponents(color)
+        if colorComponents[3] < 0.998 {
+            return makeMIColorDictFromColor(color)
+        }
+        else {
+            return makeHexColor(color: color)
+        }
     }
 
     class func colorDictToHexColor(colorDict: [NSObject : AnyObject]) throws -> String {
