@@ -65,7 +65,7 @@ public class SVGRenderer {
         defer {
             renderer.endElement()
         }
-        
+
         renderer.pushGraphicsState()
         defer {
             renderer.restoreGraphicsState()
@@ -93,7 +93,7 @@ public class SVGRenderer {
             case let pathable as PathGenerator:
                 // svgElement.printSelfAndParents()
                 if (hasStroke || hasFill) {
-                    let mode = CGPathDrawingMode(hasStroke: hasStroke, hasFill: hasFill)
+                    let mode = CGPathDrawingMode(hasStroke: hasStroke, hasFill: hasFill, evenOdd: pathable.evenOdd)
                     renderer.addPath(pathable)
                     renderer.drawPath(mode)
                 }

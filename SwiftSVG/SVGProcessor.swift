@@ -175,7 +175,7 @@ public class SVGProcessor {
             case "polyline":
                 svgElement = try processSVGPolyline(xmlElement, state:state)
             case "text":
-                svgElement = try processSVGText(xmlElement)
+                svgElement = try processSVGText(xmlElement, state:state)
             case "use":
                 svgElement = try processUSEElement(xmlElement, state:state)
             case "linearGradient":
@@ -191,7 +191,7 @@ public class SVGProcessor {
 
         if let svgElement = svgElement {
             svgElement.textStyle = try processTextStyle(xmlElement)
-            svgElement.style = try processStyle(xmlElement, svgElement: svgElement)
+            svgElement.style = try processStyle(xmlElement, state: state, svgElement: svgElement)
             if let theTransform = svgElement.transform {
                 if let newTransform = try processTransform(xmlElement, elementKey: "transform") {
                     // svgElement.transform = theTransform + newTransform
@@ -415,7 +415,7 @@ public class SVGProcessor {
         return Optional.None
     }
     
-    func processSVGTextSpan(xmlElement: NSXMLElement, textOrigin: CGPoint) throws -> SVGTextSpan? {
+    func processSVGTextSpan(xmlElement: NSXMLElement, textOrigin: CGPoint, state: State) throws -> SVGTextSpan? {
         let x = try SVGProcessor.stringToCGFloat(xmlElement["x"]?.stringValue, defaultVal: textOrigin.x)
         let y = try SVGProcessor.stringToCGFloat(xmlElement["y"]?.stringValue, defaultVal: textOrigin.y)
         let newOrigin = CGPoint(x: x, y: y)
@@ -424,15 +424,15 @@ public class SVGProcessor {
         }
         let textSpan = SVGTextSpan(string: string, textOrigin: newOrigin)
         let textStyle = try self.processTextStyle(xmlElement)
-        let style = try processStyle(xmlElement)
-        let transform = try processTransform(xmlElement, elementKey: "transform")
+        let style = try self.processStyle(xmlElement, state: state)
+        let transform = try self.processTransform(xmlElement, elementKey: "transform")
         textSpan.textStyle = textStyle
         textSpan.style = style
         textSpan.transform = transform
         return textSpan
     }
     
-    public func processSVGText(xmlElement: NSXMLElement) throws -> SVGSimpleText? {
+    public func processSVGText(xmlElement: NSXMLElement, state: State) throws -> SVGSimpleText? {
         // Since I am not tracking the size of drawn text we can't do any text flow.
         // This means any text that isn't explicitly positioned we can't render.
         
@@ -447,7 +447,7 @@ public class SVGProcessor {
         
         let textSpans = try nodes.map { node -> SVGTextSpan? in
             if let textItem = node as? NSXMLElement {
-                return try self.processSVGTextSpan(textItem, textOrigin: textOrigin)
+                return try self.processSVGTextSpan(textItem, textOrigin: textOrigin, state: state)
             }
             else if let string = node.stringValue {
                 return SVGTextSpan(string: string, textOrigin: textOrigin)
@@ -477,13 +477,20 @@ public class SVGProcessor {
         return nil
     }
     
-    private class func processFillColor(colorString: String, svgElement: SVGElement? = nil) -> StyleElement? {
-        if let svgElement = svgElement where colorString == "none" {
+    private class func processFillColor(colorString: String, svgElement: SVGElement, state: State?) -> StyleElement? {
+        if colorString == "none" {
             svgElement.drawFill = false
             return nil
         }
 
-        if let colorDict = processColorString(colorString),
+        if colorString.hasPrefix("url(#") {
+            let string = colorString.substringFromIndex(colorString.startIndex.advancedBy(5))
+            print("Color sub string: \(string)")
+            let gradientString = string.substringToIndex(string.endIndex.advancedBy(-1))
+            print("Gradient identifier: \(gradientString)")
+            return nil
+        }
+        else if let colorDict = processColorString(colorString),
             let color = SVGColors.colorDictionaryToCGColor(colorDict)
         {
             return StyleElement.FillColor(color)
@@ -503,8 +510,8 @@ public class SVGProcessor {
             return nil
         }
     }
-    
-    private class func processPresentationAttribute(style: String, inout styleElements: [StyleElement], svgElement: SVGElement? = nil) throws {
+
+    private class func processPresentationAttribute(style: String, inout styleElements: [StyleElement], svgElement: SVGElement, state: State) throws {
         let seperators = NSCharacterSet(charactersInString: ";")
         let trimChars = NSCharacterSet.whitespaceAndNewlineCharacterSet()
         let parts = style.componentsSeparatedByCharactersInSet(seperators)
@@ -519,7 +526,14 @@ public class SVGProcessor {
             let value = pair[1].stringByTrimmingCharactersInSet(trimChars)
             switch(propertyName) {
                 case "fill":
-                    return processFillColor(value, svgElement: svgElement)
+                    return processFillColor(value, svgElement: svgElement, state:state)
+                case "fill-rule":
+                    if value == "evenodd" {
+                        if var pathElement = svgElement as? PathGenerator {
+                            pathElement.evenOdd = true
+                        }
+                    }
+                    return .None
                 case "stroke":
                     return processStrokeColor(value)
                 case "stroke-width":
@@ -549,7 +563,7 @@ public class SVGProcessor {
                     }
                     return .None
                 case "display":
-                    if let svgElement = svgElement where value == "none" {
+                    if value == "none" {
                         svgElement.display = false
                     }
                     return .None
@@ -603,17 +617,19 @@ public class SVGProcessor {
         return nil
     }
     
-    public func processStyle(xmlElement: NSXMLElement, svgElement: SVGElement? = nil) throws -> SwiftGraphics.Style? {
+    public func processStyle(xmlElement: NSXMLElement, state: State, svgElement: SVGElement? = .None) throws -> SwiftGraphics.Style? {
         // http://www.w3.org/TR/SVG/styling.html
         var styleElements = [StyleElement]()
 
-        if let value = xmlElement["style"]?.stringValue {
-            try SVGProcessor.processPresentationAttribute(value, styleElements: &styleElements, svgElement: svgElement)
+        if let value = xmlElement["style"]?.stringValue,
+            let svgElement = svgElement {
+            try SVGProcessor.processPresentationAttribute(value, styleElements: &styleElements, svgElement: svgElement, state:state)
             xmlElement["style"] = nil
         }
 
-        if let value = xmlElement["fill"]?.stringValue {
-            if let styleElement = SVGProcessor.processFillColor(value, svgElement: svgElement) {
+        if let value = xmlElement["fill"]?.stringValue,
+            let svgElement = svgElement {
+            if let styleElement = SVGProcessor.processFillColor(value, svgElement: svgElement, state:state) {
                 styleElements.append(styleElement)
             }
             xmlElement["fill"] = nil
@@ -624,6 +640,15 @@ public class SVGProcessor {
                 styleElements.append(styleElement)
             }
             xmlElement["stroke"] = nil
+        }
+
+        if let value = xmlElement["fill-rule"]?.stringValue {
+            if value == "evenodd" {
+                if let svgElement = svgElement,
+                    var pathElement = svgElement as? PathGenerator {
+                    pathElement.evenOdd = true
+                }
+            }
         }
 
         let stroke = try SVGProcessor.stringToOptionalCGFloat(xmlElement["stroke-width"]?.stringValue)
