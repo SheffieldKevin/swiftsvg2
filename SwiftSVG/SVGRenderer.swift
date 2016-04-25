@@ -93,7 +93,11 @@ public class SVGRenderer {
             case let pathable as PathGenerator:
                 // svgElement.printSelfAndParents()
                 if (hasStroke || hasFill) {
-                    let mode = CGPathDrawingMode(hasStroke: hasStroke, hasFill: hasFill, evenOdd: pathable.evenOdd)
+                    let evenOdd = hasFill && pathable.evenOdd
+                    if !evenOdd && pathable.evenOdd {
+                        print("Path stroking using evenodd not implemented")
+                    }
+                    let mode = CGPathDrawingMode(hasStroke: hasStroke, hasFill: hasFill, evenOdd: evenOdd)
                     renderer.addPath(pathable)
                     renderer.drawPath(mode)
                 }
