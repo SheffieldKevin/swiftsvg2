@@ -485,9 +485,12 @@ public class SVGProcessor {
 
         if colorString.hasPrefix("url(#") {
             let string = colorString.substringFromIndex(colorString.startIndex.advancedBy(5))
-            print("Color sub string: \(string)")
             let gradientString = string.substringToIndex(string.endIndex.advancedBy(-1))
             print("Gradient identifier: \(gradientString)")
+            let gradientElement = state?.elementsByID[gradientString] as? SVGLinearGradient
+            if let gradient = gradientElement {
+                svgElement.gradientFill = gradient
+            }
             return nil
         }
         else if let colorDict = processColorString(colorString),
@@ -739,7 +742,7 @@ public class SVGProcessor {
             return nil
         }
         xmlElement[elementKey] = nil
-        return state.elementsByID[value] as? SVGLinearGradient
+        return state.elementsByID[value.substringFromIndex(value.startIndex.advancedBy(1))] as? SVGLinearGradient
     }
 
     private func processGradientStop(xmlElement: NSXMLElement) throws -> SVGGradientStop {
