@@ -15,6 +15,9 @@ class ViewController: NSViewController {
 
     weak dynamic var document: Document! = nil {
         didSet {
+            guard let document = self.document else {
+                return
+            }
             source = document.source
         }
     }
@@ -47,17 +50,19 @@ class ViewController: NSViewController {
 
     @IBOutlet var sourceView: NSTextView!
     @IBOutlet var svgView: SVGView!
-    @IBOutlet var treeController: NSTreeController!
+    @IBOutlet var treeController: NSTreeController?
 
     dynamic var root: [ObjectAdaptor]!
     dynamic var selectionIndexPaths: [NSIndexPath]! {
         didSet {
-            let selectedObjects = treeController.selectedObjects as! [ObjectAdaptor]
-            let selectedElements: [SVGElement] = selectedObjects.map() {
-                return $0.object as! SVGElement
+            if let treeController = self.treeController {
+                let selectedObjects = treeController.selectedObjects as! [ObjectAdaptor]
+                let selectedElements: [SVGElement] = selectedObjects.map() {
+                    return $0.object as! SVGElement
+                }
+                self.selectedElements = Set <SVGElement> (selectedElements)
+                svgView.needsDisplay = true
             }
-            self.selectedElements = Set <SVGElement> (selectedElements)
-            svgView.needsDisplay = true
         }
     }
 
@@ -72,7 +77,9 @@ class ViewController: NSViewController {
 
         svgView.elementSelected = {
             (svgElement: SVGElement) -> Void in
-            self.treeController.setSelectionIndexPaths([svgElement.indexPath])
+            if let treeController = self.treeController {
+                treeController.setSelectionIndexPaths([svgElement.indexPath])
+            }
         }
 
         svgView.svgRenderer.callbacks.prerenderElement = {
@@ -109,13 +116,36 @@ class ViewController: NSViewController {
         let xmlDocument = try NSXMLDocument(XMLString: source, options: 0)
         let processor = SVGProcessor()
         svgDocument = try processor.processXMLDocument(xmlDocument)
-
+//        svgDocument?.printElements()
 //        let renderer = SourceCodeRenderer()
 //        let svgRenderer = SVGRenderer()
 //        try svgRenderer.renderDocument(svgDocument!, renderer: renderer)
 //        print(renderer.source)
     }
 
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        self.sourceView = nil
+        self.treeController?.content = nil
+        self.treeController = nil
+        self.svgView.svgDocument = nil
+        self.source = nil
+        // self.svgDocument = nil
+        // self.source = nil
+        self.svgView = nil
+        self.document = nil
+        self.root = nil
+        self.view.window?.windowController?.contentViewController = nil
+        print("ViewController view did dissapear")
+    }
+
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+        print("ViewController view will dissapear")
+    }
+    deinit {
+        print("ViewController Dismissed.")
+    }
 
     static func treeNodeTemplate() -> ObjectAdaptor.Template {
         var template = ObjectAdaptor.Template()

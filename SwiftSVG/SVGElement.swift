@@ -223,6 +223,10 @@ public class SVGDocument: SVGContainer {
             defs.forEach() { $0.printElements() }
         }
     }
+    
+    deinit {
+        print("SVGDocument has been deinited")
+    }
 }
 
 // MARK: -

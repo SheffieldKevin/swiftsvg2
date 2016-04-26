@@ -64,6 +64,10 @@ class SVGView: NSView {
         CGContextStrokeRect(context, bounds)
     }
 
+    deinit {
+        Swift.print("SVGView deinited")
+    }
+
     func tap(gestureRecognizer: NSClickGestureRecognizer) {
         let location = gestureRecognizer.locationInView(self)
         if let element = try? elementForPoint(location) {

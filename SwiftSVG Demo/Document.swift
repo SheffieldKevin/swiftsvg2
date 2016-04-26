@@ -50,6 +50,9 @@ class Document: NSDocument {
         return data
     }
 
+    deinit {
+        print("Document has been deallocated")
+    }
 }
 
 

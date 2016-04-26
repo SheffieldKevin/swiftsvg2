@@ -5,7 +5,7 @@
 
 import Foundation
 
-public func MICGPathFromSVGPath(d:String, inout pathArray: NSMutableArray) -> CGMutablePath
+public func MICGPathCreateFromSVGPath(d:String, inout pathArray: NSMutableArray) -> CGMutablePath
 {
     let path = CGPathCreateMutable()
     MI_CGPathFromSVGPath(path, pathArray, d)
