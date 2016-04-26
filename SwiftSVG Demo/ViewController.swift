@@ -113,6 +113,11 @@ class ViewController: NSViewController {
             return
         }
 
+        guard !source.isEmpty else {
+            svgDocument = nil
+            return
+        }
+
         let xmlDocument = try NSXMLDocument(XMLString: source, options: 0)
         let processor = SVGProcessor()
         svgDocument = try processor.processXMLDocument(xmlDocument)
@@ -125,6 +130,7 @@ class ViewController: NSViewController {
 
     override func viewDidDisappear() {
         super.viewDidDisappear()
+        self.sourceView.string = ""
         self.sourceView = nil
         self.treeController?.content = nil
         self.treeController = nil

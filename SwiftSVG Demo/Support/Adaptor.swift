@@ -18,7 +18,7 @@ class ObjectAdaptor: NSObject, NSCopying {
         }
     }
 
-    let object: AnyObject
+    weak var object: AnyObject!
     let template: Template
 
     init(object: AnyObject, template: Template) {
