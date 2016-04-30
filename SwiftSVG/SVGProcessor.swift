@@ -486,10 +486,13 @@ public class SVGProcessor {
         if colorString.hasPrefix("url(#") {
             let string = colorString.substringFromIndex(colorString.startIndex.advancedBy(5))
             let gradientString = string.substringToIndex(string.endIndex.advancedBy(-1))
-            print("Gradient identifier: \(gradientString)")
+            print("Gradient or pattern identifier: \(gradientString)")
             let gradientElement = state?.elementsByID[gradientString] as? SVGLinearGradient
             if let gradient = gradientElement {
                 svgElement.gradientFill = gradient
+            }
+            else {
+                print("Identifier did not refer to a linear gradient")
             }
             return nil
         }

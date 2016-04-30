@@ -10,6 +10,45 @@ import Foundation
 
 import SwiftGraphics
 
+// TODO: This needs to be moved somewhere same.
+public extension SwiftGraphics.Style {
+    mutating func apply(newStyle: Style) {
+        if let fillColor = newStyle.fillColor {
+            self.fillColor = fillColor
+        }
+        if let strokeColor = newStyle.strokeColor {
+            self.strokeColor = strokeColor
+        }
+        if let lineWidth = newStyle.lineWidth {
+            self.lineWidth = lineWidth
+        }
+        if let lineCap = newStyle.lineCap {
+            self.lineCap = lineCap
+        }
+        if let lineJoin = newStyle.lineJoin {
+            self.lineJoin = lineJoin
+        }
+        if let miterLimit = newStyle.miterLimit {
+            self.miterLimit = miterLimit
+        }
+        if let lineDash = newStyle.lineDash {
+            self.lineDash = lineDash
+        }
+        if let lineDashPhase = newStyle.lineDashPhase {
+            self.lineDashPhase = lineDashPhase
+        }
+        if let flatness = newStyle.flatness {
+            self.flatness = flatness
+        }
+        if let alpha = newStyle.alpha {
+            self.alpha = alpha
+        }
+        if let blendMode = newStyle.blendMode {
+            self.blendMode = blendMode
+        }
+    }
+}
+
 // MARK: -
 
 public protocol Node {
@@ -25,6 +64,7 @@ public protocol GroupNode: Node {
 // MARK: -
 
 public class SVGElement: Node {
+    static var numElements = 0
     public typealias ParentType = SVGContainer
     public weak var parent: SVGContainer? = nil
     public internal(set) var style: SwiftGraphics.Style? = nil
@@ -35,6 +75,18 @@ public class SVGElement: Node {
     public internal(set) var textStyle: TextStyle? = nil
     public internal(set) var gradientFill: SVGLinearGradient? = nil
     public internal(set) var display = true
+
+    init() {
+        SVGElement.numElements += 1
+    }
+    
+    deinit {
+        SVGElement.numElements -= 1
+        if SVGElement.numElements == 0 {
+           print("All elements destroyed")
+        }
+        // print("Element destroyed, num elements now: \(SVGElement.numElements)")
+    }
 
     var drawFill = true // If fill="none" this explictly turns off fill.
     var fillColor: CGColor? {
@@ -226,13 +278,22 @@ public class SVGDocument: SVGContainer {
     
     deinit {
         print("SVGDocument has been deinited")
+        print("Num elements = \(SVGElement.numElements)")
     }
 }
 
 // MARK: -
 
 public class SVGGroup: SVGContainer {
-
+    static var numGroups = 0
+    override init() {
+        SVGGroup.numGroups += 1
+    }
+    
+    deinit {
+        SVGGroup.numGroups -= 1
+        // print("Group deinit. Number of groups: \(SVGGroup.numGroups)")
+    }
 }
 
 // MARK: -
@@ -630,5 +691,65 @@ public class SVGLinearGradient: SVGElement {
         super.init()
         self.gradientFill = inherited
         self.transform = transform
+    }
+    
+    // Since linear gradient fills can inherit from earlier defined linear gradient fills
+    // we need to keep drilling down and combining the results.
+    func coalesceLinearGradientInheritance() -> SVGLinearGradient {
+        guard let inheritedGradient = self.gradientFill else {
+            return self
+        }
+        
+        let superInherited = inheritedGradient.coalesceLinearGradientInheritance()
+        
+        let pt1 = self.point1 ?? superInherited.point1
+        let pt2 = self.point2 ?? superInherited.point2
+        let stops = self.stops ?? superInherited.stops
+        let gradientUnit = self.gradientUnit == SVGGradientUnit.userSpaceOnUse ? self.gradientUnit : superInherited.gradientUnit
+        
+        let style: Style
+        if var inheritedStyle = superInherited.style {
+            if let theStyle = self.style {
+                inheritedStyle.apply(theStyle)
+            }
+            style = inheritedStyle
+        }
+        else {
+            style = self.style ?? Style()
+        }
+
+        let transform: Transform2D?
+        if let theTransform = self.transform {
+            transform = theTransform
+        }
+        else {
+            if let theTransform = superInherited.transform {
+                transform = theTransform
+            }
+            else {
+                transform = .None
+            }
+        }
+        let linearGradient = SVGLinearGradient(stops: stops, gradientUnit: gradientUnit,
+                                               point1: pt1, point2: pt2,
+                                               transform: transform, inherited: .None)
+        linearGradient.style = style
+        return linearGradient
+    }
+    
+    func canRender() -> Bool {
+        guard let _ = self.point1 else {
+            return false
+        }
+
+        guard let _ = self.point2 else {
+            return false
+        }
+        
+        guard let _ = self.stops else {
+            return false
+        }
+        
+        return true
     }
 }

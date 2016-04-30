@@ -43,12 +43,22 @@ public class SVGRenderer {
         }
 
         let hasStroke = svgElement.hasStroke
-        let hasFill = svgElement.hasFill
+        let hasFill: Bool
+        let hasGradientFill: Bool
+
+        if let _ = svgElement.gradientFill {
+            hasGradientFill = true
+            hasFill = false
+        }
+        else {
+            hasGradientFill = false
+            hasFill = svgElement.hasFill
+        }
 
         if let _ = svgElement as? SVGContainer {
             renderer.startGroup(svgElement.id)
         }
-        else if !(hasStroke || hasFill) {
+        else if !(hasStroke || hasFill || hasGradientFill) {
             return
         }
         
@@ -92,6 +102,12 @@ public class SVGRenderer {
                 try renderGroup(svgGroup, renderer: renderer)
             case let pathable as PathGenerator:
                 // svgElement.printSelfAndParents()
+                if (hasGradientFill) {
+                    print("Need to render gradient fill: ")
+                    let gradientFill = svgElement.gradientFill!.coalesceLinearGradientInheritance()
+                    gradientFill.printElement()
+                    
+                }
                 if (hasStroke || hasFill) {
                     let evenOdd = hasFill && pathable.evenOdd
                     if !evenOdd && pathable.evenOdd {
