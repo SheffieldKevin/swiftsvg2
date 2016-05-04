@@ -493,6 +493,7 @@ public class SVGProcessor {
             }
             else {
                 print("Identifier did not refer to a linear gradient")
+                return StyleElement.Alpha(0.0)
             }
             return nil
         }
@@ -742,8 +743,10 @@ public class SVGProcessor {
 
     private func processInheritedGradient(xmlElement: NSXMLElement, elementKey: String, state: State) -> SVGLinearGradient? {
         guard let value = xmlElement[elementKey]?.stringValue else {
+            print("No key for inherited gradient")
             return nil
         }
+        print("Key for inherited gradient is: \(value)")
         xmlElement[elementKey] = nil
         return state.elementsByID[value.substringFromIndex(value.startIndex.advancedBy(1))] as? SVGLinearGradient
     }
@@ -843,7 +846,7 @@ public class SVGProcessor {
         
         let gradientTransform = try processTransform(xmlElement, elementKey: "gradientTransform")
         let inherited = processInheritedGradient(xmlElement, elementKey: "xlink:href", state: state)
-        
+        print("In process gradient defs")
         return SVGLinearGradient(stops: stops, gradientUnit: gradientUnit,
                                  point1: point1, point2: point2,
                                  transform: gradientTransform, inherited: inherited)

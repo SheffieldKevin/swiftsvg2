@@ -328,7 +328,7 @@ public class MovingImagesRenderer: Renderer {
                 current.movingImages[MIJSONKeyMiter] = miterLimit
             }
             if let alpha = style.alpha {
-                current.movingImages[MIJSONKeyAlpha] = alpha
+                current.movingImages[MIJSONKeyContextAlpha] = alpha
             }
             if let lineDash = style.lineDash {
                 if let lineDashPhase = style.lineDashPhase {
