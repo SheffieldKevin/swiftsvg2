@@ -24,6 +24,8 @@ public protocol Renderer: AnyObject {
     func addCGPath(path: CGPath)
     func drawPath(mode: CGPathDrawingMode)
     func drawText(textRenderer: TextRenderer)
+    func drawLinearGradient(linearGradient: LinearGradientRenderer,
+                                   pathGenerator: PathGenerator)
     func fillPath()
     
     func render() -> String
@@ -95,6 +97,27 @@ extension CGContext: Renderer {
         let line = CTLineCreateWithAttributedString(textRenderer.cttext)
         CGContextSetTextPosition(self, textRenderer.textOrigin.x, 0.0)
         CTLineDraw(line, self)
+        self.restoreGraphicsState()
+    }
+    
+    public func drawLinearGradient(linearGradient: LinearGradientRenderer,
+                                   pathGenerator: PathGenerator) {
+        guard let theGradient = linearGradient.linearGradient else {
+            return
+        }
+        
+        guard let start = linearGradient.startPoint else {
+            return
+        }
+        
+        guard let end = linearGradient.endPoint else {
+            return
+        }
+        
+        self.pushGraphicsState()
+        self.addPath(pathGenerator)
+        CGContextClip(self)
+        CGContextDrawLinearGradient(self, theGradient, start, end, CGGradientDrawingOptions())
         self.restoreGraphicsState()
     }
     
@@ -209,6 +232,11 @@ public class MovingImagesRenderer: Renderer {
         for (key, value) in textRenderer.mitext {
             current.movingImages[key] = value
         }
+    }
+
+    public func drawLinearGradient(linearGradient: LinearGradientRenderer,
+                                   pathGenerator: PathGenerator) {
+        //TODO:
     }
 
     public func endElement() {
@@ -424,7 +452,12 @@ public class SourceCodeRenderer: Renderer {
     public func drawText(textRenderer: TextRenderer) {
         
     }
-    
+
+    public func drawLinearGradient(linearGradient: LinearGradientRenderer,
+                                    pathGenerator: PathGenerator) {
+        
+    }
+
     public func fillPath() {
         source += "CGContextFillPath(context)\n"
     }

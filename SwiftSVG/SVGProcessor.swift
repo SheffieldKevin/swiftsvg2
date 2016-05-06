@@ -490,6 +490,7 @@ public class SVGProcessor {
             let gradientElement = state?.elementsByID[gradientString] as? SVGLinearGradient
             if let gradient = gradientElement {
                 svgElement.gradientFill = gradient
+                gradient.owningElement = svgElement
             }
             else {
                 print("Identifier did not refer to a linear gradient")

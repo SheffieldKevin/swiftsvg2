@@ -105,8 +105,9 @@ public class SVGRenderer {
                 if (hasGradientFill) {
                     print("Need to render gradient fill: ")
                     let gradientFill = svgElement.gradientFill!.coalesceLinearGradientInheritance()
-                    gradientFill.printElement()
-                    
+                    print("========================================================")
+                    print(gradientFill.description)
+                    renderer.drawLinearGradient(gradientFill, pathGenerator: pathable)
                 }
                 if (hasStroke || hasFill) {
                     let evenOdd = hasFill && pathable.evenOdd

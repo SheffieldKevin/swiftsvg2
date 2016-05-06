@@ -82,8 +82,8 @@ public class SVGElement: Node {
     
     deinit {
         SVGElement.numElements -= 1
-        if SVGElement.numElements == 0 {
-           print("All elements destroyed")
+        if SVGElement.numElements <= 10 {
+           print("Number of elements = \(SVGElement.numElements)")
         }
         // print("Element destroyed, num elements now: \(SVGElement.numElements)")
     }
@@ -173,28 +173,32 @@ public class SVGElement: Node {
         return 0
     }
 
-    public final func printElement()
-    {
-        var description = "================================================================\n"
-        description += "Element with numParents: \(numParents) \n"
-        if let id = id { description += "id: \(id). " }
-        description += "type: \(self.dynamicType). "
-        if let _ = self.style { description += "Has style. " }
-        if let _ = self.transform { description += "Has transform. " }
+    public func printElements() {
         print(description)
     }
-    
-    public func printElements() {
-        printElement()
+}
+
+extension SVGElement: CustomStringConvertible {
+    public var description: String {
+        get {
+            var text = "Type: \(self.dynamicType). "
+            text += "Num parents: \(numParents). "
+            if let id = id { text += "id: \(id). " }
+            if let _ = self.style { text += "Has style. " }
+            if let _ = self.transform { text += "Has transform. " }
+            return text
+        }
     }
     
     func printSelfAndParents() {
         var parent: SVGElement? = self
         while let localParent = parent {
-            localParent.printElement()
+            print("================================================================")
+            print(localParent.description)
             parent = localParent.parent
         }
     }
+    
 }
 
 extension SVGElement: Equatable {
@@ -242,7 +246,8 @@ public class SVGContainer: SVGElement, GroupNode {
     }
     
     override public func printElements() {
-        self.printElement()
+        print("================================================================")
+        print(self.description)
         self.children.forEach() { $0.printElements() }
     }
 }
@@ -308,9 +313,15 @@ public protocol PathGenerator: CGPathable {
 }
 
 public protocol TextRenderer {
-    var mitext:MovingImagesText { get }
-    var cttext:CFAttributedString { get }
-    var textOrigin:CGPoint { get }
+    var mitext: MovingImagesText { get }
+    var cttext: CFAttributedString { get }
+    var textOrigin: CGPoint { get }
+}
+
+public protocol LinearGradientRenderer {
+    var linearGradient: CGGradient? { get }
+    var startPoint: CGPoint? { get }
+    var endPoint: CGPoint? { get }
 }
 
 // MARK: -
@@ -527,8 +538,8 @@ public class SVGTextSpan: TextRenderer {
     internal(set) var transform: Transform2D? = nil
     internal(set) var textStyle: TextStyle? = nil
     
-    public lazy var mitext:MovingImagesText = self.makeMIText()
-    public lazy var cttext:CFAttributedString = self.makeAttributedString()
+    public lazy var mitext: MovingImagesText = self.makeMIText()
+    public lazy var cttext: CFAttributedString = self.makeAttributedString()
     
     public let textOrigin: CGPoint
     
@@ -675,15 +686,24 @@ public enum SVGGradientUnit : String {
     case objectBoundingBox
 }
 
-public class SVGLinearGradient: SVGElement {
-    internal let point1: CGPoint?
-    internal let point2: CGPoint?
-    internal let stops: [SVGGradientStop]?
-    internal let gradientUnit: SVGGradientUnit
+public class SVGLinearGradient: SVGElement, LinearGradientRenderer {
+    public lazy var linearGradient: CGGradient? = self.makeLinearGradient()
+    public lazy var startPoint: CGPoint? = self.makeStartPoint()
+    public lazy var endPoint: CGPoint? = self.makeEndPoint()
     
-    public init(stops: [SVGGradientStop]?, gradientUnit: SVGGradientUnit,
-                point1: CGPoint? = .None, point2: CGPoint? = .None,
-                transform: Transform2D?, inherited: SVGLinearGradient?) {
+    weak var owningElement: SVGElement?
+    
+    let point1: CGPoint?
+    let point2: CGPoint?
+    let stops: [SVGGradientStop]?
+    let gradientUnit: SVGGradientUnit
+    
+    public init(stops: [SVGGradientStop]?,
+         gradientUnit: SVGGradientUnit,
+               point1: CGPoint? = .None,
+               point2: CGPoint? = .None,
+            transform: Transform2D?,
+            inherited: SVGLinearGradient?) {
         self.stops = stops
         self.point1 = point1
         self.point2 = point2
@@ -691,6 +711,57 @@ public class SVGLinearGradient: SVGElement {
         super.init()
         self.gradientFill = inherited
         self.transform = transform
+    }
+    
+    final private func convertPoint(point: CGPoint?) -> CGPoint? {
+        guard var thePoint = point else {
+            return .None
+        }
+
+        if gradientUnit == SVGGradientUnit.userSpaceOnUse {
+            if let theTransform = transform {
+                thePoint = CGPointApplyAffineTransform(thePoint, theTransform.toCGAffineTransform())
+            }
+        }
+        else {
+            if thePoint.x < 0.0 || thePoint.x > 1.0 { return .None }
+            if thePoint.y < 0.0 || thePoint.y > 1.0 { return .None }
+            
+            if let owner = owningElement as? PathGenerator {
+                let boundingBox = CGPathGetPathBoundingBox(owner.cgpath)
+                thePoint.x = boundingBox.origin.x + thePoint.x * boundingBox.size.width
+                thePoint.y = boundingBox.origin.y + thePoint.y * boundingBox.size.height
+                if let theTransform = transform {
+                    thePoint = CGPointApplyAffineTransform(thePoint, theTransform.toCGAffineTransform())
+                }
+            }
+            else {
+                return .None
+            }
+        }
+        return thePoint
+    }
+    
+    final private func makeStartPoint() -> CGPoint? {
+        return convertPoint(point1)
+    }
+    
+    final private func makeEndPoint() -> CGPoint? {
+        return convertPoint(point2)
+    }
+    
+    final private func makeLinearGradient() -> CGGradient? {
+        if !canRender() {
+            return .None
+        }
+        
+        var colors = [CGColor]()
+        var locations = [CGFloat]()
+        stops?.forEach() {
+            colors.append($0.color)
+            locations.append($0.offset)
+        }
+        return CGGradientCreateWithColors(CGColorGetColorSpace(colors[0]), colors, locations)
     }
     
     // Since linear gradient fills can inherit from earlier defined linear gradient fills
