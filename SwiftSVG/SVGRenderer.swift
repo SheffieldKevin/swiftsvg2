@@ -104,16 +104,14 @@ public class SVGRenderer {
                 // svgElement.printSelfAndParents()
                 if (hasGradientFill) {
                     print("Need to render gradient fill: ")
-                    let gradientFill = svgElement.gradientFill!.coalesceLinearGradientInheritance()
+                    var gradientFill = svgElement.gradientFill!.coalesceLinearGradientInheritance()
+                    gradientFill.owningElement = svgElement
                     print("========================================================")
                     print(gradientFill.description)
                     renderer.drawLinearGradient(gradientFill, pathGenerator: pathable)
                 }
                 if (hasStroke || hasFill) {
                     let evenOdd = hasFill && pathable.evenOdd
-                    if !evenOdd && pathable.evenOdd {
-                        print("Path stroking using evenodd not implemented")
-                    }
                     let mode = CGPathDrawingMode(hasStroke: hasStroke, hasFill: hasFill, evenOdd: evenOdd)
                     renderer.addPath(pathable)
                     renderer.drawPath(mode)

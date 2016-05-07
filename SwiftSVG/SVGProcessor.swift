@@ -490,7 +490,7 @@ public class SVGProcessor {
             let gradientElement = state?.elementsByID[gradientString] as? SVGLinearGradient
             if let gradient = gradientElement {
                 svgElement.gradientFill = gradient
-                gradient.owningElement = svgElement
+                // gradient.owningElement = svgElement
             }
             else {
                 print("Identifier did not refer to a linear gradient")
@@ -846,7 +846,13 @@ public class SVGProcessor {
         let point2 = SVGProcessor.makeOptionalPoint(x: x2, y: y2)
         
         let gradientTransform = try processTransform(xmlElement, elementKey: "gradientTransform")
-        let inherited = processInheritedGradient(xmlElement, elementKey: "xlink:href", state: state)
+        let inherited: SVGLinearGradient?
+        if let _ = xmlElement["xlink:href"]?.stringValue {
+            inherited = processInheritedGradient(xmlElement, elementKey: "xlink:href", state: state)
+        }
+        else {
+            inherited = nil
+        }
         print("In process gradient defs")
         return SVGLinearGradient(stops: stops, gradientUnit: gradientUnit,
                                  point1: point1, point2: point2,

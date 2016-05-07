@@ -691,6 +691,7 @@ public class SVGLinearGradient: SVGElement, LinearGradientRenderer {
     public lazy var startPoint: CGPoint? = self.makeStartPoint()
     public lazy var endPoint: CGPoint? = self.makeEndPoint()
     
+    // Just before rendering of the owningElement it assigns itself to the gradient.
     weak var owningElement: SVGElement?
     
     let point1: CGPoint?
@@ -713,11 +714,8 @@ public class SVGLinearGradient: SVGElement, LinearGradientRenderer {
         self.transform = transform
     }
     
-    final private func convertPoint(point: CGPoint?) -> CGPoint? {
-        guard var thePoint = point else {
-            return .None
-        }
-
+    final private func convertPoint(point: CGPoint) -> CGPoint? {
+        var thePoint = point
         if gradientUnit == SVGGradientUnit.userSpaceOnUse {
             if let theTransform = transform {
                 thePoint = CGPointApplyAffineTransform(thePoint, theTransform.toCGAffineTransform())
@@ -743,11 +741,13 @@ public class SVGLinearGradient: SVGElement, LinearGradientRenderer {
     }
     
     final private func makeStartPoint() -> CGPoint? {
-        return convertPoint(point1)
+        let thePoint = point1 ?? CGPoint(x: 0.0, y: 0.0)
+        return convertPoint(thePoint)
     }
     
     final private func makeEndPoint() -> CGPoint? {
-        return convertPoint(point2)
+        let thePoint = point2 ?? CGPoint(x: 1.0, y: 1.0)
+        return convertPoint(thePoint)
     }
     
     final private func makeLinearGradient() -> CGGradient? {
@@ -805,10 +805,12 @@ public class SVGLinearGradient: SVGElement, LinearGradientRenderer {
                                                point1: pt1, point2: pt2,
                                                transform: transform, inherited: .None)
         linearGradient.style = style
+        linearGradient.id = self.id
         return linearGradient
     }
     
     func canRender() -> Bool {
+/*
         guard let _ = self.point1 else {
             return false
         }
@@ -816,7 +818,7 @@ public class SVGLinearGradient: SVGElement, LinearGradientRenderer {
         guard let _ = self.point2 else {
             return false
         }
-        
+*/
         guard let _ = self.stops else {
             return false
         }

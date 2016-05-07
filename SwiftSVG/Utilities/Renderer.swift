@@ -116,7 +116,12 @@ extension CGContext: Renderer {
         
         self.pushGraphicsState()
         self.addPath(pathGenerator)
-        CGContextClip(self)
+        if pathGenerator.evenOdd {
+            CGContextEOClip(self)
+        }
+        else {
+            CGContextClip(self)
+        }
         CGContextDrawLinearGradient(self, theGradient, start, end, CGGradientDrawingOptions())
         self.restoreGraphicsState()
     }
