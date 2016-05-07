@@ -780,15 +780,18 @@ public class SVGProcessor {
                         stopColor = color
 
                     case "stop-opacity":
-                        stopOpacity = try SVGProcessor.stringToCGFloat(xmlElement["stop-opacity"]?.stringValue, defaultVal: 1.0)
+                        stopOpacity = try SVGProcessor.stringToCGFloat(value, defaultVal: 1.0)
                     
                     default:
                         print("Unhandled stop property \(propertyName)")
                         break
                 }
             }
-            guard let color = stopColor else {
+            guard var color = stopColor else {
                 throw Error.invalidSVG(#file, #function, #line)
+            }
+            if stopOpacity < 1.0 {
+                color = CGColorCreateCopyWithAlpha(color, stopOpacity)!
             }
             return SVGGradientStop(offset: offset, opacity: stopOpacity, color: color)
         }
@@ -800,11 +803,14 @@ public class SVGProcessor {
             throw Error.corruptXML(#file, #function, #line)
         }
         guard let stopColorDict = SVGProcessor.processColorString(colorString),
-            let stopColor = SVGColors.colorDictionaryToCGColor(stopColorDict) else {
+            var stopColor = SVGColors.colorDictionaryToCGColor(stopColorDict) else {
             throw Error.invalidSVG(#file, #function, #line)
         }
-        let opacity = try SVGProcessor.stringToCGFloat(xmlElement["stop-opacity"]?.stringValue, defaultVal: 1.0)
-        return SVGGradientStop(offset: offset, opacity: opacity, color: stopColor)
+        let stopOpacity = try SVGProcessor.stringToCGFloat(xmlElement["stop-opacity"]?.stringValue, defaultVal: 1.0)
+        if stopOpacity < 1.0 {
+            stopColor = CGColorCreateCopyWithAlpha(stopColor, stopOpacity)!
+        }
+        return SVGGradientStop(offset: offset, opacity: stopOpacity, color: stopColor)
     }
     
     private func processGradientStops(xmlElements: [NSXMLNode]?) throws -> [SVGGradientStop]? {
