@@ -305,6 +305,7 @@ public class SVGGroup: SVGContainer {
 
 public typealias MovingImagesPath = [NSString : NSObject]
 public typealias MovingImagesText = [NSString : NSObject]
+public typealias MovingImagesGradient = [NSString : NSObject]
 
 public protocol PathGenerator: CGPathable {
     var evenOdd: Bool { get set }
@@ -319,6 +320,7 @@ public protocol TextRenderer {
 }
 
 public protocol LinearGradientRenderer {
+    var miLinearGradient: MovingImagesGradient? { get }
     var linearGradient: CGGradient? { get }
     var startPoint: CGPoint? { get }
     var endPoint: CGPoint? { get }
@@ -688,6 +690,7 @@ public enum SVGGradientUnit : String {
 
 public class SVGLinearGradient: SVGElement, LinearGradientRenderer {
     public lazy var linearGradient: CGGradient? = self.makeLinearGradient()
+    public lazy var miLinearGradient: MovingImagesGradient? = self.makeMILinearGradient()
     public lazy var startPoint: CGPoint? = self.makeStartPoint()
     public lazy var endPoint: CGPoint? = self.makeEndPoint()
     
@@ -739,7 +742,29 @@ public class SVGLinearGradient: SVGElement, LinearGradientRenderer {
         }
         return thePoint
     }
-    
+
+    private func makeMILinearGradient() -> MovingImagesGradient? {
+        guard let _ = self.startPoint else {
+            return .None
+        }
+
+        guard let _ = self.endPoint else {
+            return .None
+        }
+
+        var colors = [CGColor]()
+        var locations = [CGFloat]()
+        stops?.forEach() {
+            colors.append($0.color)
+            locations.append($0.offset)
+        }
+
+        return makeMILinearGradientDictionary(colors: colors,
+                                           locations: locations,
+                                          startPoint: self.startPoint!,
+                                            endPoint: self.endPoint!)
+    }
+
     final private func makeStartPoint() -> CGPoint? {
         let thePoint = point1 ?? CGPoint(x: 0.0, y: 0.0)
         return convertPoint(thePoint)

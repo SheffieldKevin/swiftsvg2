@@ -108,6 +108,7 @@ public class SVGRenderer {
                     gradientFill.owningElement = svgElement
                     print("========================================================")
                     print(gradientFill.description)
+                    // renderer.addPath(pathable)
                     renderer.drawLinearGradient(gradientFill, pathGenerator: pathable)
                 }
                 if (hasStroke || hasFill) {

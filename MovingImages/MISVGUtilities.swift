@@ -322,6 +322,26 @@ internal func makeMovingImagesText(string: CFString,
     return wrapperDict
 }
 
+internal func makeMILinearGradientDictionary(colors colors: [CGColor],
+                                                 locations: [CGFloat],
+                                                startPoint: CGPoint,
+                                                  endPoint: CGPoint) -> MovingImagesGradient {
+    var theDict: MovingImagesGradient = [
+        MIJSONKeyElementType : MIJSONValueLinearGradientFill,
+        MIJSONKeyLine : [
+            MIJSONKeyStartPoint : makePointDictionary(startPoint),
+            MIJSONKeyEndPoint : makePointDictionary(endPoint)
+        ],
+        MIJSONKeyArrayOfLocations : locations,
+    ]
+    
+    let colorDicts = colors.map() {
+        return SVGColors.makeMIColorDictFromColor($0)
+    }
+    theDict[MIJSONKeyArrayOfColors] = colorDicts
+    return theDict
+}
+
 public enum ColorError: ErrorType {
     case invalidColorDict
 }

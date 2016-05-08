@@ -112,7 +112,12 @@ class SVGColors {
     }
     
     class func colorDictionaryToCGColor(cDict: [NSObject : AnyObject]) -> CGColor? {
+/*
         return CGColor.color(red: cDict["red"] as! CGFloat, green: cDict["green"] as! CGFloat,
             blue: cDict["blue"] as! CGFloat, alpha: 1.0)
+*/
+        // Use sRGB.
+        let components: [CGFloat] = [cDict["red"]! as! CGFloat, cDict["green"]! as! CGFloat, cDict["blue"]! as! CGFloat, 1.0]
+        return CGColor.color(colorSpace: CGColorSpaceCreateWithName(kCGColorSpaceSRGB)!, components: components)
     }
 }

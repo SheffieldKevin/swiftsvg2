@@ -35,7 +35,6 @@ public protocol Renderer: AnyObject {
     var lineWidth:CGFloat? { get set }
 
     var style:Style { get set }
-
 }
 
 // MARK: -
@@ -101,7 +100,7 @@ extension CGContext: Renderer {
     }
     
     public func drawLinearGradient(linearGradient: LinearGradientRenderer,
-                                   pathGenerator: PathGenerator) {
+                                    pathGenerator: PathGenerator) {
         guard let theGradient = linearGradient.linearGradient else {
             return
         }
@@ -240,8 +239,23 @@ public class MovingImagesRenderer: Renderer {
     }
 
     public func drawLinearGradient(linearGradient: LinearGradientRenderer,
-                                   pathGenerator: PathGenerator) {
-        //TODO:
+                                    pathGenerator: PathGenerator) {
+        guard let gradient = linearGradient.miLinearGradient else {
+            return
+        }
+    
+        if let svgPath = pathGenerator.svgpath {
+            current.movingImages[MIJSONKeySVGPath] = svgPath
+        }
+        else if let mipath = pathGenerator.mipath {
+            for (key, value) in mipath {
+                current.movingImages[key] = value
+            }
+        }
+
+        for (key, value) in gradient {
+            current.movingImages[key] = value
+        }
     }
 
     public func endElement() {
