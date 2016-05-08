@@ -36,11 +36,11 @@ This project also implements rotation around a point.
 
 ## What is This
 
-This is a Swift SVG Parser, and Renderer. There is a small amount of c and objective-c in the project.
+This is a Swift SVG Parser, and Renderer. There is a small amount of c and objective-c in the project. The following image:  
 
-![Obligatory Screenshot](Documentation/map-2.png)
+![Obligatory Screenshot](Documentation/map-2.png)  
 
-which is the SwiftSVG rendering of this [svg file](Documentation/map-2.svg) generated from [OpenStreetMap](http://openstreetmap.org)
+is the SwiftSVG rendering of this [svg file](Documentation/map-2.svg) generated from [OpenStreetMap](http://openstreetmap.org)
 
 It depends on [SwiftGraphics](https://github.com/schwa/SwiftGraphics) and [SwiftParsing](https://github.com/schwa/SwiftParsing).
 
