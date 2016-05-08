@@ -44,11 +44,11 @@ is the SwiftSVG rendering of this [svg file](Documentation/map-2.svg) generated 
 
 It depends on [SwiftGraphics](https://github.com/schwa/SwiftGraphics) and [SwiftParsing](https://github.com/schwa/SwiftParsing).
 
-I have extended this project because I needed a renderer to convert from svg to my json representation of CoreGraphics called MovingImages. Schwa's design of this project has made that possible. His design also makes it easy to add rendering as CoreGraphics code.
+I have extended this project because I needed a renderer to convert from svg to my json representation of CoreGraphics called [MovingImages](https://gitlab.com/ktam/movingimages). Schwa's design of this project has made that possible. His design also makes it easy to add rendering as CoreGraphics code.
 
 ## How to build.
 
-The project should build and run out of the box. You need Swift 2 (currently b6) and Mac OS X 10.10 (if not 11).
+The project should build and run out of the box. You need Xcode 7.3, Swift 2.2 and Mac OS X 10.10
 
 ## How to hack.
 
