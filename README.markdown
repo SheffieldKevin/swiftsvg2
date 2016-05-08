@@ -36,11 +36,15 @@ This project also implements rotation around a point.
 
 ## What is This
 
-This is a pure Swift SVG Parser, Renderer, Optimiser and (coming soon) binary exporter.
+This is a Swift SVG Parser, and Renderer. There is a small amount of c and objective-c in the project.
 
-![Obligatory Screenshot](Documentation/map-2.svg)
+![Obligatory Screenshot](Documentation/map-2.png)
+
+which is the SwiftSVG rendering of this [svg file](Documentation/map-2.svg) generated from [OpenStreetMap](http://openstreetmap.org)
 
 It depends on [SwiftGraphics](https://github.com/schwa/SwiftGraphics) and [SwiftParsing](https://github.com/schwa/SwiftParsing).
+
+I have extended this project because I needed a renderer to convert from svg to my json representation of CoreGraphics called MovingImages. Schwa's design of this project has made that possible. His design also makes it easy to add rendering as CoreGraphics code.
 
 ## How to build.
 
@@ -49,3 +53,9 @@ The project should build and run out of the box. You need Swift 2 (currently b6)
 ## How to hack.
 
 This project uses git submodules to manage the various repositories needed to build the project.
+
+### Things I'd like to see done:
+
+It would be nice to remove the dependency on NSXMLElement which is OS X only. This is the only thing holding the project back from being iOS as well.
+
+To remove the last remnants of Objective-C from the project.
