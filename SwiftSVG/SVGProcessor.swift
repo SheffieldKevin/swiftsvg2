@@ -456,9 +456,10 @@ public class SVGProcessor {
         }
 
         var flattenedTextSpans = textSpans.flatMap { $0 }
-        if let text = xmlElement.stringValue {
-            let textSpan = SVGTextSpan(string: text, textOrigin: textOrigin)
-            flattenedTextSpans = [textSpan] + flattenedTextSpans
+        if flattenedTextSpans.isEmpty {
+            if let text = xmlElement.stringValue where !text.isEmpty {
+                flattenedTextSpans = [SVGTextSpan(string: text, textOrigin: textOrigin)]
+            }
         }
 
         xmlElement.setChildren(nil)
