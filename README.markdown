@@ -4,7 +4,7 @@
 
 This is a fork of [Schwa's SwiftSVG project](https://github.com/schwa/SwiftSVG) and has been significantly extended to include a lot more of the SVG specification. This project  relies heavily on Schwa's work.
 
-The various SVG shapes this project adds are:
+The various SVG shapes this project adds over Schwa's original are:
 
 *  SVGLine
 *  SVGPolyLine
@@ -20,7 +20,7 @@ The various SVG shapes this project adds are:
 
 † These are not complete. Text will not handle text formatting changes within a text span. The text element will not flow text from one text span to the next so that absolute text positioning for each span only is possible. Other than elements defined within symbols only the linear gradient def element is recognized.
 
-†† The SVGLinearGradient element implements most of the SVG specification but has not tested with more than a few documents at present.
+†† The SVGLinearGradient element implements most of the SVG specification but has not tested with more than a few documents at present. Hopefully after implementing the linear gradient implementing a radial gradient will not be difficult.
 
 The various SVG styles that this project adds are:
 
