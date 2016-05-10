@@ -117,14 +117,19 @@ public class SVGProcessor {
 
             xmlElement["viewBox"] = nil
         }
-        else if let _ = xmlElement["width"]?.stringValue, let _ = xmlElement["height"]?.stringValue {
+        
+        if let _ = xmlElement["width"]?.stringValue, let _ = xmlElement["height"]?.stringValue {
             let width = try SVGProcessor.stringToCGFloat(xmlElement["width"]?.stringValue)
             let height = try SVGProcessor.stringToCGFloat(xmlElement["height"]?.stringValue)
             let x = try SVGProcessor.stringToCGFloat(xmlElement["x"]?.stringValue, defaultVal: 0.0)
             let y = try SVGProcessor.stringToCGFloat(xmlElement["y"]?.stringValue, defaultVal: 0.0)
-            document.viewBox = CGRect(x: x, y: y, width: width, height: height)
+            document.viewPort = CGRect(x: x, y: y, width: width, height: height)
         }
 
+        if let _ = document.viewBox { }
+        else {
+            document.viewBox = document.viewPort
+        }
         xmlElement["width"] = nil
         xmlElement["height"] = nil
         xmlElement["x"] = nil
@@ -243,9 +248,6 @@ public class SVGProcessor {
             if let svgElement = try self.processSVGElement(node as! NSXMLElement, state: state) {
                 defElements.append(svgElement)
             }
-        }
-        if defElements.count > 0 {
-            state.document!.defs = defElements
         }
         return nil
     }

@@ -298,15 +298,12 @@ public class SVGDocument: SVGContainer {
     public var profile: Profile?
     public var version: Version?
     public var viewBox: CGRect?
+    public var viewPort: CGRect?
     public var title: String?
     public var documentDescription: String?
-    public var defs: [SVGElement]?
     
     override public func printElements() {
         super.printElements()
-        if let defs = self.defs {
-            defs.forEach() { $0.printElements() }
-        }
     }
     
     deinit {

@@ -403,17 +403,5 @@ extension SVGColors {
         var miColorDict = colorDict
         miColorDict[MIJSONKeyColorColorProfileName] = kCGColorSpaceSRGB
         return miColorDict
-/*
-        var mColorDict: [NSString : AnyObject] = [
-            MIJSONKeyRed : colorDict["red"]!,
-            MIJSONKeyGreen : colorDict["green"]!,
-            MIJSONKeyBlue : colorDict["blue"]!,
-            MIJSONKeyColorColorProfileName : kCGColorSpaceSRGB
-        ]
-        if let alpha = colorDict["alpha"] {
-            mColorDict[MIJSONKeyAlpha] = alpha
-        }
-         return mColorDict
-*/
     }
 }
