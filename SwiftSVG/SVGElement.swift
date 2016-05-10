@@ -75,6 +75,8 @@ public class SVGElement: Node {
     public internal(set) var textStyle: TextStyle? = nil
     public internal(set) var gradientFill: SVGLinearGradient? = nil
     public internal(set) var display = true
+    // public internal(set) var fillOpacity: CGFloat? = nil
+    // public internal(set) var strokeOpacity: CGFloat? = nil
 
     init() {
         SVGElement.numElements += 1
@@ -87,6 +89,32 @@ public class SVGElement: Node {
         }
         // print("Element destroyed, num elements now: \(SVGElement.numElements)")
     }
+
+/*
+    var evaluatedFillOpacity: CGFloat? {
+        get {
+            if let opacity = fillOpacity {
+                return opacity
+            }
+            guard let parent = self.parent else {
+                return .None
+            }
+            return parent.evaluatedFillOpacity
+        }
+    }
+    
+    var evaluatedStrokeOpacity: CGFloat? {
+        get {
+            if let opacity = strokeOpacity {
+                return opacity
+            }
+            guard let parent = self.parent else {
+                return .None
+            }
+            return parent.evaluatedStrokeOpacity
+        }
+    }
+*/
 
     var drawFill = true // If fill="none" this explictly turns off fill.
     var fillColor: CGColor? {

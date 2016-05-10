@@ -106,8 +106,16 @@ class SVGColors {
             return nil
         }
         if let colorWithName = SVGStandardColors.colorFromName(string) {
-            return try CColorConverter.sharedInstance().colorDictionaryWithString(colorWithName)
+            let colorDict = try CColorConverter.sharedInstance().colorDictionaryWithString(colorWithName)
+            // if let opacity = opacity {
+            //    colorDict["alpha"] = opacity
+            // }
+            return colorDict
         }
+        // var colorDict = try CColorConverter.sharedInstance().colorDictionaryWithString(string)
+        // if let opactiy = opacity {
+        //
+        // }
         return try CColorConverter.sharedInstance().colorDictionaryWithString(string)
     }
     
@@ -117,7 +125,14 @@ class SVGColors {
             blue: cDict["blue"] as! CGFloat, alpha: 1.0)
 */
         // Use sRGB.
-        let components: [CGFloat] = [cDict["red"]! as! CGFloat, cDict["green"]! as! CGFloat, cDict["blue"]! as! CGFloat, 1.0]
+        let alpha: CGFloat
+        if let alphaVal = cDict["alpha"] as? CGFloat {
+            alpha = alphaVal
+        }
+        else {
+            alpha = 1.0
+        }
+        let components: [CGFloat] = [cDict["red"]! as! CGFloat, cDict["green"]! as! CGFloat, cDict["blue"]! as! CGFloat, alpha]
         return CGColor.color(colorSpace: CGColorSpaceCreateWithName(kCGColorSpaceSRGB)!, components: components)
     }
 }

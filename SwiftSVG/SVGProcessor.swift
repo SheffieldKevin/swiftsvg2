@@ -47,6 +47,8 @@ public class SVGProcessor {
         var document: SVGDocument?
         var elementsByID: [String:SVGElement] = [: ]
         var events: [Event] = []
+        var fillOpacity: CGFloat?
+        var strokeOpacity: CGFloat?
     }
 
     public struct Event {
@@ -66,6 +68,7 @@ public class SVGProcessor {
         case invalidSVG(String, String, Int)
         case expectedSVGElementNotFound(String, String, Int)
         case missingRequiredSVGProperty(String, String, Int)
+        case invalidFunctionParameters(String, String, Int)
     }
 
     public init() {
@@ -142,9 +145,17 @@ public class SVGProcessor {
     }
 
     public func processSVGElement(xmlElement: NSXMLElement, state: State) throws -> SVGElement? {
-
         var svgElement: SVGElement? = nil
 
+        let oldFillOpacity = state.fillOpacity
+        defer {
+            state.fillOpacity = oldFillOpacity
+        }
+        let oldStrokeOpacity = state.strokeOpacity
+        defer {
+            state.strokeOpacity = oldStrokeOpacity
+        }
+        
         guard let name = xmlElement.name else {
             throw Error.corruptXML(#file, #function, #line)
         }
@@ -469,11 +480,21 @@ public class SVGProcessor {
         return nil
     }
     
-    private class func processColorString(colorString: String) -> [NSObject : AnyObject]? {
+    private class func processColorString(colorString: String, opacity: CGFloat?) -> [NSObject : AnyObject]? {
         // Double optional. What?
-        let colorDict = try? SVGColors.stringToColorDictionary(colorString)
-        if let colorDict = colorDict {
-            return colorDict
+        let ooColorDict = try? SVGColors.stringToColorDictionary(colorString)
+        if let oColorDict = ooColorDict {
+            if var colorDict = oColorDict,
+                let theOpacity = opacity {
+                if let originalOpacity = colorDict["alpha"] as? CGFloat {
+                    colorDict["alpha"] = theOpacity * originalOpacity
+                }
+                else {
+                    colorDict["alpha"] = theOpacity
+                }
+                return colorDict
+            }
+            return oColorDict
         }
         return nil
     }
@@ -487,30 +508,28 @@ public class SVGProcessor {
         if colorString.hasPrefix("url(#") {
             let string = colorString.substringFromIndex(colorString.startIndex.advancedBy(5))
             let gradientString = string.substringToIndex(string.endIndex.advancedBy(-1))
-            print("Gradient or pattern identifier: \(gradientString)")
             let gradientElement = state?.elementsByID[gradientString] as? SVGLinearGradient
+
             if let gradient = gradientElement {
                 svgElement.gradientFill = gradient
-                // gradient.owningElement = svgElement
             }
             else {
                 print("Identifier did not refer to a linear gradient")
                 return StyleElement.Alpha(0.0)
             }
-            return nil
+            return .None
         }
-        else if let colorDict = processColorString(colorString),
-            let color = SVGColors.colorDictionaryToCGColor(colorDict)
-        {
+        else if let colorDict = SVGProcessor.processColorString(colorString, opacity: state?.fillOpacity),
+            let color = SVGColors.colorDictionaryToCGColor(colorDict) {
             return StyleElement.FillColor(color)
         }
         else {
-            return nil
+            return .None
         }
     }
 
-    private class func processStrokeColor(colorString: String) -> StyleElement? {
-        if let colorDict = processColorString(colorString),
+    private class func processStrokeColor(colorString: String, opacity: CGFloat?) -> StyleElement? {
+        if let colorDict = SVGProcessor.processColorString(colorString, opacity: opacity),
             let color = SVGColors.colorDictionaryToCGColor(colorDict)
         {
             return StyleElement.StrokeColor(color)
@@ -525,8 +544,13 @@ public class SVGProcessor {
         let trimChars = NSCharacterSet.whitespaceAndNewlineCharacterSet()
         let parts = style.componentsSeparatedByCharactersInSet(seperators)
         let pairSeperator = NSCharacterSet(charactersInString: ":")
+        
+        // Since the fill and stroke colors can include an alpha component which
+        // can be specified seperately, we need to treat these as special cases.
+        var fillColor: String? = .None
+        var strokeColor: String? = .None
 
-        let styles:[StyleElement?] = parts.map {
+        let styles:[StyleElement?] = try parts.map {
             let pair = $0.componentsSeparatedByCharactersInSet(pairSeperator)
             if pair.count != 2 {
                 return .None
@@ -534,8 +558,18 @@ public class SVGProcessor {
             let propertyName = pair[0].stringByTrimmingCharactersInSet(trimChars)
             let value = pair[1].stringByTrimmingCharactersInSet(trimChars)
             switch(propertyName) {
+                case "opacity":
+                    if let value = try SVGProcessor.stringToOptionalClampedCGFloat(value, minClamp: 0.0, maxClamp: 1.0) {
+                        return StyleElement.Alpha(value)
+                    }
+                    return .None
                 case "fill":
-                    return processFillColor(value, svgElement: svgElement, state:state)
+                    fillColor = value
+                    return .None
+                    // return processFillColor(value, svgElement: svgElement, state:state)
+                case "fill-opacity":
+                    state.fillOpacity = try SVGProcessor.stringToCGFloat(value)
+                    return .None
                 case "fill-rule":
                     if value == "evenodd" {
                         if var pathElement = svgElement as? PathGenerator {
@@ -544,19 +578,16 @@ public class SVGProcessor {
                     }
                     return .None
                 case "stroke":
-                    return processStrokeColor(value)
+                    strokeColor = value
+                    return .None
+                    // return processStrokeColor(value)
+                case "stroke-opacity":
+                    state.strokeOpacity = try SVGProcessor.stringToCGFloat(value)
+                    return .None
                 case "stroke-width":
-                    let floatVal = try? SVGProcessor.stringToCGFloat(value)
-                    if let strokeValue = floatVal {
-                        return StyleElement.LineWidth(strokeValue)
-                    }
-                    return .None
+                    return StyleElement.LineWidth(try SVGProcessor.stringToCGFloat(value))
                 case "stroke-miterlimit":
-                    let floatVal = try? SVGProcessor.stringToCGFloat(value)
-                    if let miterLimit = floatVal {
-                        return StyleElement.MiterLimit(miterLimit)
-                    }
-                    return .None
+                    return StyleElement.MiterLimit(try SVGProcessor.stringToCGFloat(value))
                 case "stroke-linejoin":
                     let lineJoin = CGLineJoin.valueFromSVG(string: value)
                     
@@ -583,9 +614,8 @@ public class SVGProcessor {
                     }
                     return .None
                 case "stroke-dashoffset":
-                    if let dashPhase =  try? SVGProcessor.stringToOptionalCGFloat(value),
-                        let dashPhaseValue = dashPhase {
-                        return StyleElement.LineDashPhase(dashPhaseValue)
+                    if let dashPhase =  try SVGProcessor.stringToOptionalCGFloat(value) {
+                        return StyleElement.LineDashPhase(dashPhase)
                     }
                     return .None
                 default:
@@ -596,6 +626,17 @@ public class SVGProcessor {
         styles.forEach {
             if let theStyle = $0 {
                 styleElements.append(theStyle)
+            }
+        }
+        if let color = fillColor {
+            if let styleElement = SVGProcessor.processFillColor(color, svgElement: svgElement, state:state) {
+                styleElements.append(styleElement)
+            }
+        }
+
+        if let color = strokeColor {
+            if let styleElement = SVGProcessor.processStrokeColor(color, opacity:state.strokeOpacity) {
+                styleElements.append(styleElement)
             }
         }
     }
@@ -636,6 +677,11 @@ public class SVGProcessor {
             xmlElement["style"] = nil
         }
 
+        if let value = try SVGProcessor.stringToOptionalCGFloat(xmlElement["fill-opacity"]?.stringValue) {
+            state.fillOpacity = value
+            xmlElement["fill-opacity"] = nil
+        }
+
         if let value = xmlElement["fill"]?.stringValue,
             let svgElement = svgElement {
             if let styleElement = SVGProcessor.processFillColor(value, svgElement: svgElement, state:state) {
@@ -644,11 +690,21 @@ public class SVGProcessor {
             xmlElement["fill"] = nil
         }
         
+        if let value = try SVGProcessor.stringToOptionalCGFloat(xmlElement["stroke-opacity"]?.stringValue) {
+            state.strokeOpacity = value
+            xmlElement["stroke-opacity"] = nil
+        }
+
         if let value = xmlElement["stroke"]?.stringValue {
-            if let styleElement = SVGProcessor.processStrokeColor(value) {
+            if let styleElement = SVGProcessor.processStrokeColor(value, opacity: state.strokeOpacity) {
                 styleElements.append(styleElement)
             }
             xmlElement["stroke"] = nil
+        }
+
+        if let value = try SVGProcessor.stringToOptionalClampedCGFloat(xmlElement["opacity"]?.stringValue, minClamp: 0.0, maxClamp: 1.0) {
+            styleElements.append(StyleElement.Alpha(value))
+            xmlElement["opacity"] = nil
         }
 
         if let value = xmlElement["fill-rule"]?.stringValue {
@@ -660,9 +716,9 @@ public class SVGProcessor {
             }
         }
 
-        let stroke = try SVGProcessor.stringToOptionalCGFloat(xmlElement["stroke-width"]?.stringValue)
-        if let strokeValue = stroke {
-            styleElements.append(StyleElement.LineWidth(strokeValue))
+        let strokeWidth = try SVGProcessor.stringToOptionalCGFloat(xmlElement["stroke-width"]?.stringValue)
+        if let strokeWidthValue = strokeWidth {
+            styleElements.append(StyleElement.LineWidth(strokeWidthValue))
         }
         xmlElement["stroke-width"] = nil
 
@@ -774,7 +830,7 @@ public class SVGProcessor {
                 let value = pair[1].stringByTrimmingCharactersInSet(trimChars)
                 switch(propertyName) {
                     case "stop-color":
-                        guard let stopColorDict = SVGProcessor.processColorString(value),
+                        guard let stopColorDict = SVGProcessor.processColorString(value, opacity: .None),
                             let color = SVGColors.colorDictionaryToCGColor(stopColorDict) else {
                                 throw Error.invalidSVG(#file, #function, #line)
                         }
@@ -803,7 +859,7 @@ public class SVGProcessor {
         guard let colorString = colorNode.stringValue else {
             throw Error.corruptXML(#file, #function, #line)
         }
-        guard let stopColorDict = SVGProcessor.processColorString(colorString),
+        guard let stopColorDict = SVGProcessor.processColorString(colorString, opacity: .None),
             var stopColor = SVGColors.colorDictionaryToCGColor(stopColorDict) else {
             throw Error.invalidSVG(#file, #function, #line)
         }
@@ -936,6 +992,16 @@ extension SVGProcessor: Parser {
             throw Error.corruptXML(#file, #function, #line)
         }
         return CGFloat(value.doubleValue)
+    }
+    
+    private class func stringToOptionalClampedCGFloat(string: String?, minClamp: CGFloat = -CGFloat.max, maxClamp: CGFloat = CGFloat.max) throws -> CGFloat? {
+        if minClamp > maxClamp {
+            throw Error.invalidFunctionParameters(#file, #function, #line)
+        }
+        guard let value = try stringToOptionalCGFloat(string) else {
+            return .None
+        }
+        return max(minClamp, min(maxClamp, value))
     }
     
     private class func stringToCGFloat(string: String?, defaultVal: CGFloat) throws -> CGFloat {
