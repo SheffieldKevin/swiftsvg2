@@ -336,7 +336,7 @@ internal func makeMILinearGradientDictionary(colors colors: [CGColor],
     ]
     
     let colorDicts = colors.map() {
-        return SVGColors.makeMIColorDictFromColor($0)
+        return SVGColors.makeMIColorFromColor($0)
     }
     theDict[MIJSONKeyArrayOfColors] = colorDicts
     return theDict
