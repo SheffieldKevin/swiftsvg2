@@ -25,6 +25,9 @@ The various SVG shapes this project adds over Schwa's original are:
 The various SVG styles that this project adds are:
 
 * style
+* opacity
+* fill-opacity
+* stroke-opacity
 * fill-rule
 * stroke-linejoin
 * stroke-linecap
