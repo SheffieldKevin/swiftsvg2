@@ -267,7 +267,9 @@ class ViewController: NSViewController {
             let svgRenderer = SVGRenderer()
             let _ = try? svgRenderer.renderDocument(svgDocument, renderer: renderer)
             let jsonObject = renderer.generateJSONDict()
-            writeMovingImagesJSONObject(jsonObject, fileURL: savePanel.URL!)
+            if let demoObject = makeMIDemoObjectFromJSONObject(jsonObject) {
+                writeMovingImagesJSONObject(demoObject, fileURL: savePanel.URL!)
+            }
         })
     }
 }

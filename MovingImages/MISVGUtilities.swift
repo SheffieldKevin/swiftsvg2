@@ -342,6 +342,44 @@ internal func makeMILinearGradientDictionary(colors colors: [CGColor],
     return theDict
 }
 
+public func makeMIDemoObjectFromJSONObject(jsonObject: [NSString : AnyObject]) -> [NSString : AnyObject]? {
+    guard let viewBox = jsonObject["viewBox"] as? [NSString : AnyObject],
+        let size = viewBox[MIJSONKeySize] as? [NSString : AnyObject],
+        let height = size[MIJSONKeyHeight] as? CGFloat else {
+            return .None
+    }
+    
+    var locaObject = jsonObject
+    locaObject[MIJSONKeyContextTransformation] = [
+        [
+            MIJSONKeyTransformationType : MIJSONValueScale,
+            MIJSONKeyScale : [
+                MIJSONKeyX : "$scale",
+                MIJSONKeyY : "-1 * $scale"
+            ]
+        ],
+        [
+            MIJSONKeyTransformationType : MIJSONValueTranslate,
+            MIJSONKeyTranslation : [
+                MIJSONKeyX : 0,
+                MIJSONKeyY : -height
+            ]
+        ]
+    ]
+    let demoObject: [NSString : AnyObject] = [
+        "drawinstructions" : locaObject,
+        "variabledefinitions" : [
+            [
+                "maxvalue" : 4,
+                "variablekey" : "scale",
+                "defaultvalue" : 1.0,
+                "minvalue" : 0.5
+            ]
+        ]
+    ]
+    return demoObject
+}
+
 public enum ColorError: ErrorType {
     case invalidColorDict
 }

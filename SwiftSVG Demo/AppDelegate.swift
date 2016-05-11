@@ -95,7 +95,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     let svgRenderer = SVGRenderer()
                     let _ = try? svgRenderer.renderDocument(svgDocument, renderer: renderer)
                     let jsonObject = renderer.generateJSONDict()
-                    writeMovingImagesJSONObject(jsonObject, fileURL: newFileURL)
+                    if let demoObject = makeMIDemoObjectFromJSONObject(jsonObject) {
+                        writeMovingImagesJSONObject(demoObject, fileURL: newFileURL)
+                    }
                 })
             })
         })
