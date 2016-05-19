@@ -129,11 +129,6 @@ class ViewController: NSViewController {
         let xmlDocument = try NSXMLDocument(XMLString: source, options: 0)
         let processor = SVGProcessor()
         svgDocument = try processor.processXMLDocument(xmlDocument)
-//        svgDocument?.printElements()
-//        let renderer = SourceCodeRenderer()
-//        let svgRenderer = SVGRenderer()
-//        try svgRenderer.renderDocument(svgDocument!, renderer: renderer)
-//        print(renderer.source)
     }
 
     override func viewDidDisappear() {
@@ -148,7 +143,12 @@ class ViewController: NSViewController {
         self.svgView = nil
         self.document = nil
         self.root = nil
-        self.view.window?.windowController?.contentViewController = nil
+        let window = self.view.window
+        let windowController = window?.windowController
+        windowController?.dismissController(self)
+        windowController?.contentViewController = nil
+        window?.contentView = nil
+        window?.contentViewController = nil
         print("ViewController view did dissapear")
     }
 
