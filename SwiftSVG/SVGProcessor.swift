@@ -74,6 +74,13 @@ public class SVGProcessor {
     public init() {
     }
 
+    private func isElementRendereable(svgElement: SVGElement?) -> Bool {
+        if let _ = svgElement as? SVGLinearGradient {
+            return false
+        }
+        return true
+    }
+    
     public func processXMLDocument(xmlDocument: NSXMLDocument) throws -> SVGDocument? {
         let rootElement = xmlDocument.rootElement()!
         let state = State()
@@ -232,6 +239,13 @@ public class SVGProcessor {
                 svgElement.xmlElement = xmlElement
             }
         }
+        
+        // All elements added to the svg element tree hierarchy should be renderable or their children should be.
+        // If the element isn't then stop it from being added to the tree of elements.
+        if !self.isElementRendereable(svgElement) {
+            svgElement = .None
+        }
+
         return svgElement
     }
 

@@ -117,7 +117,7 @@ class SwiftSVGTests: XCTestCase {
             return
         }
         
-        XCTAssert(svgDocument.children.count == 27, "TextDrawing should have 1 child.")
+        XCTAssert(svgDocument.children.count == 27, "The SVG document should have 27 direct children.")
         XCTAssert(svgDocument.viewBox == CGRect(x: 0, y: 0, width: 256, height: 256), "View box should be a square 256x256")
         svgDocument.children.forEach {
             guard let svgPath = $0 as? SVGPath else {

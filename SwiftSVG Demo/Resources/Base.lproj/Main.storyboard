@@ -850,7 +850,7 @@
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="MlW-Hb-2XK">
-                                                                                        <rect key="frame" x="206.5" y="1" width="40" height="17"/>
+                                                                                        <rect key="frame" x="206" y="1" width="40" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
                                                                                             <button translatesAutoresizingMaskIntoConstraints="NO" id="M17-yV-9Vc">
@@ -889,7 +889,7 @@
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="kVV-rx-nyq">
-                                                                                        <rect key="frame" x="250" y="1" width="40" height="17"/>
+                                                                                        <rect key="frame" x="249" y="1" width="40" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
                                                                                             <button translatesAutoresizingMaskIntoConstraints="NO" id="UYx-La-gx7">
@@ -928,7 +928,7 @@
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="XV9-G3-kld">
-                                                                                        <rect key="frame" x="293.5" y="1" width="40" height="17"/>
+                                                                                        <rect key="frame" x="292" y="1" width="40" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
                                                                                             <colorWell enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oI-Dh-qbY">
@@ -967,7 +967,7 @@
                                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                 <prototypeCellViews>
                                                                                     <tableCellView id="ic4-yi-Ktj">
-                                                                                        <rect key="frame" x="337" y="1" width="40" height="17"/>
+                                                                                        <rect key="frame" x="335" y="1" width="40" height="17"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
                                                                                             <colorWell enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGU-gg-Gyg">

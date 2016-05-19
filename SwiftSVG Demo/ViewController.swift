@@ -24,13 +24,21 @@ class ViewController: NSViewController {
 
     dynamic var source: String? = nil {
         didSet {
-            do {
-                try self.parse()
+            guard let theSource = source else {
+                if let _ = self.document {
+                    self.document.source = nil
+                }
+                return
             }
-            catch let error {
-                print(error)
-            }
-            document.source = source
+            dispatch_async(dispatch_get_main_queue(), {
+                do {
+                    try self.parse()
+                }
+                catch let error {
+                    print(error)
+                }
+                self.document.source = theSource
+            })
         }
     }
 
@@ -136,8 +144,7 @@ class ViewController: NSViewController {
         self.treeController = nil
         self.svgView.svgDocument = nil
         self.source = nil
-        // self.svgDocument = nil
-        // self.source = nil
+        self.svgDocument = nil
         self.svgView = nil
         self.document = nil
         self.root = nil
@@ -150,7 +157,7 @@ class ViewController: NSViewController {
         print("ViewController view will dissapear")
     }
     deinit {
-        print("ViewController Dismissed.")
+        print("ViewController deallocated.")
     }
 
     static func treeNodeTemplate() -> ObjectAdaptor.Template {
