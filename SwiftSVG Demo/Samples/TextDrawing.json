@@ -31,25 +31,13 @@
                   "transformationtype" : "scale"
                 }
               ],
-              "strokecolor" : {
-                "red" : 0,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0,
-                "alpha" : 1,
-                "green" : 0
-              },
+              "strokecolor" : "#000000",
               "point" : {
                 "x" : 20,
                 "y" : 0
               },
               "fontsize" : 40,
-              "fillcolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 1,
-                "alpha" : 1,
-                "green" : 1
-              },
+              "fillcolor" : "#FFFFFF",
               "elementtype" : "drawbasicstring",
               "stringtext" : "Fill and stroke",
               "stringstrokewidth" : -4,
@@ -63,12 +51,6 @@
     }
   ],
   "linewidth" : 1,
-  "fillcolor" : {
-    "red" : 0,
-    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-    "blue" : 0,
-    "alpha" : 1,
-    "green" : 0
-  },
+  "fillcolor" : "#000000",
   "elementtype" : "arrayofelements"
 }

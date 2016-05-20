@@ -21,91 +21,18 @@
           "x" : 7.5
         }
       },
-      "fillcolor" : {
-        "red" : 0.8392156862745098,
-        "colorcolorprofilename" : "kCGColorSpaceSRGB",
-        "blue" : 0.8392156862745098,
-        "alpha" : 1,
-        "green" : 0
-      },
+      "fillcolor" : "#D600D6",
       "elementtype" : "filloval"
     },
     {
-      "arrayofpathelements" : [
-        {
-          "point" : {
-            "x" : 4,
-            "y" : 5.55
-          },
-          "elementtype" : "pathmoveto"
-        },
-        {
-          "elementtype" : "pathlineto",
-          "endpoint" : {
-            "x" : 12,
-            "y" : 5.55
-          }
-        },
-        {
-          "elementtype" : "pathlineto",
-          "endpoint" : {
-            "x" : 8,
-            "y" : 12.45
-          }
-        },
-        {
-          "elementtype" : "pathlineto",
-          "endpoint" : {
-            "x" : 4,
-            "y" : 5.55
-          }
-        },
-        {
-          "elementtype" : "pathclosesubpath"
-        }
-      ],
-      "startpoint" : {
-        "x" : 0,
-        "y" : 0
-      },
-      "strokecolor" : {
-        "red" : 0.8392156862745098,
-        "colorcolorprofilename" : "kCGColorSpaceSRGB",
-        "blue" : 0.8392156862745098,
-        "alpha" : 1,
-        "green" : 0
-      },
-      "elementtype" : "strokepath"
+      "svgpath" : "M4,5.55h8l-4,6.9L4,5.55z",
+      "elementtype" : "strokepath",
+      "strokecolor" : "#D600D6"
     },
     {
-      "arrayofpathelements" : [
-        {
-          "point" : {
-            "x" : 8,
-            "y" : 1.55
-          },
-          "elementtype" : "pathmoveto"
-        },
-        {
-          "elementtype" : "pathlineto",
-          "endpoint" : {
-            "x" : 8,
-            "y" : 5.55
-          }
-        }
-      ],
-      "strokecolor" : {
-        "red" : 0.8392156862745098,
-        "colorcolorprofilename" : "kCGColorSpaceSRGB",
-        "blue" : 0.8392156862745098,
-        "alpha" : 1,
-        "green" : 0
-      },
+      "svgpath" : "M8,1.55v4",
       "elementdebugname" : "l",
-      "startpoint" : {
-        "x" : 0,
-        "y" : 0
-      },
+      "strokecolor" : "#D600D6",
       "elementtype" : "strokepath"
     },
     {
@@ -119,34 +46,9 @@
       },
       "arrayofelements" : [
         {
-          "arrayofpathelements" : [
-            {
-              "point" : {
-                "x" : 13.586,
-                "y" : 11.225
-              },
-              "elementtype" : "pathmoveto"
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 10.121,
-                "y" : 9.225
-              }
-            }
-          ],
-          "strokecolor" : {
-            "red" : 0.8392156862745098,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0.8392156862745098,
-            "alpha" : 1,
-            "green" : 0
-          },
+          "svgpath" : "M13.586,11.225l-3.465-2",
           "elementdebugname" : "l_1_",
-          "startpoint" : {
-            "x" : 0,
-            "y" : 0
-          },
+          "strokecolor" : "#D600D6",
           "elementtype" : "strokepath"
         }
       ],
@@ -163,34 +65,9 @@
       },
       "arrayofelements" : [
         {
-          "arrayofpathelements" : [
-            {
-              "point" : {
-                "x" : 2.414,
-                "y" : 11.225
-              },
-              "elementtype" : "pathmoveto"
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 5.878,
-                "y" : 9.225
-              }
-            }
-          ],
-          "strokecolor" : {
-            "red" : 0.8392156862745098,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0.8392156862745098,
-            "alpha" : 1,
-            "green" : 0
-          },
+          "svgpath" : "M2.414,11.225l3.464-2",
           "elementdebugname" : "l_2_",
-          "startpoint" : {
-            "x" : 0,
-            "y" : 0
-          },
+          "strokecolor" : "#D600D6",
           "elementtype" : "strokepath"
         }
       ],
@@ -198,12 +75,6 @@
     }
   ],
   "linewidth" : 1,
-  "fillcolor" : {
-    "red" : 0,
-    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-    "blue" : 0,
-    "alpha" : 1,
-    "green" : 0
-  },
+  "fillcolor" : "#000000",
   "elementtype" : "arrayofelements"
 }

@@ -14,138 +14,9 @@
       "elementdebugname" : "Black",
       "arrayofelements" : [
         {
-          "arrayofpathelements" : [
-            {
-              "point" : {
-                "x" : 640,
-                "y" : 640
-              },
-              "elementtype" : "pathmoveto"
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 0,
-                "y" : 640
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 0,
-                "y" : 0
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 640,
-                "y" : 0
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 640,
-                "y" : 640
-              }
-            },
-            {
-              "elementtype" : "pathclosesubpath"
-            },
-            {
-              "point" : {
-                "x" : 590,
-                "y" : 571
-              },
-              "elementtype" : "pathmoveto"
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 590,
-                "y" : 187.382
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 511,
-                "y" : 109
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 511,
-                "y" : 66
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 127,
-                "y" : 66
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 127,
-                "y" : 110.853
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 49,
-                "y" : 189
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 49,
-                "y" : 449.971
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 127,
-                "y" : 528
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 127,
-                "y" : 571
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 590,
-                "y" : 571
-              }
-            },
-            {
-              "elementtype" : "pathclosesubpath"
-            }
-          ],
-          "startpoint" : {
-            "x" : 0,
-            "y" : 0
-          },
-          "fillcolor" : {
-            "red" : 0.06274509803921569,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0.06274509803921569,
-            "alpha" : 1,
-            "green" : 0.06274509803921569
-          },
-          "elementtype" : "fillpath"
+          "elementtype" : "fillpath",
+          "fillcolor" : "#101010",
+          "svgpath" : "M640,640H0V0h640V640z M590,571V187.382L511,109V66H127v44.853L49,189v260.971L127,528v43H590z"
         }
       ],
       "elementtype" : "arrayofelements"
@@ -223,13 +94,7 @@
             }
           ],
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 1,
-            "alpha" : 1,
-            "green" : 1
-          },
+          "strokecolor" : "#FFFFFF",
           "startpoint" : {
             "x" : 127,
             "y" : 571
@@ -249,13 +114,7 @@
             }
           },
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 1,
-            "alpha" : 1,
-            "green" : 1
-          },
+          "strokecolor" : "#FFFFFF",
           "linewidth" : 2,
           "elementtype" : "drawline"
         },
@@ -271,13 +130,7 @@
             }
           },
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 1,
-            "alpha" : 1,
-            "green" : 1
-          },
+          "strokecolor" : "#FFFFFF",
           "linewidth" : 2,
           "elementtype" : "drawline"
         },
@@ -294,13 +147,7 @@
                   "x" : 3
                 }
               },
-              "fillcolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 1,
-                "alpha" : 1,
-                "green" : 1
-              },
+              "fillcolor" : "#FFFFFF",
               "elementtype" : "fillrectangle"
             },
             {
@@ -315,13 +162,7 @@
                 }
               },
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 1,
-                "alpha" : 1,
-                "green" : 1
-              },
+              "strokecolor" : "#FFFFFF",
               "linewidth" : 5,
               "elementtype" : "strokeoval"
             },
@@ -337,13 +178,7 @@
                 }
               },
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 1,
-                "alpha" : 1,
-                "green" : 1
-              },
+              "strokecolor" : "#FFFFFF",
               "linewidth" : 5,
               "elementtype" : "strokeoval"
             },
@@ -359,13 +194,7 @@
                 }
               },
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 1,
-                "alpha" : 1,
-                "green" : 1
-              },
+              "strokecolor" : "#FFFFFF",
               "linewidth" : 5,
               "elementtype" : "strokeoval"
             },
@@ -381,13 +210,7 @@
                 }
               },
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 1,
-                "alpha" : 1,
-                "green" : 1
-              },
+              "strokecolor" : "#FFFFFF",
               "linewidth" : 5,
               "elementtype" : "strokeoval"
             }
@@ -407,13 +230,7 @@
                   "x" : 595
                 }
               },
-              "fillcolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 1,
-                "alpha" : 1,
-                "green" : 1
-              },
+              "fillcolor" : "#FFFFFF",
               "elementtype" : "fillrectangle"
             },
             {
@@ -428,13 +245,7 @@
                 }
               },
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 1,
-                "alpha" : 1,
-                "green" : 1
-              },
+              "strokecolor" : "#FFFFFF",
               "linewidth" : 5,
               "elementtype" : "strokeoval"
             },
@@ -450,13 +261,7 @@
                 }
               },
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 1,
-                "alpha" : 1,
-                "green" : 1
-              },
+              "strokecolor" : "#FFFFFF",
               "linewidth" : 5,
               "elementtype" : "strokeoval"
             },
@@ -472,13 +277,7 @@
                 }
               },
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 1,
-                "alpha" : 1,
-                "green" : 1
-              },
+              "strokecolor" : "#FFFFFF",
               "linewidth" : 5,
               "elementtype" : "strokeoval"
             },
@@ -494,13 +293,7 @@
                 }
               },
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 1,
-                "alpha" : 1,
-                "green" : 1
-              },
+              "strokecolor" : "#FFFFFF",
               "linewidth" : 5,
               "elementtype" : "strokeoval"
             }
@@ -519,13 +312,7 @@
             }
           },
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 1,
-            "alpha" : 1,
-            "green" : 1
-          },
+          "strokecolor" : "#FFFFFF",
           "linewidth" : 2,
           "elementtype" : "drawline"
         },
@@ -550,13 +337,7 @@
             "x" : 306,
             "y" : 66
           },
-          "fillcolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 1,
-            "alpha" : 1,
-            "green" : 1
-          },
+          "fillcolor" : "#FFFFFF",
           "elementtype" : "fillpath"
         },
         {
@@ -580,13 +361,7 @@
             "x" : 337,
             "y" : 571
           },
-          "fillcolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 1,
-            "alpha" : 1,
-            "green" : 1
-          },
+          "fillcolor" : "#FFFFFF",
           "elementtype" : "fillpath"
         },
         {
@@ -603,13 +378,7 @@
                 }
               },
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 1,
-                "alpha" : 1,
-                "green" : 0
-              },
+              "strokecolor" : "#FF00FF",
               "linewidth" : 2,
               "elementtype" : "drawline"
             },
@@ -625,13 +394,7 @@
                 }
               },
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 1,
-                "alpha" : 1,
-                "green" : 0
-              },
+              "strokecolor" : "#FF00FF",
               "linewidth" : 2,
               "elementtype" : "drawline"
             },
@@ -647,13 +410,7 @@
                 }
               },
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 1,
-                "alpha" : 1,
-                "green" : 0
-              },
+              "strokecolor" : "#FF00FF",
               "linewidth" : 2,
               "elementtype" : "drawline"
             }
@@ -665,12 +422,6 @@
     }
   ],
   "linewidth" : 1,
-  "fillcolor" : {
-    "red" : 0,
-    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-    "blue" : 0,
-    "alpha" : 1,
-    "green" : 0
-  },
+  "fillcolor" : "#000000",
   "elementtype" : "arrayofelements"
 }

@@ -34,50 +34,12 @@
                   "x" : 0
                 }
               },
-              "strokecolor" : {
-                "red" : 0,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0,
-                "alpha" : 1,
-                "green" : 0
-              }
+              "strokecolor" : "#000000"
             },
             {
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 0,
-                    "y" : 0
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 50,
-                    "y" : 100
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 100,
-                    "y" : 0
-                  }
-                }
-              ],
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              },
-              "strokecolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0,
-                "alpha" : 1,
-                "green" : 0
-              },
-              "elementtype" : "strokepath"
+              "svgpath" : "                 M 0,0                 L 50 100, 100, 0                 ",
+              "elementtype" : "strokepath",
+              "strokecolor" : "#FF0000"
             }
           ],
           "elementtype" : "arrayofelements"
@@ -104,50 +66,12 @@
                   "x" : 0
                 }
               },
-              "strokecolor" : {
-                "red" : 0,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0,
-                "alpha" : 1,
-                "green" : 0
-              }
+              "strokecolor" : "#000000"
             },
             {
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 0,
-                    "y" : 0
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 50,
-                    "y" : 100
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 100,
-                    "y" : 0
-                  }
-                }
-              ],
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              },
-              "strokecolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0,
-                "alpha" : 1,
-                "green" : 0
-              },
-              "elementtype" : "strokepath"
+              "svgpath" : "                 M 0,0                 l 50 100, 50, -100                 ",
+              "elementtype" : "strokepath",
+              "strokecolor" : "#FF0000"
             }
           ],
           "elementtype" : "arrayofelements"
@@ -174,47 +98,12 @@
                   "x" : 0
                 }
               },
-              "strokecolor" : {
-                "red" : 0,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0,
-                "alpha" : 1,
-                "green" : 0
-              }
+              "strokecolor" : "#000000"
             },
             {
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 0,
-                    "y" : 0
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "endpoint" : {
-                    "x" : 100,
-                    "y" : 0
-                  },
-                  "elementtype" : "pathquadraticcurve",
-                  "controlpoint1" : {
-                    "x" : 50,
-                    "y" : 100
-                  }
-                }
-              ],
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              },
-              "strokecolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0,
-                "alpha" : 1,
-                "green" : 0
-              },
-              "elementtype" : "strokepath"
+              "svgpath" : "                 M 0,0                 Q 50 100, 100, 0                 ",
+              "elementtype" : "strokepath",
+              "strokecolor" : "#FF0000"
             }
           ],
           "elementtype" : "arrayofelements"
@@ -241,47 +130,12 @@
                   "x" : 0
                 }
               },
-              "strokecolor" : {
-                "red" : 0,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0,
-                "alpha" : 1,
-                "green" : 0
-              }
+              "strokecolor" : "#000000"
             },
             {
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 0,
-                    "y" : 0
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "endpoint" : {
-                    "x" : 100,
-                    "y" : 0
-                  },
-                  "elementtype" : "pathquadraticcurve",
-                  "controlpoint1" : {
-                    "x" : 50,
-                    "y" : 100
-                  }
-                }
-              ],
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              },
-              "strokecolor" : {
-                "red" : 1,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0,
-                "alpha" : 1,
-                "green" : 0
-              },
-              "elementtype" : "strokepath"
+              "svgpath" : "                 M 0,0                 q 50 100, 100, 0                 ",
+              "elementtype" : "strokepath",
+              "strokecolor" : "#FF0000"
             }
           ],
           "elementtype" : "arrayofelements"
@@ -291,12 +145,6 @@
     }
   ],
   "linewidth" : 1,
-  "fillcolor" : {
-    "red" : 0,
-    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-    "blue" : 0,
-    "alpha" : 1,
-    "green" : 0
-  },
+  "fillcolor" : "#000000",
   "elementtype" : "arrayofelements"
 }

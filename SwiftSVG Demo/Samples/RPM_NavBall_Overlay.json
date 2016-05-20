@@ -25,13 +25,7 @@
             }
           },
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 1,
-            "alpha" : 1,
-            "green" : 1
-          },
+          "strokecolor" : "#FFFFFF",
           "linewidth" : 8,
           "elementtype" : "strokeoval"
         },
@@ -47,39 +41,15 @@
             }
           },
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 0,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0,
-            "alpha" : 1,
-            "green" : 0
-          },
+          "strokecolor" : "#000000",
           "linewidth" : 2,
-          "fillcolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 1,
-            "alpha" : 1,
-            "green" : 1
-          },
+          "fillcolor" : "#FFFFFF",
           "elementtype" : "drawline"
         },
         {
-          "strokecolor" : {
-            "red" : 0,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0,
-            "alpha" : 1,
-            "green" : 0
-          },
+          "strokecolor" : "#000000",
           "linewidth" : 2,
-          "fillcolor" : {
-            "red" : 0,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0,
-            "alpha" : 1,
-            "green" : 1
-          },
+          "fillcolor" : "#00FF00",
           "elementtype" : "fillandstrokepath",
           "arrayofpathelements" : [
             {
@@ -188,32 +158,14 @@
             }
           },
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 0,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0,
-            "alpha" : 1,
-            "green" : 0
-          },
+          "strokecolor" : "#000000",
           "linewidth" : 4,
           "elementtype" : "strokerectangle"
         },
         {
-          "strokecolor" : {
-            "red" : 0,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0,
-            "alpha" : 1,
-            "green" : 0
-          },
+          "strokecolor" : "#000000",
           "linewidth" : 2,
-          "fillcolor" : {
-            "red" : 0,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0,
-            "alpha" : 1,
-            "green" : 1
-          },
+          "fillcolor" : "#00FF00",
           "elementtype" : "fillandstrokepath",
           "arrayofpathelements" : [
             {
@@ -248,13 +200,7 @@
             }
           },
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0,
-            "alpha" : 1,
-            "green" : 0
-          },
+          "strokecolor" : "#FF0000",
           "linewidth" : 3,
           "elementtype" : "strokeoval"
         },
@@ -282,13 +228,7 @@
             "x" : 82,
             "y" : 310
           },
-          "fillcolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0,
-            "alpha" : 1,
-            "green" : 0
-          },
+          "fillcolor" : "#FF0000",
           "elementtype" : "fillpath"
         },
         {
@@ -303,13 +243,7 @@
             }
           },
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 0,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0,
-            "alpha" : 1,
-            "green" : 0
-          },
+          "strokecolor" : "#000000",
           "linewidth" : 4,
           "elementtype" : "strokerectangle"
         },
@@ -325,21 +259,9 @@
             }
           },
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 0,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0,
-            "alpha" : 1,
-            "green" : 0
-          },
+          "strokecolor" : "#000000",
           "linewidth" : 2,
-          "fillcolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 1,
-            "alpha" : 1,
-            "green" : 1
-          },
+          "fillcolor" : "#FFFFFF",
           "elementtype" : "drawline"
         },
         {
@@ -366,244 +288,20 @@
             "x" : 558,
             "y" : 310
           },
-          "fillcolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0,
-            "alpha" : 1,
-            "green" : 0
-          },
+          "fillcolor" : "#FF0000",
           "elementtype" : "fillpath"
         },
         {
-          "arrayofpathelements" : [
-            {
-              "point" : {
-                "x" : 635,
-                "y" : 224
-              },
-              "elementtype" : "pathmoveto"
-            },
-            {
-              "controlpoint1" : {
-                "x" : 635,
-                "y" : 219.582
-              },
-              "elementtype" : "pathbeziercurve",
-              "endpoint" : {
-                "x" : 627,
-                "y" : 216
-              },
-              "controlpoint2" : {
-                "x" : 631.418,
-                "y" : 216
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 519,
-                "y" : 216
-              }
-            },
-            {
-              "controlpoint1" : {
-                "x" : 514.582,
-                "y" : 216
-              },
-              "elementtype" : "pathbeziercurve",
-              "endpoint" : {
-                "x" : 511,
-                "y" : 224
-              },
-              "controlpoint2" : {
-                "x" : 511,
-                "y" : 219.582
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 511,
-                "y" : 256
-              }
-            },
-            {
-              "controlpoint1" : {
-                "x" : 511,
-                "y" : 260.418
-              },
-              "elementtype" : "pathbeziercurve",
-              "endpoint" : {
-                "x" : 519,
-                "y" : 264
-              },
-              "controlpoint2" : {
-                "x" : 514.582,
-                "y" : 264
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 627,
-                "y" : 264
-              }
-            },
-            {
-              "controlpoint1" : {
-                "x" : 631.418,
-                "y" : 264
-              },
-              "elementtype" : "pathbeziercurve",
-              "endpoint" : {
-                "x" : 635,
-                "y" : 256
-              },
-              "controlpoint2" : {
-                "x" : 635,
-                "y" : 260.418
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 635,
-                "y" : 224
-              }
-            },
-            {
-              "elementtype" : "pathclosesubpath"
-            }
-          ],
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 1,
-            "alpha" : 1,
-            "green" : 1
-          },
-          "startpoint" : {
-            "x" : 0,
-            "y" : 0
-          },
+          "strokecolor" : "#FFFFFF",
+          "svgpath" : "M635,224c0-4.418-3.582-8-8-8H519c-4.418,0-8,3.582-8,8v32   c0,4.418,3.582,8,8,8h108c4.418,0,8-3.582,8-8V224z",
           "linewidth" : 4,
           "elementtype" : "fillandstrokepath"
         },
         {
-          "arrayofpathelements" : [
-            {
-              "point" : {
-                "x" : 129,
-                "y" : 224
-              },
-              "elementtype" : "pathmoveto"
-            },
-            {
-              "controlpoint1" : {
-                "x" : 129,
-                "y" : 219.582
-              },
-              "elementtype" : "pathbeziercurve",
-              "endpoint" : {
-                "x" : 121,
-                "y" : 216
-              },
-              "controlpoint2" : {
-                "x" : 125.418,
-                "y" : 216
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 13,
-                "y" : 216
-              }
-            },
-            {
-              "controlpoint1" : {
-                "x" : 8.582000000000001,
-                "y" : 216
-              },
-              "elementtype" : "pathbeziercurve",
-              "endpoint" : {
-                "x" : 5,
-                "y" : 224
-              },
-              "controlpoint2" : {
-                "x" : 5,
-                "y" : 219.582
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 5,
-                "y" : 256
-              }
-            },
-            {
-              "controlpoint1" : {
-                "x" : 5,
-                "y" : 260.418
-              },
-              "elementtype" : "pathbeziercurve",
-              "endpoint" : {
-                "x" : 13,
-                "y" : 264
-              },
-              "controlpoint2" : {
-                "x" : 8.582000000000001,
-                "y" : 264
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 121,
-                "y" : 264
-              }
-            },
-            {
-              "controlpoint1" : {
-                "x" : 125.418,
-                "y" : 264
-              },
-              "elementtype" : "pathbeziercurve",
-              "endpoint" : {
-                "x" : 129,
-                "y" : 256
-              },
-              "controlpoint2" : {
-                "x" : 129,
-                "y" : 260.418
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 129,
-                "y" : 224
-              }
-            },
-            {
-              "elementtype" : "pathclosesubpath"
-            }
-          ],
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 1,
-            "alpha" : 1,
-            "green" : 1
-          },
-          "startpoint" : {
-            "x" : 0,
-            "y" : 0
-          },
+          "strokecolor" : "#FFFFFF",
+          "svgpath" : "M129,224c0-4.418-3.582-8-8-8H13c-4.418,0-8,3.582-8,8v32   c0,4.418,3.582,8,8,8h108c4.418,0,8-3.582,8-8V224z",
           "linewidth" : 4,
           "elementtype" : "fillandstrokepath"
         },
@@ -611,107 +309,12 @@
           "arrayofelements" : [
             {
               "elementtype" : "fillpath",
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 0,
-                    "y" : 58
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 159,
-                    "y" : 58
-                  }
-                },
-                {
-                  "controlpoint1" : {
-                    "x" : 163.418,
-                    "y" : 58
-                  },
-                  "elementtype" : "pathbeziercurve",
-                  "endpoint" : {
-                    "x" : 167,
-                    "y" : 50
-                  },
-                  "controlpoint2" : {
-                    "x" : 167,
-                    "y" : 54.418
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 167,
-                    "y" : 0
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 0,
-                    "y" : 0
-                  }
-                }
-              ],
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              }
+              "svgpath" : "M0,58h159c4.418,0,8-3.582,8-8V0H0"
             },
             {
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 0,
-                    "y" : 58
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 159,
-                    "y" : 58
-                  }
-                },
-                {
-                  "controlpoint1" : {
-                    "x" : 163.418,
-                    "y" : 58
-                  },
-                  "elementtype" : "pathbeziercurve",
-                  "endpoint" : {
-                    "x" : 167,
-                    "y" : 50
-                  },
-                  "controlpoint2" : {
-                    "x" : 167,
-                    "y" : 54.418
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 167,
-                    "y" : 0
-                  }
-                }
-              ],
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 0.02352941176470588,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.3215686274509804,
-                "alpha" : 1,
-                "green" : 0.1921568627450981
-              },
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              },
+              "strokecolor" : "#063152",
+              "svgpath" : "M0,58h159c4.418,0,8-3.582,8-8V0",
               "linewidth" : 4,
               "elementtype" : "strokepath"
             }
@@ -722,114 +325,12 @@
           "arrayofelements" : [
             {
               "elementtype" : "fillpath",
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 0,
-                    "y" : 136
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 159,
-                    "y" : 136
-                  }
-                },
-                {
-                  "controlpoint1" : {
-                    "x" : 163.418,
-                    "y" : 136
-                  },
-                  "elementtype" : "pathbeziercurve",
-                  "endpoint" : {
-                    "x" : 167,
-                    "y" : 128
-                  },
-                  "controlpoint2" : {
-                    "x" : 167,
-                    "y" : 132.418
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 167,
-                    "y" : 78
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 0,
-                    "y" : 78
-                  }
-                }
-              ],
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              }
+              "svgpath" : "M0,136h159c4.418,0,8-3.582,8-8V78H0"
             },
             {
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 0,
-                    "y" : 136
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 159,
-                    "y" : 136
-                  }
-                },
-                {
-                  "controlpoint1" : {
-                    "x" : 163.418,
-                    "y" : 136
-                  },
-                  "elementtype" : "pathbeziercurve",
-                  "endpoint" : {
-                    "x" : 167,
-                    "y" : 128
-                  },
-                  "controlpoint2" : {
-                    "x" : 167,
-                    "y" : 132.418
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 167,
-                    "y" : 76
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 0,
-                    "y" : 76
-                  }
-                }
-              ],
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 0.02352941176470588,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.3215686274509804,
-                "alpha" : 1,
-                "green" : 0.1921568627450981
-              },
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              },
+              "strokecolor" : "#063152",
+              "svgpath" : "M0,136h159c4.418,0,8-3.582,8-8V76H0",
               "linewidth" : 4,
               "elementtype" : "strokepath"
             }
@@ -840,114 +341,12 @@
           "arrayofelements" : [
             {
               "elementtype" : "fillpath",
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 0,
-                    "y" : 195
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 100,
-                    "y" : 195
-                  }
-                },
-                {
-                  "controlpoint1" : {
-                    "x" : 104.418,
-                    "y" : 195
-                  },
-                  "elementtype" : "pathbeziercurve",
-                  "endpoint" : {
-                    "x" : 108,
-                    "y" : 187
-                  },
-                  "controlpoint2" : {
-                    "x" : 108,
-                    "y" : 191.418
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 108,
-                    "y" : 143
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 0,
-                    "y" : 143
-                  }
-                }
-              ],
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              }
+              "svgpath" : "M0,195h100c4.418,0,8-3.582,8-8v-44H0"
             },
             {
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 0,
-                    "y" : 195
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 100,
-                    "y" : 195
-                  }
-                },
-                {
-                  "controlpoint1" : {
-                    "x" : 104.418,
-                    "y" : 195
-                  },
-                  "elementtype" : "pathbeziercurve",
-                  "endpoint" : {
-                    "x" : 108,
-                    "y" : 187
-                  },
-                  "controlpoint2" : {
-                    "x" : 108,
-                    "y" : 191.418
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 108,
-                    "y" : 141
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 0,
-                    "y" : 141
-                  }
-                }
-              ],
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 0.02352941176470588,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.3215686274509804,
-                "alpha" : 1,
-                "green" : 0.1921568627450981
-              },
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              },
+              "strokecolor" : "#063152",
+              "svgpath" : "M0,195h100c4.418,0,8-3.582,8-8v-46H0",
               "linewidth" : 4,
               "elementtype" : "strokepath"
             }
@@ -958,107 +357,12 @@
           "arrayofelements" : [
             {
               "elementtype" : "fillpath",
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 640,
-                    "y" : 58
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 481,
-                    "y" : 58
-                  }
-                },
-                {
-                  "controlpoint1" : {
-                    "x" : 476.582,
-                    "y" : 58
-                  },
-                  "elementtype" : "pathbeziercurve",
-                  "endpoint" : {
-                    "x" : 473,
-                    "y" : 50
-                  },
-                  "controlpoint2" : {
-                    "x" : 473,
-                    "y" : 54.418
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 473,
-                    "y" : 0
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 640,
-                    "y" : 0
-                  }
-                }
-              ],
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              }
+              "svgpath" : "M640,58H481c-4.418,0-8-3.582-8-8V0h167"
             },
             {
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 640,
-                    "y" : 58
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 481,
-                    "y" : 58
-                  }
-                },
-                {
-                  "controlpoint1" : {
-                    "x" : 476.582,
-                    "y" : 58
-                  },
-                  "elementtype" : "pathbeziercurve",
-                  "endpoint" : {
-                    "x" : 473,
-                    "y" : 50
-                  },
-                  "controlpoint2" : {
-                    "x" : 473,
-                    "y" : 54.418
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 473,
-                    "y" : 0
-                  }
-                }
-              ],
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 0.02352941176470588,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.3215686274509804,
-                "alpha" : 1,
-                "green" : 0.1921568627450981
-              },
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              },
+              "strokecolor" : "#063152",
+              "svgpath" : "M640,58H481c-4.418,0-8-3.582-8-8V0",
               "linewidth" : 4,
               "elementtype" : "strokepath"
             }
@@ -1069,114 +373,12 @@
           "arrayofelements" : [
             {
               "elementtype" : "fillpath",
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 640,
-                    "y" : 133
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 481,
-                    "y" : 133
-                  }
-                },
-                {
-                  "controlpoint1" : {
-                    "x" : 476.582,
-                    "y" : 133
-                  },
-                  "elementtype" : "pathbeziercurve",
-                  "endpoint" : {
-                    "x" : 473,
-                    "y" : 125
-                  },
-                  "controlpoint2" : {
-                    "x" : 473,
-                    "y" : 129.418
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 473,
-                    "y" : 75
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 640,
-                    "y" : 75
-                  }
-                }
-              ],
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              }
+              "svgpath" : "M640,133H481c-4.418,0-8-3.582-8-8V75h167"
             },
             {
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 640,
-                    "y" : 133
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 481,
-                    "y" : 133
-                  }
-                },
-                {
-                  "controlpoint1" : {
-                    "x" : 476.582,
-                    "y" : 133
-                  },
-                  "elementtype" : "pathbeziercurve",
-                  "endpoint" : {
-                    "x" : 473,
-                    "y" : 125
-                  },
-                  "controlpoint2" : {
-                    "x" : 473,
-                    "y" : 129.418
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 473,
-                    "y" : 73
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 640,
-                    "y" : 73
-                  }
-                }
-              ],
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 0.02352941176470588,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.3215686274509804,
-                "alpha" : 1,
-                "green" : 0.1921568627450981
-              },
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              },
+              "strokecolor" : "#063152",
+              "svgpath" : "M640,133H481c-4.418,0-8-3.582-8-8V73h167",
               "linewidth" : 4,
               "elementtype" : "strokepath"
             }
@@ -1195,13 +397,7 @@
             }
           },
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 0,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0,
-            "alpha" : 1,
-            "green" : 0
-          },
+          "strokecolor" : "#000000",
           "linewidth" : 2,
           "elementtype" : "drawline"
         },
@@ -1229,13 +425,7 @@
             "x" : 311,
             "y" : 0
           },
-          "fillcolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0,
-            "alpha" : 1,
-            "green" : 0
-          },
+          "fillcolor" : "#FF0000",
           "elementtype" : "fillpath"
         },
         {
@@ -1250,13 +440,7 @@
             }
           },
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 0.02352941176470588,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0.3215686274509804,
-            "alpha" : 1,
-            "green" : 0.1921568627450981
-          },
+          "strokecolor" : "#063152",
           "linewidth" : 4,
           "elementtype" : "drawline"
         },
@@ -1272,13 +456,7 @@
             }
           },
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 0,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0,
-            "alpha" : 1,
-            "green" : 0
-          },
+          "strokecolor" : "#000000",
           "linewidth" : 2,
           "elementtype" : "drawline"
         },
@@ -1306,128 +484,13 @@
             "x" : 311,
             "y" : 539
           },
-          "fillcolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0,
-            "alpha" : 1,
-            "green" : 0
-          },
+          "fillcolor" : "#FF0000",
           "elementtype" : "fillpath"
         },
         {
-          "arrayofpathelements" : [
-            {
-              "point" : {
-                "x" : 382,
-                "y" : 64
-              },
-              "elementtype" : "pathmoveto"
-            },
-            {
-              "controlpoint1" : {
-                "x" : 382,
-                "y" : 59.582
-              },
-              "elementtype" : "pathbeziercurve",
-              "endpoint" : {
-                "x" : 374,
-                "y" : 56
-              },
-              "controlpoint2" : {
-                "x" : 378.418,
-                "y" : 56
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 266,
-                "y" : 56
-              }
-            },
-            {
-              "controlpoint1" : {
-                "x" : 261.582,
-                "y" : 56
-              },
-              "elementtype" : "pathbeziercurve",
-              "endpoint" : {
-                "x" : 258,
-                "y" : 64
-              },
-              "controlpoint2" : {
-                "x" : 258,
-                "y" : 59.582
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 258,
-                "y" : 96
-              }
-            },
-            {
-              "controlpoint1" : {
-                "x" : 258,
-                "y" : 100.418
-              },
-              "elementtype" : "pathbeziercurve",
-              "endpoint" : {
-                "x" : 266,
-                "y" : 104
-              },
-              "controlpoint2" : {
-                "x" : 261.582,
-                "y" : 104
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 374,
-                "y" : 104
-              }
-            },
-            {
-              "controlpoint1" : {
-                "x" : 378.418,
-                "y" : 104
-              },
-              "elementtype" : "pathbeziercurve",
-              "endpoint" : {
-                "x" : 382,
-                "y" : 96
-              },
-              "controlpoint2" : {
-                "x" : 382,
-                "y" : 100.418
-              }
-            },
-            {
-              "elementtype" : "pathlineto",
-              "endpoint" : {
-                "x" : 382,
-                "y" : 64
-              }
-            },
-            {
-              "elementtype" : "pathclosesubpath"
-            }
-          ],
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 1,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 1,
-            "alpha" : 1,
-            "green" : 1
-          },
-          "startpoint" : {
-            "x" : 0,
-            "y" : 0
-          },
+          "strokecolor" : "#FFFFFF",
+          "svgpath" : "M382,64c0-4.418-3.582-8-8-8H266c-4.418,0-8,3.582-8,8v32   c0,4.418,3.582,8,8,8h108c4.418,0,8-3.582,8-8V64z",
           "linewidth" : 4,
           "elementtype" : "fillandstrokepath"
         }
@@ -1436,12 +499,6 @@
     }
   ],
   "linewidth" : 1,
-  "fillcolor" : {
-    "red" : 0,
-    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-    "blue" : 0,
-    "alpha" : 1,
-    "green" : 0
-  },
+  "fillcolor" : "#000000",
   "elementtype" : "arrayofelements"
 }

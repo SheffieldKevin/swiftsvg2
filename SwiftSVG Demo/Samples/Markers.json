@@ -26,13 +26,7 @@
                   "x" : 183.423
                 }
               },
-              "fillcolor" : {
-                "red" : 0.7843137254901961,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8431372549019608,
-                "alpha" : 1,
-                "green" : 0.3058823529411765
-              },
+              "fillcolor" : "#C84ED7",
               "elementtype" : "filloval"
             },
             {
@@ -46,13 +40,7 @@
                   "x" : 190.47
                 }
               },
-              "fillcolor" : {
-                "red" : 0.7843137254901961,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8431372549019608,
-                "alpha" : 1,
-                "green" : 0.3058823529411765
-              },
+              "fillcolor" : "#C84ED7",
               "elementtype" : "fillrectangle"
             },
             {
@@ -75,13 +63,7 @@
                 }
               },
               "elementdebugname" : "xfrect",
-              "fillcolor" : {
-                "red" : 0.7843137254901961,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8431372549019608,
-                "alpha" : 1,
-                "green" : 0.3058823529411765
-              },
+              "fillcolor" : "#C84ED7",
               "elementtype" : "fillrectangle"
             },
             {
@@ -103,13 +85,7 @@
                   "x" : 158.088
                 }
               },
-              "fillcolor" : {
-                "red" : 0.7843137254901961,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8431372549019608,
-                "alpha" : 1,
-                "green" : 0.3058823529411765
-              },
+              "fillcolor" : "#C84ED7",
               "elementtype" : "fillrectangle"
             }
           ],
@@ -134,296 +110,30 @@
                   "x" : 68.864
                 }
               },
-              "fillcolor" : {
-                "red" : 0.7843137254901961,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8431372549019608,
-                "alpha" : 1,
-                "green" : 0.3058823529411765
-              },
+              "fillcolor" : "#C84ED7",
               "elementtype" : "filloval"
             },
             {
               "arrayofelements" : [
                 {
-                  "arrayofpathelements" : [
-                    {
-                      "point" : {
-                        "x" : 38.387,
-                        "y" : 157.529
-                      },
-                      "elementtype" : "pathmoveto"
-                    },
-                    {
-                      "controlpoint1" : {
-                        "x" : 41.84,
-                        "y" : 140.597
-                      },
-                      "elementtype" : "pathbeziercurve",
-                      "endpoint" : {
-                        "x" : 72.47,
-                        "y" : 124.242
-                      },
-                      "controlpoint2" : {
-                        "x" : 55.403,
-                        "y" : 127.31
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 72.47,
-                        "y" : 116.124
-                      }
-                    },
-                    {
-                      "controlpoint1" : {
-                        "x" : 50.98399999999999,
-                        "y" : 119.353
-                      },
-                      "elementtype" : "pathbeziercurve",
-                      "endpoint" : {
-                        "x" : 30.261,
-                        "y" : 157.529
-                      },
-                      "controlpoint2" : {
-                        "x" : 33.9,
-                        "y" : 136.178
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 38.387,
-                        "y" : 157.529
-                      }
-                    },
-                    {
-                      "elementtype" : "pathclosesubpath"
-                    }
-                  ],
-                  "startpoint" : {
-                    "x" : 0,
-                    "y" : 0
-                  },
-                  "fillcolor" : {
-                    "red" : 0.7843137254901961,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.8431372549019608,
-                    "alpha" : 1,
-                    "green" : 0.3058823529411765
-                  },
-                  "elementtype" : "fillpath"
+                  "elementtype" : "fillpath",
+                  "fillcolor" : "#C84ED7",
+                  "svgpath" : "M38.387,157.529c3.453-16.932,17.016-30.219,34.083-33.287v-8.118     c-21.486,3.229-38.57,20.054-42.209,41.405H38.387z"
                 },
                 {
-                  "arrayofpathelements" : [
-                    {
-                      "point" : {
-                        "x" : 88.47,
-                        "y" : 124.41
-                      },
-                      "elementtype" : "pathmoveto"
-                    },
-                    {
-                      "controlpoint1" : {
-                        "x" : 105.095,
-                        "y" : 127.788
-                      },
-                      "elementtype" : "pathbeziercurve",
-                      "endpoint" : {
-                        "x" : 121.614,
-                        "y" : 157.529
-                      },
-                      "controlpoint2" : {
-                        "x" : 118.224,
-                        "y" : 140.908
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 129.74,
-                        "y" : 157.529
-                      }
-                    },
-                    {
-                      "controlpoint1" : {
-                        "x" : 126.155,
-                        "y" : 136.491
-                      },
-                      "elementtype" : "pathbeziercurve",
-                      "endpoint" : {
-                        "x" : 88.47,
-                        "y" : 116.284
-                      },
-                      "controlpoint2" : {
-                        "x" : 109.513,
-                        "y" : 119.857
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 88.47,
-                        "y" : 124.41
-                      }
-                    },
-                    {
-                      "elementtype" : "pathclosesubpath"
-                    }
-                  ],
-                  "startpoint" : {
-                    "x" : 0,
-                    "y" : 0
-                  },
-                  "fillcolor" : {
-                    "red" : 0.7843137254901961,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.8431372549019608,
-                    "alpha" : 1,
-                    "green" : 0.3058823529411765
-                  },
-                  "elementtype" : "fillpath"
+                  "elementtype" : "fillpath",
+                  "fillcolor" : "#C84ED7",
+                  "svgpath" : "M88.47,124.41c16.625,3.378,29.754,16.498,33.144,33.119h8.126c-3.585-21.038-20.227-37.672-41.27-41.245     V124.41z"
                 },
                 {
-                  "arrayofpathelements" : [
-                    {
-                      "point" : {
-                        "x" : 72.47,
-                        "y" : 207.816
-                      },
-                      "elementtype" : "pathmoveto"
-                    },
-                    {
-                      "controlpoint1" : {
-                        "x" : 55.07,
-                        "y" : 204.687
-                      },
-                      "elementtype" : "pathbeziercurve",
-                      "endpoint" : {
-                        "x" : 38.208,
-                        "y" : 173.529
-                      },
-                      "controlpoint2" : {
-                        "x" : 41.324,
-                        "y" : 190.933
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 30.091,
-                        "y" : 173.529
-                      }
-                    },
-                    {
-                      "controlpoint1" : {
-                        "x" : 33.357,
-                        "y" : 195.355
-                      },
-                      "elementtype" : "pathbeziercurve",
-                      "endpoint" : {
-                        "x" : 72.47,
-                        "y" : 215.933
-                      },
-                      "controlpoint2" : {
-                        "x" : 50.648,
-                        "y" : 212.655
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 72.47,
-                        "y" : 207.816
-                      }
-                    },
-                    {
-                      "elementtype" : "pathclosesubpath"
-                    }
-                  ],
-                  "startpoint" : {
-                    "x" : 0,
-                    "y" : 0
-                  },
-                  "fillcolor" : {
-                    "red" : 0.7843137254901961,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.8431372549019608,
-                    "alpha" : 1,
-                    "green" : 0.3058823529411765
-                  },
-                  "elementtype" : "fillpath"
+                  "elementtype" : "fillpath",
+                  "fillcolor" : "#C84ED7",
+                  "svgpath" : "M72.47,207.816c-17.4-3.129-31.146-16.883-34.262-34.287h-8.117     c3.266,21.826,20.557,39.126,42.379,42.404V207.816z"
                 },
                 {
-                  "arrayofpathelements" : [
-                    {
-                      "point" : {
-                        "x" : 121.792,
-                        "y" : 173.529
-                      },
-                      "elementtype" : "pathmoveto"
-                    },
-                    {
-                      "controlpoint1" : {
-                        "x" : 118.732,
-                        "y" : 190.62
-                      },
-                      "elementtype" : "pathbeziercurve",
-                      "endpoint" : {
-                        "x" : 88.46899999999999,
-                        "y" : 207.647
-                      },
-                      "controlpoint2" : {
-                        "x" : 105.425,
-                        "y" : 204.202
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 88.46899999999999,
-                        "y" : 215.773
-                      }
-                    },
-                    {
-                      "controlpoint1" : {
-                        "x" : 109.845,
-                        "y" : 212.144
-                      },
-                      "elementtype" : "pathbeziercurve",
-                      "endpoint" : {
-                        "x" : 129.908,
-                        "y" : 173.529
-                      },
-                      "controlpoint2" : {
-                        "x" : 126.689,
-                        "y" : 195.04
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 121.792,
-                        "y" : 173.529
-                      }
-                    },
-                    {
-                      "elementtype" : "pathclosesubpath"
-                    }
-                  ],
-                  "startpoint" : {
-                    "x" : 0,
-                    "y" : 0
-                  },
-                  "fillcolor" : {
-                    "red" : 0.7843137254901961,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.8431372549019608,
-                    "alpha" : 1,
-                    "green" : 0.3058823529411765
-                  },
-                  "elementtype" : "fillpath"
+                  "elementtype" : "fillpath",
+                  "fillcolor" : "#C84ED7",
+                  "svgpath" : "M121.792,173.529c-3.06,17.091-16.367,30.673-33.323,34.118v8.126     c21.376-3.629,38.22-20.733,41.439-42.244H121.792z"
                 }
               ],
               "elementtype" : "arrayofelements"
@@ -453,13 +163,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.8352941176470589,
-                    "alpha" : 1,
-                    "green" : 0.2313725490196079
-                  },
+                  "strokecolor" : "#003BD5",
                   "linewidth" : 7,
                   "elementtype" : "drawline"
                 },
@@ -475,13 +179,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.8352941176470589,
-                    "alpha" : 1,
-                    "green" : 0.2313725490196079
-                  },
+                  "strokecolor" : "#003BD5",
                   "linewidth" : 4,
                   "elementtype" : "drawline"
                 }
@@ -502,13 +200,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.8352941176470589,
-                    "alpha" : 1,
-                    "green" : 0.2313725490196079
-                  },
+                  "strokecolor" : "#003BD5",
                   "linewidth" : 7,
                   "elementtype" : "drawline"
                 },
@@ -524,13 +216,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.8352941176470589,
-                    "alpha" : 1,
-                    "green" : 0.2313725490196079
-                  },
+                  "strokecolor" : "#003BD5",
                   "linewidth" : 4,
                   "elementtype" : "drawline"
                 }
@@ -551,13 +237,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.8352941176470589,
-                    "alpha" : 1,
-                    "green" : 0.2313725490196079
-                  },
+                  "strokecolor" : "#003BD5",
                   "linewidth" : 7,
                   "elementtype" : "drawline"
                 },
@@ -573,13 +253,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.8352941176470589,
-                    "alpha" : 1,
-                    "green" : 0.2313725490196079
-                  },
+                  "strokecolor" : "#003BD5",
                   "linewidth" : 4,
                   "elementtype" : "drawline"
                 }
@@ -597,13 +271,7 @@
                   "x" : 310.47
                 }
               },
-              "fillcolor" : {
-                "red" : 0,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8352941176470589,
-                "alpha" : 1,
-                "green" : 0.2313725490196079
-              },
+              "fillcolor" : "#003BD5",
               "elementtype" : "filloval"
             }
           ],
@@ -631,13 +299,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0.8745098039215686,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.07843137254901961,
-                    "alpha" : 1,
-                    "green" : 0.9607843137254902
-                  },
+                  "strokecolor" : "#DFF514",
                   "linewidth" : 7,
                   "elementtype" : "strokeoval"
                 },
@@ -653,13 +315,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0.8745098039215686,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.07843137254901961,
-                    "alpha" : 1,
-                    "green" : 0.9607843137254902
-                  },
+                  "strokecolor" : "#DFF514",
                   "linewidth" : 4,
                   "elementtype" : "drawline"
                 },
@@ -675,13 +331,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0.8745098039215686,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.07843137254901961,
-                    "alpha" : 1,
-                    "green" : 0.9607843137254902
-                  },
+                  "strokecolor" : "#DFF514",
                   "linewidth" : 4,
                   "elementtype" : "drawline"
                 },
@@ -697,13 +347,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0.8745098039215686,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.07843137254901961,
-                    "alpha" : 1,
-                    "green" : 0.9607843137254902
-                  },
+                  "strokecolor" : "#DFF514",
                   "linewidth" : 7,
                   "elementtype" : "drawline"
                 },
@@ -719,13 +363,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0.8745098039215686,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.07843137254901961,
-                    "alpha" : 1,
-                    "green" : 0.9607843137254902
-                  },
+                  "strokecolor" : "#DFF514",
                   "linewidth" : 7,
                   "elementtype" : "drawline"
                 },
@@ -741,13 +379,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0.8745098039215686,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.07843137254901961,
-                    "alpha" : 1,
-                    "green" : 0.9607843137254902
-                  },
+                  "strokecolor" : "#DFF514",
                   "linewidth" : 7,
                   "elementtype" : "drawline"
                 }
@@ -779,13 +411,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0.8745098039215686,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.07843137254901961,
-                    "alpha" : 1,
-                    "green" : 0.9607843137254902
-                  },
+                  "strokecolor" : "#DFF514",
                   "linewidth" : 7,
                   "elementtype" : "strokeoval"
                 },
@@ -801,13 +427,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0.8745098039215686,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.07843137254901961,
-                    "alpha" : 1,
-                    "green" : 0.9607843137254902
-                  },
+                  "strokecolor" : "#DFF514",
                   "linewidth" : 7,
                   "elementtype" : "drawline"
                 },
@@ -823,13 +443,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0.8745098039215686,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.07843137254901961,
-                    "alpha" : 1,
-                    "green" : 0.9607843137254902
-                  },
+                  "strokecolor" : "#DFF514",
                   "linewidth" : 7,
                   "elementtype" : "drawline"
                 },
@@ -845,13 +459,7 @@
                     }
                   },
                   "miter" : 10,
-                  "strokecolor" : {
-                    "red" : 0.8745098039215686,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.07843137254901961,
-                    "alpha" : 1,
-                    "green" : 0.9607843137254902
-                  },
+                  "strokecolor" : "#DFF514",
                   "linewidth" : 7,
                   "elementtype" : "drawline"
                 }
@@ -872,13 +480,7 @@
               "x" : 463.97
             }
           },
-          "fillcolor" : {
-            "red" : 0.8745098039215686,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0.07843137254901961,
-            "alpha" : 1,
-            "green" : 0.9607843137254902
-          },
+          "fillcolor" : "#DFF514",
           "elementtype" : "filloval"
         }
       ],
@@ -899,13 +501,7 @@
             }
           },
           "miter" : 10,
-          "strokecolor" : {
-            "red" : 0.3058823529411765,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0.8274509803921568,
-            "alpha" : 1,
-            "green" : 0.8196078431372549
-          },
+          "strokecolor" : "#4ED1D3",
           "linewidth" : 6,
           "elementtype" : "strokeoval"
         },
@@ -920,264 +516,30 @@
               "x" : 359.47
             }
           },
-          "fillcolor" : {
-            "red" : 0.3058823529411765,
-            "colorcolorprofilename" : "kCGColorSpaceSRGB",
-            "blue" : 0.8274509803921568,
-            "alpha" : 1,
-            "green" : 0.8196078431372549
-          },
+          "fillcolor" : "#4ED1D3",
           "elementtype" : "filloval"
         },
         {
           "arrayofelements" : [
             {
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 385.979,
-                    "y" : 41.261
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 396.803,
-                    "y" : 30.437
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 392.561,
-                    "y" : 26.195
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 381.737,
-                    "y" : 37.01900000000001
-                  }
-                },
-                {
-                  "controlpoint1" : {
-                    "x" : 383.421,
-                    "y" : 38.134
-                  },
-                  "elementtype" : "pathbeziercurve",
-                  "endpoint" : {
-                    "x" : 385.979,
-                    "y" : 41.261
-                  },
-                  "controlpoint2" : {
-                    "x" : 384.865,
-                    "y" : 39.578
-                  }
-                },
-                {
-                  "elementtype" : "pathclosesubpath"
-                }
-              ],
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              },
-              "fillcolor" : {
-                "red" : 0.3058823529411765,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8274509803921568,
-                "alpha" : 1,
-                "green" : 0.8196078431372549
-              },
-              "elementtype" : "fillpath"
+              "elementtype" : "fillpath",
+              "fillcolor" : "#4ED1D3",
+              "svgpath" : "M385.979,41.261l10.824-10.824l-4.242-4.242l-10.824,10.824C383.421,38.134,384.865,39.578,385.979,41.261    z"
             },
             {
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 345.202,
-                    "y" : 37.019
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 334.378,
-                    "y" : 26.195
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 330.136,
-                    "y" : 30.437
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 340.96,
-                    "y" : 41.261
-                  }
-                },
-                {
-                  "controlpoint1" : {
-                    "x" : 342.074,
-                    "y" : 39.578
-                  },
-                  "elementtype" : "pathbeziercurve",
-                  "endpoint" : {
-                    "x" : 345.202,
-                    "y" : 37.019
-                  },
-                  "controlpoint2" : {
-                    "x" : 343.519,
-                    "y" : 38.134
-                  }
-                },
-                {
-                  "elementtype" : "pathclosesubpath"
-                }
-              ],
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              },
-              "fillcolor" : {
-                "red" : 0.3058823529411765,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8274509803921568,
-                "alpha" : 1,
-                "green" : 0.8196078431372549
-              },
-              "elementtype" : "fillpath"
+              "elementtype" : "fillpath",
+              "fillcolor" : "#4ED1D3",
+              "svgpath" : "M345.202,37.019l-10.824-10.824l-4.242,4.242l10.824,10.824C342.074,39.578,343.519,38.134,345.202,37.019    z"
             },
             {
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 381.737,
-                    "y" : 82.04000000000001
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 392.561,
-                    "y" : 92.864
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 396.8030000000001,
-                    "y" : 88.622
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 385.979,
-                    "y" : 77.798
-                  }
-                },
-                {
-                  "controlpoint1" : {
-                    "x" : 384.865,
-                    "y" : 79.48099999999999
-                  },
-                  "elementtype" : "pathbeziercurve",
-                  "endpoint" : {
-                    "x" : 381.737,
-                    "y" : 82.04000000000001
-                  },
-                  "controlpoint2" : {
-                    "x" : 383.421,
-                    "y" : 80.925
-                  }
-                },
-                {
-                  "elementtype" : "pathclosesubpath"
-                }
-              ],
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              },
-              "fillcolor" : {
-                "red" : 0.3058823529411765,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8274509803921568,
-                "alpha" : 1,
-                "green" : 0.8196078431372549
-              },
-              "elementtype" : "fillpath"
+              "elementtype" : "fillpath",
+              "fillcolor" : "#4ED1D3",
+              "svgpath" : "M381.737,82.04l10.824,10.824l4.242-4.242l-10.824-10.824C384.865,79.481,383.421,80.925,381.737,82.04z"
             },
             {
-              "arrayofpathelements" : [
-                {
-                  "point" : {
-                    "x" : 340.96,
-                    "y" : 77.797
-                  },
-                  "elementtype" : "pathmoveto"
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 330.136,
-                    "y" : 88.621
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 334.378,
-                    "y" : 92.863
-                  }
-                },
-                {
-                  "elementtype" : "pathlineto",
-                  "endpoint" : {
-                    "x" : 345.202,
-                    "y" : 82.039
-                  }
-                },
-                {
-                  "controlpoint1" : {
-                    "x" : 343.519,
-                    "y" : 80.925
-                  },
-                  "elementtype" : "pathbeziercurve",
-                  "endpoint" : {
-                    "x" : 340.96,
-                    "y" : 77.797
-                  },
-                  "controlpoint2" : {
-                    "x" : 342.074,
-                    "y" : 79.48099999999999
-                  }
-                },
-                {
-                  "elementtype" : "pathclosesubpath"
-                }
-              ],
-              "startpoint" : {
-                "x" : 0,
-                "y" : 0
-              },
-              "fillcolor" : {
-                "red" : 0.3058823529411765,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8274509803921568,
-                "alpha" : 1,
-                "green" : 0.8196078431372549
-              },
-              "elementtype" : "fillpath"
+              "elementtype" : "fillpath",
+              "fillcolor" : "#4ED1D3",
+              "svgpath" : "M340.96,77.797l-10.824,10.824l4.242,4.242l10.824-10.824C343.519,80.925,342.074,79.481,340.96,77.797z"
             }
           ],
           "elementtype" : "arrayofelements"
@@ -1202,265 +564,31 @@
                 }
               },
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 0.3058823529411765,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8274509803921568,
-                "alpha" : 1,
-                "green" : 0.8196078431372549
-              },
+              "strokecolor" : "#4ED1D3",
               "linewidth" : 6,
               "elementtype" : "strokeoval"
             },
             {
               "arrayofelements" : [
                 {
-                  "arrayofpathelements" : [
-                    {
-                      "point" : {
-                        "x" : 277.98,
-                        "y" : 51.261
-                      },
-                      "elementtype" : "pathmoveto"
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 288.804,
-                        "y" : 40.437
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 284.562,
-                        "y" : 36.19500000000001
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 273.738,
-                        "y" : 47.01900000000001
-                      }
-                    },
-                    {
-                      "controlpoint1" : {
-                        "x" : 275.421,
-                        "y" : 48.134
-                      },
-                      "elementtype" : "pathbeziercurve",
-                      "endpoint" : {
-                        "x" : 277.98,
-                        "y" : 51.261
-                      },
-                      "controlpoint2" : {
-                        "x" : 276.865,
-                        "y" : 49.578
-                      }
-                    },
-                    {
-                      "elementtype" : "pathclosesubpath"
-                    }
-                  ],
-                  "startpoint" : {
-                    "x" : 0,
-                    "y" : 0
-                  },
-                  "fillcolor" : {
-                    "red" : 0.3058823529411765,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.8274509803921568,
-                    "alpha" : 1,
-                    "green" : 0.8196078431372549
-                  },
-                  "elementtype" : "fillpath"
+                  "elementtype" : "fillpath",
+                  "fillcolor" : "#4ED1D3",
+                  "svgpath" : "M277.98,51.261l10.824-10.824l-4.242-4.242l-10.824,10.824C275.421,48.134,276.865,49.578,277.98,51.261z     "
                 },
                 {
-                  "arrayofpathelements" : [
-                    {
-                      "point" : {
-                        "x" : 257.202,
-                        "y" : 47.019
-                      },
-                      "elementtype" : "pathmoveto"
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 246.378,
-                        "y" : 36.195
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 242.136,
-                        "y" : 40.437
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 252.96,
-                        "y" : 51.261
-                      }
-                    },
-                    {
-                      "controlpoint1" : {
-                        "x" : 254.074,
-                        "y" : 49.578
-                      },
-                      "elementtype" : "pathbeziercurve",
-                      "endpoint" : {
-                        "x" : 257.202,
-                        "y" : 47.019
-                      },
-                      "controlpoint2" : {
-                        "x" : 255.519,
-                        "y" : 48.134
-                      }
-                    },
-                    {
-                      "elementtype" : "pathclosesubpath"
-                    }
-                  ],
-                  "startpoint" : {
-                    "x" : 0,
-                    "y" : 0
-                  },
-                  "fillcolor" : {
-                    "red" : 0.3058823529411765,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.8274509803921568,
-                    "alpha" : 1,
-                    "green" : 0.8196078431372549
-                  },
-                  "elementtype" : "fillpath"
+                  "elementtype" : "fillpath",
+                  "fillcolor" : "#4ED1D3",
+                  "svgpath" : "M257.202,47.019l-10.824-10.824l-4.242,4.242l10.824,10.824     C254.074,49.578,255.519,48.134,257.202,47.019z"
                 },
                 {
-                  "arrayofpathelements" : [
-                    {
-                      "point" : {
-                        "x" : 273.738,
-                        "y" : 72.04000000000001
-                      },
-                      "elementtype" : "pathmoveto"
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 284.562,
-                        "y" : 82.864
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 288.804,
-                        "y" : 78.622
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 277.98,
-                        "y" : 67.797
-                      }
-                    },
-                    {
-                      "controlpoint1" : {
-                        "x" : 276.865,
-                        "y" : 69.48099999999999
-                      },
-                      "elementtype" : "pathbeziercurve",
-                      "endpoint" : {
-                        "x" : 273.738,
-                        "y" : 72.04000000000001
-                      },
-                      "controlpoint2" : {
-                        "x" : 275.421,
-                        "y" : 70.925
-                      }
-                    },
-                    {
-                      "elementtype" : "pathclosesubpath"
-                    }
-                  ],
-                  "startpoint" : {
-                    "x" : 0,
-                    "y" : 0
-                  },
-                  "fillcolor" : {
-                    "red" : 0.3058823529411765,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.8274509803921568,
-                    "alpha" : 1,
-                    "green" : 0.8196078431372549
-                  },
-                  "elementtype" : "fillpath"
+                  "elementtype" : "fillpath",
+                  "fillcolor" : "#4ED1D3",
+                  "svgpath" : "M273.738,72.04l10.824,10.824l4.242-4.242L277.98,67.797C276.865,69.481,275.421,70.925,273.738,72.04z"
                 },
                 {
-                  "arrayofpathelements" : [
-                    {
-                      "point" : {
-                        "x" : 252.959,
-                        "y" : 67.797
-                      },
-                      "elementtype" : "pathmoveto"
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 242.135,
-                        "y" : 78.621
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 246.377,
-                        "y" : 82.863
-                      }
-                    },
-                    {
-                      "elementtype" : "pathlineto",
-                      "endpoint" : {
-                        "x" : 257.201,
-                        "y" : 72.039
-                      }
-                    },
-                    {
-                      "controlpoint1" : {
-                        "x" : 255.519,
-                        "y" : 70.925
-                      },
-                      "elementtype" : "pathbeziercurve",
-                      "endpoint" : {
-                        "x" : 252.959,
-                        "y" : 67.797
-                      },
-                      "controlpoint2" : {
-                        "x" : 254.074,
-                        "y" : 69.48099999999999
-                      }
-                    },
-                    {
-                      "elementtype" : "pathclosesubpath"
-                    }
-                  ],
-                  "startpoint" : {
-                    "x" : 0,
-                    "y" : 0
-                  },
-                  "fillcolor" : {
-                    "red" : 0.3058823529411765,
-                    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                    "blue" : 0.8274509803921568,
-                    "alpha" : 1,
-                    "green" : 0.8196078431372549
-                  },
-                  "elementtype" : "fillpath"
+                  "elementtype" : "fillpath",
+                  "fillcolor" : "#4ED1D3",
+                  "svgpath" : "M252.959,67.797l-10.824,10.824l4.242,4.242l10.824-10.824C255.519,70.925,254.074,69.481,252.959,67.797     z"
                 }
               ],
               "elementtype" : "arrayofelements"
@@ -1497,13 +625,7 @@
                 }
               ],
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 0.7843137254901961,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8431372549019608,
-                "alpha" : 1,
-                "green" : 0.3058823529411765
-              },
+              "strokecolor" : "#C84ED7",
               "startpoint" : {
                 "x" : 65,
                 "y" : 26.02899932861328
@@ -1522,13 +644,7 @@
                   "x" : 60.253
                 }
               },
-              "fillcolor" : {
-                "red" : 0.7843137254901961,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8431372549019608,
-                "alpha" : 1,
-                "green" : 0.3058823529411765
-              },
+              "fillcolor" : "#C84ED7",
               "elementtype" : "filloval"
             }
           ],
@@ -1563,13 +679,7 @@
                 }
               ],
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 0.7843137254901961,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8431372549019608,
-                "alpha" : 1,
-                "green" : 0.3058823529411765
-              },
+              "strokecolor" : "#C84ED7",
               "startpoint" : {
                 "x" : 160.9389953613281,
                 "y" : 93.02899932861328
@@ -1588,13 +698,7 @@
                   "x" : 157.96
                 }
               },
-              "fillcolor" : {
-                "red" : 0.7843137254901961,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8431372549019608,
-                "alpha" : 1,
-                "green" : 0.3058823529411765
-              },
+              "fillcolor" : "#C84ED7",
               "elementtype" : "filloval"
             },
             {
@@ -1609,13 +713,7 @@
                 }
               },
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 0.7843137254901961,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8431372549019608,
-                "alpha" : 1,
-                "green" : 0.3058823529411765
-              },
+              "strokecolor" : "#C84ED7",
               "linewidth" : 8,
               "elementtype" : "drawline"
             },
@@ -1631,13 +729,7 @@
                 }
               },
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 0.7843137254901961,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8431372549019608,
-                "alpha" : 1,
-                "green" : 0.3058823529411765
-              },
+              "strokecolor" : "#C84ED7",
               "linewidth" : 8,
               "elementtype" : "drawline"
             },
@@ -1653,13 +745,7 @@
                 }
               },
               "miter" : 10,
-              "strokecolor" : {
-                "red" : 0.7843137254901961,
-                "colorcolorprofilename" : "kCGColorSpaceSRGB",
-                "blue" : 0.8431372549019608,
-                "alpha" : 1,
-                "green" : 0.3058823529411765
-              },
+              "strokecolor" : "#C84ED7",
               "linewidth" : 8,
               "elementtype" : "drawline"
             }
@@ -1671,12 +757,6 @@
     }
   ],
   "linewidth" : 1,
-  "fillcolor" : {
-    "red" : 0,
-    "colorcolorprofilename" : "kCGColorSpaceSRGB",
-    "blue" : 0,
-    "alpha" : 1,
-    "green" : 0
-  },
+  "fillcolor" : "#000000",
   "elementtype" : "arrayofelements"
 }
