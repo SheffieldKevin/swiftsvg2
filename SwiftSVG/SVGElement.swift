@@ -90,32 +90,6 @@ public class SVGElement: Node {
         // print("Element destroyed, num elements now: \(SVGElement.numElements)")
     }
 
-/*
-    var evaluatedFillOpacity: CGFloat? {
-        get {
-            if let opacity = fillOpacity {
-                return opacity
-            }
-            guard let parent = self.parent else {
-                return .None
-            }
-            return parent.evaluatedFillOpacity
-        }
-    }
-    
-    var evaluatedStrokeOpacity: CGFloat? {
-        get {
-            if let opacity = strokeOpacity {
-                return opacity
-            }
-            guard let parent = self.parent else {
-                return .None
-            }
-            return parent.evaluatedStrokeOpacity
-        }
-    }
-*/
-
     var drawFill = true // If fill="none" this explictly turns off fill.
     var fillColor: CGColor? {
         get {
