@@ -43,6 +43,8 @@
 		45E6ADAE1A9EAB0200386CFE /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E6ADAD1A9EAB0200386CFE /* Document.swift */; };
 		45E6ADB01A9EAB0200386CFE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45E6ADAF1A9EAB0200386CFE /* Images.xcassets */; };
 		45E6ADB31A9EAB0200386CFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45E6ADB11A9EAB0200386CFE /* Main.storyboard */; };
+		6E00C3A21CEF1DDA00C7B2B5 /* map.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6E00C3A11CEF1DDA00C7B2B5 /* map.svg */; };
+		6E00C3A31CEF1DDA00C7B2B5 /* map.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6E00C3A11CEF1DDA00C7B2B5 /* map.svg */; };
 		6E2F00261BC4AC26000EF53F /* SwiftSVG.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45C2032F1B8E0E8200966AC6 /* SwiftSVG.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E2F00271BC4ACB0000EF53F /* SwiftGraphics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 451958181AC22BEE00659E64 /* SwiftGraphics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6E2F00281BC4ACB0000EF53F /* SwiftParsing.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 451958191AC22BEE00659E64 /* SwiftParsing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -169,6 +171,7 @@
 		45E6ADAF1A9EAB0200386CFE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		45E6ADB21A9EAB0200386CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45E6ADE61A9EABA700386CFE /* SVGElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGElement.swift; sourceTree = "<group>"; };
+		6E00C3A11CEF1DDA00C7B2B5 /* map.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map.svg; sourceTree = "<group>"; };
 		6E17A10D1BE904CE006021E8 /* SwiftSVGiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftSVGiOS.h; sourceTree = "<group>"; };
 		6E17A10F1BE904CE006021E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E17A1191BE904CE006021E8 /* SwiftSVGiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSVGiOSTests.swift; sourceTree = "<group>"; };
@@ -264,6 +267,7 @@
 				6E2F00481BC96BA7000EF53F /* 6th-day.svg */,
 				454799841ABF3CEB000B19B8 /* Apple_Swift_Logo.svg */,
 				454799851ABF3CEB000B19B8 /* Ghostscript_Tiger.svg */,
+				6E00C3A11CEF1DDA00C7B2B5 /* map.svg */,
 				6EBF1D141BB70E2800C38BDB /* Markers.svg */,
 				454799861ABF3CEB000B19B8 /* JW_Bezier_1.svg */,
 				6EBF1D161BB70E3600C38BDB /* SimpleBlueRect.svg */,
@@ -565,6 +569,7 @@
 				4547998B1ABF3CEB000B19B8 /* SwiftOutline.svg in Resources */,
 				454799891ABF3CEB000B19B8 /* Ghostscript_Tiger.svg in Resources */,
 				454799881ABF3CEB000B19B8 /* Apple_Swift_Logo.svg in Resources */,
+				6E00C3A21CEF1DDA00C7B2B5 /* map.svg in Resources */,
 				6E2F00491BC96BA7000EF53F /* 6th-day.svg in Resources */,
 				6EBF1D211BB8C10A00C38BDB /* test_image2.svg in Resources */,
 				4547998A1ABF3CEB000B19B8 /* JW_Bezier_1.svg in Resources */,
@@ -587,6 +592,7 @@
 				6E2F00461BC9560B000EF53F /* SwiftOutline.svg in Resources */,
 				6E2F003B1BC93EFC000EF53F /* JW_Bezier_1.json in Resources */,
 				6E2F00311BC874D4000EF53F /* RPM_NavBall_Overlay.svg in Resources */,
+				6E00C3A31CEF1DDA00C7B2B5 /* map.svg in Resources */,
 				6E2F00371BC93DAA000EF53F /* Ghostscript_Tiger.json in Resources */,
 				6E2F002D1BC6985D000EF53F /* TextDrawing.json in Resources */,
 				6E2F00391BC93DDB000EF53F /* Anti-normal.json in Resources */,
