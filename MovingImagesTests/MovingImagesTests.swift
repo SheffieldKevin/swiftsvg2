@@ -8,6 +8,8 @@ import Foundation
 
 import XCTest
 @testable import SwiftSVG
+import SwiftUtilities
+
 
 func jsonFromNamedFile(namedFile: String) throws -> String {
     let textDrawingURL = try makeURLFromNamedFile(namedFile, fileExtension: "json")
@@ -20,6 +22,8 @@ func jsonFromNamedFile(namedFile: String) throws -> String {
 
 class MovingImagesSVGTests: XCTestCase {
     
+    static let saveJSON = false
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -29,7 +33,7 @@ class MovingImagesSVGTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-
+    
     func convertSVGToJSON(baseFileName: String) throws -> String {
         let optionalSVGDocument: SVGDocument?
         do {
@@ -55,9 +59,21 @@ class MovingImagesSVGTests: XCTestCase {
         guard let jsonString = jsonObjectToString(jsonObject) else {
             throw TestError.invalidJSONObject
         }
+        if MovingImagesSVGTests.saveJSON {
+            let basePath = SwiftUtilities.Path("~/github/swiftsvg2/SwiftSVG Demo/Samples").normalizedPath
+            let url = NSURL(fileURLWithPath: basePath).URLByAppendingPathComponent(baseFileName).URLByAppendingPathExtension("json")
+            do {
+                try (jsonString as NSString).writeToURL(url, atomically: true, encoding: NSUTF8StringEncoding)
+            }
+            catch {
+                print("Failed to save: \(url.path)")
+            }
+            
+        }
         return jsonString
     }
 
+/*
     func convertOptimisedSVGToJSON(baseFileName: String) throws -> String {
         let optionalSVGDocument: SVGDocument?
         do {
@@ -86,7 +102,7 @@ class MovingImagesSVGTests: XCTestCase {
         }
         return jsonString
     }
-
+*/
     func test6th_Day() {
         let jsonString: String
         let originalJSONString: String
@@ -130,7 +146,7 @@ class MovingImagesSVGTests: XCTestCase {
                 "MovingImages JSON Text rendering representation changed")
         } catch { }
     }
-
+/*
     func testGhostscriptTiger_optimized() {
         let jsonString: String
         let originalJSONString: String
@@ -141,7 +157,7 @@ class MovingImagesSVGTests: XCTestCase {
                 "MovingImages JSON Text rendering representation changed")
         } catch { }
     }
-
+*/
     func testJWBezier() {
         let jsonString: String
         let originalJSONString: String
