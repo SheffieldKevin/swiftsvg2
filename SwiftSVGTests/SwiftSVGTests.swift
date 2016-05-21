@@ -55,8 +55,21 @@ class SwiftSVGTests: XCTestCase {
         super.tearDown()
     }
     
+    func testPaperPlane() {
+        var optionalSVGDocument: SVGDocument?
+        do {
+            let xmlDocument = try xmlDocumentFromNamedSVGFile("paperplane")
+            let processor = SVGProcessor()
+            optionalSVGDocument = try processor.processXMLDocument(xmlDocument)
+        }
+        catch let error {
+            XCTAssert(false, "Failed to create SVGDocument: \(error)")
+            return
+        }
+    }
+    
     func testSimpleText() {
-        let optionalSVGDocument: SVGDocument?
+        var optionalSVGDocument: SVGDocument?
         do {
             let xmlDocument = try xmlDocumentFromNamedSVGFile("TextDrawing")
             let processor = SVGProcessor()
@@ -135,6 +148,46 @@ class SwiftSVGTests: XCTestCase {
         }
     }
 
+    func testMap() {
+        let optionalSVGDocument: SVGDocument?
+        do {
+            let xmlDocument = try xmlDocumentFromNamedSVGFile("map")
+            let processor = SVGProcessor()
+            optionalSVGDocument = try processor.processXMLDocument(xmlDocument)
+        }
+        catch let error {
+            XCTAssert(false, "Failed to create SVGDocument: \(error)")
+            return
+        }
+
+        guard let svgDocument = optionalSVGDocument else {
+            XCTAssert(false, "optionalSVGDocument should not be .None")
+            return
+        }
+
+        guard let group0 = svgDocument.children[0] as? SVGGroup else {
+            XCTAssert(false, "Top level map object should be an SVGGroup")
+            return
+        }
+        
+        XCTAssert(group0.children.count == 5191, "map.svg group0 object should have 5191 children.")
+        let groups = group0.children.filter() {
+            return $0 is SVGGroup
+        }
+        XCTAssert(groups.count == 1586, "map.svg group0 should have 1586 child groups.")
+        
+        let rects = group0.children.filter() {
+            return $0 is SVGRect
+        }
+        XCTAssert(rects.count == 2, "map.svg group0 should have 2 child rectangles.")
+        
+        let paths = group0.children.filter() {
+            return $0 is SVGPath
+        }
+        XCTAssert(paths.count == 3603, "map.svg group0 should have 3603 child paths.")
+        
+    }
+
     func testRPM_NavBall_Overlay() {
         let optionalSVGDocument: SVGDocument?
         do {
@@ -170,6 +223,5 @@ class SwiftSVGTests: XCTestCase {
         
         XCTAssert(group0.children.count == 2, "SVGGroup0 object should have 2 children.")
         XCTAssert(group1.children.count == 24, "SVGGroup1 object should have 24 children.")
-        
     }
 }
