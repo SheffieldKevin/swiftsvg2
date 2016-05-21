@@ -82,6 +82,8 @@
 		6E8642D71BAB10F100D6128E /* MIPathFromSwiftSVGPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8642D61BAB10F100D6128E /* MIPathFromSwiftSVGPath.swift */; };
 		6E8642DA1BAB685800D6128E /* MIJSONConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E8642D81BAB685800D6128E /* MIJSONConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E8642DB1BAB685800D6128E /* MIJSONConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8642D91BAB685800D6128E /* MIJSONConstants.m */; };
+		6E95D4B91CF06AA30096DF72 /* paperplane.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6E95D4B81CF06AA30096DF72 /* paperplane.svg */; };
+		6E95D4BA1CF06AA30096DF72 /* paperplane.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6E95D4B81CF06AA30096DF72 /* paperplane.svg */; };
 		6EABBDC61BAF600C004C5C9F /* SVGStandardColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EABBDC51BAF600C004C5C9F /* SVGStandardColors.swift */; };
 		6EBF1D151BB70E2800C38BDB /* Markers.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6EBF1D141BB70E2800C38BDB /* Markers.svg */; };
 		6EBF1D171BB70E3600C38BDB /* SimpleBlueRect.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6EBF1D161BB70E3600C38BDB /* SimpleBlueRect.svg */; };
@@ -199,6 +201,7 @@
 		6E8642D61BAB10F100D6128E /* MIPathFromSwiftSVGPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MIPathFromSwiftSVGPath.swift; path = MovingImages/MIPathFromSwiftSVGPath.swift; sourceTree = SOURCE_ROOT; };
 		6E8642D81BAB685800D6128E /* MIJSONConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIJSONConstants.h; path = MovingImages/MIJSONConstants.h; sourceTree = "<group>"; };
 		6E8642D91BAB685800D6128E /* MIJSONConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIJSONConstants.m; path = MovingImages/MIJSONConstants.m; sourceTree = "<group>"; };
+		6E95D4B81CF06AA30096DF72 /* paperplane.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = paperplane.svg; sourceTree = "<group>"; };
 		6EA9E2561BAAD5B600B7468C /* MIPathFromSVGPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIPathFromSVGPath.m; path = MovingImages/MIPathFromSVGPath.m; sourceTree = "<group>"; };
 		6EABBDC51BAF600C004C5C9F /* SVGStandardColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGStandardColors.swift; sourceTree = "<group>"; };
 		6EBF1D141BB70E2800C38BDB /* Markers.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Markers.svg; sourceTree = "<group>"; };
@@ -270,6 +273,7 @@
 				6E00C3A11CEF1DDA00C7B2B5 /* map.svg */,
 				6EBF1D141BB70E2800C38BDB /* Markers.svg */,
 				454799861ABF3CEB000B19B8 /* JW_Bezier_1.svg */,
+				6E95D4B81CF06AA30096DF72 /* paperplane.svg */,
 				6EBF1D161BB70E3600C38BDB /* SimpleBlueRect.svg */,
 				454799871ABF3CEB000B19B8 /* SwiftOutline.svg */,
 				6EBF1D191BB8C10A00C38BDB /* Anti-normal.svg */,
@@ -567,6 +571,7 @@
 				45E6ADB01A9EAB0200386CFE /* Images.xcassets in Resources */,
 				6E57A0C61BBEF0F100AA0574 /* TextDrawing.svg in Resources */,
 				4547998B1ABF3CEB000B19B8 /* SwiftOutline.svg in Resources */,
+				6E95D4B91CF06AA30096DF72 /* paperplane.svg in Resources */,
 				454799891ABF3CEB000B19B8 /* Ghostscript_Tiger.svg in Resources */,
 				454799881ABF3CEB000B19B8 /* Apple_Swift_Logo.svg in Resources */,
 				6E00C3A21CEF1DDA00C7B2B5 /* map.svg in Resources */,
@@ -591,6 +596,7 @@
 				6E2F00411BC9556B000EF53F /* test_image2.json in Resources */,
 				6E2F00461BC9560B000EF53F /* SwiftOutline.svg in Resources */,
 				6E2F003B1BC93EFC000EF53F /* JW_Bezier_1.json in Resources */,
+				6E95D4BA1CF06AA30096DF72 /* paperplane.svg in Resources */,
 				6E2F00311BC874D4000EF53F /* RPM_NavBall_Overlay.svg in Resources */,
 				6E00C3A31CEF1DDA00C7B2B5 /* map.svg in Resources */,
 				6E2F00371BC93DAA000EF53F /* Ghostscript_Tiger.json in Resources */,

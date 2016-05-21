@@ -75,19 +75,18 @@ public class SVGElement: Node {
     public internal(set) var textStyle: TextStyle? = nil
     public internal(set) var gradientFill: SVGLinearGradient? = nil
     public internal(set) var display = true
-    // public internal(set) var fillOpacity: CGFloat? = nil
-    // public internal(set) var strokeOpacity: CGFloat? = nil
 
     init() {
+        // print("init: Number of elements = \(SVGElement.numElements)")
         SVGElement.numElements += 1
     }
     
     deinit {
         SVGElement.numElements -= 1
         if SVGElement.numElements <= 10 {
-           print("Number of elements = \(SVGElement.numElements)")
+            // print(self.description)
+            print("deinit: Number of elements = \(SVGElement.numElements)")
         }
-        // print("Element destroyed, num elements now: \(SVGElement.numElements)")
     }
 
     var drawFill = true // If fill="none" this explictly turns off fill.
@@ -532,7 +531,7 @@ public class SVGCircle: SVGElement, PathGenerator {
 }
 
 public class SVGTextSpan: TextRenderer {
-    private(set) var textElement: SVGSimpleText!
+    private(set) weak var textElement: SVGSimpleText!
     let string: CFString
 
     internal(set) var style: SwiftGraphics.Style? = nil
