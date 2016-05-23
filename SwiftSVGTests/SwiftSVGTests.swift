@@ -90,9 +90,23 @@ class SwiftSVGTests: XCTestCase {
             return
         }
         let coalescedGradient = svgGradient.coalesceLinearGradientInheritance()
-        print("CoalescedGradient: \(coalescedGradient)")
-        print("start point: \(coalescedGradient.startPoint)")
-        print("end point: \(coalescedGradient.endPoint)")
+        // print("CoalescedGradient: \(coalescedGradient)")
+        // print("start point: \(coalescedGradient.startPoint)")
+        // print("end point: \(coalescedGradient.endPoint)")
+        guard let startPoint = coalescedGradient.startPoint else {
+            XCTAssert(false, "Linear gradient start point should be specified")
+            return
+        }
+        guard let endPoint = coalescedGradient.endPoint else {
+            XCTAssert(false, "Linear gradient end point should be specified")
+            return
+        }
+        XCTAssert(startPoint.x == 142.084, "Start point x position should be 142.084")
+        XCTAssert(startPoint.y == 248.7236, "Start point y position should be 248.7236")
+
+        XCTAssert(endPoint.x == 125.3045, "End point x position should be 142.084")
+        XCTAssert(endPoint.y == 186.1016, "End point y position should be 248.7236")
+
         guard let stops = coalescedGradient.stops else {
             XCTAssert(false, "Stops array should exist")
             return
