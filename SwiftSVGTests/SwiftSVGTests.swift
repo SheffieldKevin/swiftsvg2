@@ -79,7 +79,28 @@ class SwiftSVGTests: XCTestCase {
         XCTAssert(svgDocument.version!.minorVersion == 1, "SVG minorVersion should be 1")
         XCTAssert(svgDocument.drawFill == true, "Draw fill should be true")
         XCTAssert(svgDocument.display == true, "Display should be true")
-        print("Child0: \(svgDocument.children[0])")
+        XCTAssert(svgDocument.children[0] is SVGGroup, "Child 0 of svgDocument should be a group")
+        let group0 = svgDocument.children[0] as! SVGGroup
+        XCTAssert(group0.children[0] is SVGGroup, "Child 0 of Group 0 should be a group")
+        let group00 = group0.children[0] as! SVGGroup
+        XCTAssert(group00.children[0] is SVGPolygon, "Child 0 of Group 0 should be a polygon")
+        let polygon = group00.children[0]
+        guard let svgGradient = polygon.gradientFill else {
+            XCTAssert(false, "No gradient fill as part of polygon")
+            return
+        }
+        let coalescedGradient = svgGradient.coalesceLinearGradientInheritance()
+        print("CoalescedGradient: \(coalescedGradient)")
+        print("start point: \(coalescedGradient.startPoint)")
+        print("end point: \(coalescedGradient.endPoint)")
+        guard let stops = coalescedGradient.stops else {
+            XCTAssert(false, "Stops array should exist")
+            return
+        }
+        XCTAssert(stops.count == 2, "Number of gradient stops should be 2")
+        XCTAssert(stops[0].offset == 0.0, "Start offset should be 0.0")
+        XCTAssert(stops[0].opacity == 1.0, "Start opacity should be 1.0")
+        // print("Child0 of group00: \(group00.children[0])")
         // XCTAssert(svgDocument.children[0] is SVGSimpleText, "Only document child element should be a SVGSimpleText")
         
     }
