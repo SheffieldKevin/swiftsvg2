@@ -673,6 +673,12 @@ public class SVGProcessor {
             textStyleElements.append(TextStyleElement.fontSize(fontSize))
         }
         xmlElement["font-size"] = nil
+        
+        if let textAnchor = self.getAttributeWithKey(xmlElement, attribute: "text-anchor") {
+            textStyleElements.append(TextStyleElement.textAnchor(TextAnchor(input: textAnchor)))
+        }
+        xmlElement["text-anchor"] = nil
+        
         if textStyleElements.count > 0 {
             var textStyle = TextStyle()
             textStyleElements.forEach {

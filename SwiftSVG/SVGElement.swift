@@ -10,7 +10,7 @@ import Foundation
 
 import SwiftGraphics
 
-// TODO: This needs to be moved somewhere same.
+// TODO: This needs to be moved somewhere sane.
 public extension SwiftGraphics.Style {
     mutating func apply(newStyle: Style) {
         if let fillColor = newStyle.fillColor {
@@ -160,6 +160,18 @@ public class SVGElement: Node {
             }
             
             return parent.fontSize
+        }
+    }
+    
+    var textAnchor: TextAnchor? {
+        get {
+            if let textAnchor = self.textStyle?.textAnchor {
+                return textAnchor
+            }
+            guard let parent = self.parent else {
+                return .None
+            }
+            return parent.textAnchor
         }
     }
 
@@ -530,7 +542,7 @@ public class SVGCircle: SVGElement, PathGenerator {
     }
 }
 
-public class SVGTextSpan: TextRenderer {
+public final class SVGTextSpan: TextRenderer {
     private(set) weak var textElement: SVGSimpleText!
     let string: CFString
 
@@ -541,11 +553,13 @@ public class SVGTextSpan: TextRenderer {
     public lazy var mitext: MovingImagesText = self.makeMIText()
     public lazy var cttext: CFAttributedString = self.makeAttributedString()
     
-    public let textOrigin: CGPoint
+    public lazy var textOrigin: CGPoint = self.calculateOrigin()
+    
+    private let localOrigin: CGPoint
     
     init(string: String, textOrigin: CGPoint) {
         self.string = string
-        self.textOrigin = textOrigin
+        self.localOrigin = textOrigin
     }
     
     internal var fillColor: CGColor? {
@@ -612,6 +626,13 @@ public class SVGTextSpan: TextRenderer {
         }
     }
 
+    internal var textAnchor: TextAnchor? {
+        if let textStyle = self.textStyle, let textAnchor = textStyle.textAnchor {
+            return textAnchor
+        }
+        return textElement.textAnchor
+    }
+
     private func makeMIText() -> MovingImagesText {
         return makeMovingImagesText(self.string,
                           fontSize: self.fontSize,
@@ -638,7 +659,29 @@ public class SVGTextSpan: TextRenderer {
         return CTFontDescriptorCopyAttribute(descriptor2, kCTFontNameAttribute)! as! NSString
     }
     
-    private func makeAttributedString() -> CFAttributedString {
+    private func calculateOrigin() -> CGPoint {
+        guard let textAnchor = self.textAnchor else {
+            return localOrigin
+        }
+        
+        guard textAnchor != TextAnchor.start else {
+            return localOrigin
+        }
+        
+        let line = CTLineCreateWithAttributedString(self.cttext)
+        let boundingRect = CTLineGetBoundsWithOptions(line, CTLineBoundsOptions(rawValue: 0))
+        
+        var theOrigin = self.localOrigin
+        if textAnchor == TextAnchor.middle {
+            theOrigin.x -= boundingRect.width / 2
+        }
+        else if textAnchor == TextAnchor.end {
+            theOrigin.x -= boundingRect.width
+        }
+        return theOrigin
+    }
+    
+    private final func makeAttributedString() -> CFAttributedString {
         var attributes: [NSString : AnyObject] = [
             kCTFontAttributeName : CTFontCreateWithName(self.getPostscriptFontName(), self.fontSize, nil),
         ]
@@ -654,7 +697,6 @@ public class SVGTextSpan: TextRenderer {
         if let strokeWidth = self.strokeWidth {
             attributes[kCTStrokeWidthAttributeName] = strokeWidth
         }
-
         return CFAttributedStringCreate(kCFAllocatorDefault, self.string, attributes)
     }
 }
