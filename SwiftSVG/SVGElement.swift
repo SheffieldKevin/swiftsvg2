@@ -669,7 +669,7 @@ public class SVGSimpleText: SVGElement {
     }
 }
 
-public class SVGGradientStop {
+public struct SVGGradientStop {
     internal let offset: CGFloat
     internal let opacity: CGFloat
     internal let color: CGColor
