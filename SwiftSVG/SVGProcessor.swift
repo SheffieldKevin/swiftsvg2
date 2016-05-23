@@ -869,12 +869,19 @@ public class SVGProcessor {
             return SVGGradientStop(offset: offset, opacity: stopOpacity, color: color)
         }
 
-        guard let colorNode = xmlElement["stop-color"] else {
-            throw Error.missingRequiredSVGProperty(#file, #function, #line)
+        let colorString: String
+        if let stopColor = xmlElement["stop-color"] {
+            if let stopColorString = stopColor.stringValue {
+                colorString = stopColorString
+            }
+            else {
+                throw Error.corruptXML(#file, #function, #line)
+            }
         }
-        guard let colorString = colorNode.stringValue else {
-            throw Error.corruptXML(#file, #function, #line)
+        else {
+            colorString = "black"
         }
+
         guard let stopColorDict = SVGProcessor.processColorString(colorString, opacity: .None),
             var stopColor = SVGColors.colorDictionaryToCGColor(stopColorDict) else {
             throw Error.invalidSVG(#file, #function, #line)
@@ -906,10 +913,10 @@ public class SVGProcessor {
     
     public func processGradientDefs(xmlElement: NSXMLElement, state: State) throws -> SVGLinearGradient? {
         let stops = try processGradientStops(xmlElement.children)
-        let x1 = try SVGProcessor.stringToOptionalCGFloat(xmlElement["x1"]?.stringValue)
-        let y1 = try SVGProcessor.stringToOptionalCGFloat(xmlElement["y1"]?.stringValue)
-        let x2 = try SVGProcessor.stringToOptionalCGFloat(xmlElement["x2"]?.stringValue)
-        let y2 = try SVGProcessor.stringToOptionalCGFloat(xmlElement["y2"]?.stringValue)
+        let x1 = try SVGProcessor.stringToCGFloat(xmlElement["x1"]?.stringValue, defaultVal: 0.0)
+        let y1 = try SVGProcessor.stringToCGFloat(xmlElement["y1"]?.stringValue, defaultVal: 0.0)
+        let x2 = try SVGProcessor.stringToCGFloat(xmlElement["x2"]?.stringValue, defaultVal: 1.0)
+        let y2 = try SVGProcessor.stringToCGFloat(xmlElement["y2"]?.stringValue, defaultVal: 1.0)
 
         xmlElement["x1"] = nil
         xmlElement["y1"] = nil
@@ -1021,14 +1028,10 @@ extension SVGProcessor: Parser {
     }
     
     private class func stringToCGFloat(string: String?, defaultVal: CGFloat) throws -> CGFloat {
-        guard let string = string else {
+        guard let stringValue = string else {
             return defaultVal
         }
-        let string2 = string.stringByTrimmingCharactersInSet(NSCharacterSet.lowercaseLetterCharacterSet())
-        guard let value = NSNumberFormatter().numberFromString(string2) else {
-            throw Error.corruptXML(#file, #function, #line)
-        }
-        return CGFloat(value.doubleValue)
+        return try stringToCGFloat(stringValue)
     }
     
     private class func percentageStringToCGFloat(string: String?) throws -> CGFloat {
