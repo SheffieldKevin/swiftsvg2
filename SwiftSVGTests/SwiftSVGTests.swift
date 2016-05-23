@@ -66,6 +66,22 @@ class SwiftSVGTests: XCTestCase {
             XCTAssert(false, "Failed to create SVGDocument: \(error)")
             return
         }
+
+        guard let svgDocument = optionalSVGDocument else {
+            XCTAssert(false, "optionalSVGDocument should not be .None")
+            return
+        }
+        
+        XCTAssert(svgDocument.children.count == 3, "Number of children of paper plane document should be 3")
+        // print("viewBox: \(svgDocument.viewBox)")
+        XCTAssert(svgDocument.viewBox! == CGRect(x: 0, y: 0, width: 500, height: 260), "viewBox should be 300x200 at 0,0")
+        XCTAssert(svgDocument.version!.majorVersion == 1, "SVG majorVersion should be 1")
+        XCTAssert(svgDocument.version!.minorVersion == 1, "SVG minorVersion should be 1")
+        XCTAssert(svgDocument.drawFill == true, "Draw fill should be true")
+        XCTAssert(svgDocument.display == true, "Display should be true")
+        print("Child0: \(svgDocument.children[0])")
+        // XCTAssert(svgDocument.children[0] is SVGSimpleText, "Only document child element should be a SVGSimpleText")
+        
     }
     
     func testSimpleText() {
