@@ -644,19 +644,40 @@ public final class SVGTextSpan: TextRenderer {
     }
     
     private func getPostscriptFontName() -> NSString {
-        var attributes: [NSString : AnyObject] = [
-            kCTFontFamilyNameAttribute : self.fontFamily,
-            kCTFontSizeAttribute : self.fontSize,
-        ]
-        let descriptor = CTFontDescriptorCreateWithAttributes(attributes)
-        if let name = CTFontDescriptorCopyAttribute(descriptor, kCTFontNameAttribute) {
-            return name as! NSString
+        let fontFamily = self.fontFamily
+        var attributes: [NSString : AnyObject]
+        if fontFamily.containsString(",") {
+            let fonts = fontFamily.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: ","))
+            let familyName = fonts[0]
+            let cascadeFonts = fonts.dropFirst(1)
+            let cascadeDescriptors: [CTFontDescriptor] = cascadeFonts.map() {
+                let cascadeAttributes: [NSString : NSObject] = [
+                    kCTFontSizeAttribute : self.fontSize,
+                    kCTFontFamilyNameAttribute : $0
+                ]
+                return CTFontDescriptorCreateWithAttributes(cascadeAttributes)
+            }
+            attributes = [
+                kCTFontSizeAttribute : self.fontSize,
+                kCTFontFamilyNameAttribute : familyName,
+                kCTFontCascadeListAttribute : cascadeDescriptors
+            ]
         }
-        
-        // Default to Helvetica.
-        attributes[kCTFontFamilyNameAttribute] = "Helvetica"
-        let descriptor2 = CTFontDescriptorCreateWithAttributes(attributes)
-        return CTFontDescriptorCopyAttribute(descriptor2, kCTFontNameAttribute)! as! NSString
+        else {
+            attributes = [
+                kCTFontFamilyNameAttribute : self.fontFamily,
+                kCTFontSizeAttribute : self.fontSize,
+            ]
+        }
+
+        let descriptor = CTFontDescriptorCreateWithAttributes(attributes)
+        if let tempFontName = CTFontDescriptorCopyAttribute(descriptor, kCTFontNameAttribute) {
+            return tempFontName as! NSString
+        }
+    
+        let theFont = CTFontCreateWithFontDescriptorAndOptions(descriptor, self.fontSize, nil, CTFontOptions.Default)
+        let postScriptName = CTFontCopyPostScriptName(theFont)
+        return postScriptName
     }
     
     private func calculateOrigin() -> CGPoint {
@@ -664,7 +685,7 @@ public final class SVGTextSpan: TextRenderer {
             return localOrigin
         }
         
-        guard textAnchor != TextAnchor.start else {
+        if textAnchor == TextAnchor.start {
             return localOrigin
         }
         
